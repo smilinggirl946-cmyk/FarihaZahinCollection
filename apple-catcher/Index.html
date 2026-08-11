@@ -2,17 +2,14 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,
-               initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color"
-      content="#70c9f5">
+<meta name="theme-color" content="#70c9f5">
 
-<title>My Apple Catcher — Fariha Zahin</title>
+<title>My Apple Catcher — Fariha Zahin Collection</title>
 
 <style>
 
@@ -21,19 +18,14 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body{
+html,body{
     margin:0;
     padding:0;
     min-height:100%;
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-
     background:
         linear-gradient(
             135deg,
@@ -45,189 +37,68 @@ body{
     color:#222;
 }
 
-
-/* =====================================================
-   CONTAINER
-===================================================== */
-
 .container{
-
     width:100%;
-
     max-width:1000px;
-
     margin:auto;
-
-    padding:
-        20px
-        15px
-        45px;
+    padding:20px 15px 45px;
 }
 
-
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
 .header{
-
     text-align:center;
-
-    padding:
-        25px
-        10px
-        18px;
+    padding:25px 10px 20px;
 }
 
 .header h1{
-
     margin:0;
-
-    font-size:42px;
-
     color:white;
-
-    text-shadow:
-        0 4px 8px
-        rgba(0,0,0,.35);
+    font-size:38px;
+    text-shadow:0 4px 8px rgba(0,0,0,.35);
 }
 
 .header p{
-
-    margin:
-        10px 0 0;
-
+    margin:10px 0 0;
     color:white;
-
-    font-size:17px;
-
+    font-size:16px;
     font-weight:bold;
-
-    text-shadow:
-        0 2px 4px
-        rgba(0,0,0,.3);
+    text-shadow:0 2px 4px rgba(0,0,0,.3);
 }
 
-
-/* =====================================================
-   BACK BUTTON
-===================================================== */
-
-.backButton{
-
-    display:inline-block;
-
-    margin:
-        5px auto
-        18px;
-
-    padding:
-        11px
-        18px;
-
-    border-radius:14px;
-
-    background:
-        rgba(255,255,255,.92);
-
-    color:#1976a8;
-
-    text-decoration:none;
-
-    font-size:15px;
-
-    font-weight:bold;
-
-    box-shadow:
-        0 5px 15px
-        rgba(0,0,0,.15);
-
-    transition:
-        transform .15s ease;
-}
-
-.backButton:active{
-
-    transform:
-        translateY(3px);
-}
-
-
-/* =====================================================
-   GAME CARD
-===================================================== */
+/* CARD */
 
 .card{
-
     max-width:520px;
+    margin:20px auto;
 
-    margin:
-        10px auto;
+    padding:28px 20px 30px;
 
-    padding:
-        28px
-        20px
-        30px;
-
-    text-align:center;
-
-    background:
-        rgba(255,255,255,.95);
+    background:rgba(255,255,255,.95);
 
     border-radius:26px;
 
+    text-align:center;
+
     box-shadow:
-        0 14px 40px
-        rgba(0,0,0,.22);
+        0 14px 40px rgba(0,0,0,.23);
 }
-
-
-/* =====================================================
-   APPLE ICON
-===================================================== */
 
 .gameIcon{
-
     font-size:78px;
-
-    line-height:1;
-
-    margin-bottom:10px;
-
-    filter:
-        drop-shadow(
-            0 7px 7px
-            rgba(0,0,0,.16)
-        );
+    margin-bottom:5px;
 }
 
-
-/* =====================================================
-   TITLE
-===================================================== */
-
 .card h2{
-
-    margin:
-        5px 0 10px;
-
-    font-size:30px;
-
+    margin:5px 0 10px;
+    font-size:29px;
     color:#333;
 }
 
-
-/* =====================================================
-   VERSION
-===================================================== */
-
 .version{
-
     display:inline-block;
 
-    padding:
-        7px
-        15px;
+    padding:7px 15px;
 
     border-radius:20px;
 
@@ -242,17 +113,10 @@ body{
     margin-bottom:18px;
 }
 
-
-/* =====================================================
-   DESCRIPTION
-===================================================== */
-
 .description{
+    max-width:410px;
 
-    max-width:420px;
-
-    margin:
-        0 auto 22px;
+    margin:0 auto 22px;
 
     color:#666;
 
@@ -261,10 +125,7 @@ body{
     line-height:1.6;
 }
 
-
-/* =====================================================
-   DOWNLOAD BUTTON
-===================================================== */
+/* DOWNLOAD */
 
 .downloadButton{
 
@@ -272,9 +133,9 @@ body{
 
     width:100%;
 
-    padding:
-        17px
-        20px;
+    padding:17px 20px;
+
+    border:0;
 
     border-radius:15px;
 
@@ -296,35 +157,62 @@ body{
     box-shadow:
         0 5px 0 #a27c14;
 
-    transition:
-        transform .12s,
-        box-shadow .12s,
-        filter .12s;
-}
+    cursor:pointer;
 
-.downloadButton:hover{
-
-    filter:
-        brightness(1.05);
+    transition:.12s;
 }
 
 .downloadButton:active{
-
-    transform:
-        translateY(4px);
+    transform:translateY(4px);
 
     box-shadow:
         0 1px 0 #a27c14;
 }
 
+/* HOME BUTTON */
 
-/* =====================================================
-   APK INFO
-===================================================== */
+.homeButton{
+
+    display:block;
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:14px 20px;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #70c9f5,
+            #4ba7df
+        );
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 4px 0 #2877a7;
+}
+
+.homeButton:active{
+    transform:translateY(3px);
+
+    box-shadow:
+        0 1px 0 #2877a7;
+}
+
+/* INFO */
 
 .info{
-
-    margin-top:20px;
+    margin-top:18px;
 
     padding:14px;
 
@@ -339,13 +227,9 @@ body{
     line-height:1.6;
 }
 
-
-/* =====================================================
-   FEATURES
-===================================================== */
+/* FEATURES */
 
 .features{
-
     display:grid;
 
     grid-template-columns:
@@ -357,10 +241,7 @@ body{
 }
 
 .feature{
-
-    padding:
-        13px
-        8px;
+    padding:13px 8px;
 
     background:#f7fbfd;
 
@@ -373,39 +254,9 @@ body{
     color:#555;
 }
 
-
-/* =====================================================
-   INSTALL NOTE
-===================================================== */
-
-.install{
-
-    margin-top:20px;
-
-    padding:
-        15px;
-
-    border-radius:13px;
-
-    background:
-        #fff7df;
-
-    color:#765b17;
-
-    font-size:13px;
-
-    line-height:1.6;
-
-    text-align:left;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
+/* FOOTER */
 
 .footer{
-
     text-align:center;
 
     color:white;
@@ -417,51 +268,27 @@ body{
     margin-top:30px;
 
     text-shadow:
-        0 2px 4px
-        rgba(0,0,0,.3);
+        0 2px 4px rgba(0,0,0,.3);
 }
 
 .footer small{
-
     display:block;
-
     margin-top:6px;
-
-    opacity:.9;
 }
 
-
-/* =====================================================
-   MOBILE
-===================================================== */
+/* MOBILE */
 
 @media(max-width:600px){
 
-    .container{
-
-        padding:
-            15px
-            12px
-            35px;
-    }
-
-    .header{
-
-        padding-top:20px;
-    }
-
     .header h1{
-
-        font-size:32px;
+        font-size:31px;
     }
 
     .header p{
-
-        font-size:15px;
+        font-size:14px;
     }
 
     .card{
-
         padding:
             24px
             16px
@@ -469,43 +296,33 @@ body{
     }
 
     .gameIcon{
-
         font-size:65px;
     }
 
     .card h2{
-
         font-size:25px;
     }
 
     .downloadButton{
-
         font-size:18px;
     }
 
 }
 
-
-/* =====================================================
-   SMALL PHONES
-===================================================== */
+/* SMALL PHONES */
 
 @media(max-width:370px){
 
     .header h1{
-
-        font-size:28px;
+        font-size:27px;
     }
 
     .card h2{
-
         font-size:22px;
     }
 
     .features{
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns:1fr;
     }
 
 }
@@ -521,205 +338,137 @@ body{
 <div class="container">
 
 
-    <!-- =================================================
-         HEADER
-    ================================================= -->
+<!-- HEADER -->
 
-    <header class="header">
+<header class="header">
 
-        <h1>
-            🍎 My Apple Catcher
-        </h1>
+    <h1>
+        ✨ Fariha Zahin Collection
+    </h1>
 
-        <p>
-            Fariha Zahin Collection
-        </p>
+    <p>
+        Games • Creativity • Projects
+    </p>
 
-    </header>
+</header>
 
 
-    <!-- =================================================
-         BACK TO HOMEPAGE
-    ================================================= -->
+<!-- GAME -->
 
-    <div style="text-align:center;">
+<main class="card">
 
-        <a
-            class="backButton"
-            href="index.html">
+    <div class="gameIcon">
+        🍎
+    </div>
 
-            ← Back to Homepage
 
-        </a>
+    <h2>
+        My Apple Catcher
+    </h2>
+
+
+    <div class="version">
+        VERSION 3.0
+    </div>
+
+
+    <p class="description">
+
+        Catch the falling apples,
+        beat your high score and
+        challenge yourself through
+        25 exciting levels.
+
+    </p>
+
+
+    <!-- APK DOWNLOAD -->
+
+    <a
+        id="downloadAPK"
+        class="downloadButton"
+        href="https://github.com/smilinggirl946-cmyk/FarihaZahinCollection/raw/main/apple-catcher/My_Apple_Catcher_v3.0_1786445936950.apk"
+        target="_blank"
+        rel="noopener">
+
+        🍎 DOWNLOAD APK
+
+    </a>
+
+
+    <!-- BACK TO HOME -->
+
+    <a
+        class="homeButton"
+        href="index.html">
+
+        🏠 BACK TO HOME
+
+    </a>
+
+
+    <div class="info">
+
+        📱 <b>Android Game</b><br><br>
+
+        Tap <b>DOWNLOAD APK</b> to download
+        My Apple Catcher v3.0.
+
+        <br><br>
+
+        🎮 <b>25 Levels</b><br>
+        🏆 High Score System<br>
+        ❤️ 3 Lives<br>
+        📳 Vibration Support
 
     </div>
 
 
-    <!-- =================================================
-         GAME CARD
-    ================================================= -->
+    <!-- FEATURES -->
 
-    <main class="card">
+    <div class="features">
 
-
-        <div class="gameIcon">
-            🍎
+        <div class="feature">
+            🍎 25 Levels
         </div>
 
-
-        <h2>
-            My Apple Catcher
-        </h2>
-
-
-        <div class="version">
-            VERSION 3.0
+        <div class="feature">
+            ⚡ Time Rush
         </div>
 
-
-        <p class="description">
-
-            Catch the falling apples,
-            beat your high score and
-            challenge yourself through
-            multiple game modes.
-
-            Have fun and see how high
-            you can score! 🏆
-
-        </p>
-
-
-        <!-- =================================================
-             EXACT APK DOWNLOAD
-        ================================================= -->
-
-        <a
-            class="downloadButton"
-
-            href="https://github.com/smilinggirl946-cmyk/FarihaZahinCollection/raw/refs/heads/main/apple-catcher/My_Apple_Catcher_v3.0_1786445936950.apk"
-
-            download="My_Apple_Catcher_v3.0.apk">
-
-            🍎 DOWNLOAD APK
-
-        </a>
-
-
-        <!-- =================================================
-             APK INFORMATION
-        ================================================= -->
-
-        <div class="info">
-
-            📱 <b>Android Game</b>
-
-            <br>
-
-            Version 3.0
-
-            <br>
-
-            Download the APK and install
-            My Apple Catcher on your
-            Android device.
-
+        <div class="feature">
+            ♾️ Endless
         </div>
 
-
-        <!-- =================================================
-             FEATURES
-        ================================================= -->
-
-        <div class="features">
-
-
-            <div class="feature">
-                🍎 Classic
-            </div>
-
-
-            <div class="feature">
-                ⚡ Time Rush
-            </div>
-
-
-            <div class="feature">
-                ♾️ Endless
-            </div>
-
-
-            <div class="feature">
-                🏆 High Score
-            </div>
-
-
-            <div class="feature">
-                ❤️ 3 Lives
-            </div>
-
-
-            <div class="feature">
-                📳 Vibration
-            </div>
-
-
+        <div class="feature">
+            🏆 High Score
         </div>
 
-
-        <!-- =================================================
-             INSTALLATION NOTE
-        ================================================= -->
-
-        <div class="install">
-
-            💡 <b>How to install:</b>
-
-            <br><br>
-
-            1. Tap
-            <b>DOWNLOAD APK</b>.
-
-            <br>
-
-            2. Wait for the APK to finish
-            downloading.
-
-            <br>
-
-            3. Open the downloaded APK.
-
-            <br>
-
-            4. If Android asks for permission
-            to install from this source,
-            allow it and continue.
-
-            <br>
-
-            5. Install and enjoy
-            <b>My Apple Catcher v3.0</b>! 🍎🎮
-
+        <div class="feature">
+            ❤️ 3 Lives
         </div>
 
+        <div class="feature">
+            📳 Vibration
+        </div>
 
-    </main>
+    </div>
+
+</main>
 
 
-    <!-- =================================================
-         FOOTER
-    ================================================= -->
+<!-- FOOTER -->
 
-    <footer class="footer">
+<footer class="footer">
 
-        Developed by
-        <b>Fariha Zahin</b>
+    Developed by
+    <b>Fariha Zahin</b>
 
-        <small>
-            © 2026 Fariha Zahin Collection
-        </small>
+    <small>
+        © 2026 Fariha Zahin Collection
+    </small>
 
-    </footer>
+</footer>
 
 
 </div>
@@ -727,24 +476,28 @@ body{
 
 <script>
 
-/* =====================================================
-   APK BUTTON
-===================================================== */
+/*
+=====================================================
+APK DOWNLOAD
+=====================================================
 
-const apkButton =
-document.querySelector(
-    ".downloadButton"
-);
+APK LOCATION:
 
+FarihaZahinCollection
+    └── apple-catcher
+        └── My_Apple_Catcher_v3.0_1786445936950.apk
 
-apkButton.addEventListener(
+The button opens the actual GitHub RAW APK.
+
+=====================================================
+*/
+
+const downloadButton =
+document.getElementById("downloadAPK");
+
+downloadButton.addEventListener(
     "click",
     function(){
-
-        /*
-         * Give a small vibration
-         * on supported Android devices.
-         */
 
         if(
             "vibrate" in navigator
@@ -754,45 +507,7 @@ apkButton.addEventListener(
 
                 navigator.vibrate(40);
 
-            }catch(error){
-
-                /* Ignore vibration errors */
-
-            }
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   BACK BUTTON
-===================================================== */
-
-const backButton =
-document.querySelector(
-    ".backButton"
-);
-
-
-backButton.addEventListener(
-    "click",
-    function(){
-
-        if(
-            "vibrate" in navigator
-        ){
-
-            try{
-
-                navigator.vibrate(30);
-
-            }catch(error){
-
-                /* Ignore vibration errors */
-
-            }
+            }catch(error){}
 
         }
 
