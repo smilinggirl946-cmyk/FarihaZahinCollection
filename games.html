@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
+
+<meta name="theme-color" content="#08091f">
+
+<title>Games | FZ Fariha Zahin</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(117, 67, 213, 0.30),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #07091d 0%,
+            #0c0d29 50%,
+            #070818 100%
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    width: 100%;
+    height: 68px;
+
+    padding: 0 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+
+    background:
+        rgba(7,8,29,0.82);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    backdrop-filter:
+        blur(18px);
+
+    z-index: 100;
+}
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+}
+
+.logo-mark {
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a875ff,
+            #6940c4
+        );
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+.logo span {
+    color: #b993ff;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-button {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.05);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 21px;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+
+    width: 100%;
+
+    padding:
+        45px
+        20px
+        110px;
+}
+
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.page-header {
+
+    max-width: 650px;
+
+    margin:
+        0 auto
+        35px;
+
+    text-align: center;
+}
+
+.label {
+
+    display: inline-block;
+
+    padding:
+        7px
+        13px;
+
+    border:
+        1px solid
+        rgba(181,143,255,0.18);
+
+    border-radius: 100px;
+
+    color: #c7a9ff;
+
+    background:
+        rgba(133,87,235,0.08);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+h1 {
+
+    margin-top: 17px;
+
+    font-size:
+        clamp(34px, 10vw, 52px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+.subtitle {
+
+    max-width: 450px;
+
+    margin:
+        13px auto 0;
+
+    color: #a6a4c4;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   GAME CARD
+===================================================== */
+
+.games-container {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: auto;
+}
+
+.game-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 23px;
+
+    border-radius: 25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.09);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(113,69,205,0.25),
+            rgba(255,255,255,0.035)
+        );
+
+    box-shadow:
+        0 20px 55px
+        rgba(0,0,0,0.25);
+}
+
+
+/* =====================================================
+   GAME ICON
+===================================================== */
+
+.game-icon {
+
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 21px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8756dc,
+            #43277f
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(119,75,215,0.30);
+
+    font-size: 38px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   GAME INFO
+===================================================== */
+
+.game-card h2 {
+
+    font-size: 25px;
+
+    font-weight: 850;
+}
+
+.game-description {
+
+    margin-top: 9px;
+
+    color: #a5a3c1;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   GAME TAGS
+===================================================== */
+
+.tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 17px;
+}
+
+.tag {
+
+    padding:
+        6px
+        10px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255,255,255,0.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+    color: #bcb9d3;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.divider {
+
+    height: 1px;
+
+    margin:
+        24px 0;
+
+    background:
+        rgba(255,255,255,0.08);
+}
+
+
+/* =====================================================
+   DOWNLOAD AREA
+===================================================== */
+
+.download-title {
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    margin-bottom: 12px;
+}
+
+.download-buttons {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 11px;
+}
+
+
+/* =====================================================
+   DOWNLOAD BUTTON
+===================================================== */
+
+.download-button {
+
+    min-height: 58px;
+
+    padding:
+        10px
+        12px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    color: white;
+
+    text-decoration: none;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8252d8,
+            #5734a0
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(90,51,165,0.22);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.download-button:active {
+
+    transform:
+        scale(0.96);
+}
+
+.download-button.secondary {
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.09);
+}
+
+.download-icon {
+
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.notice {
+
+    margin-top: 15px;
+
+    padding:
+        12px 14px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color: #85839f;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    text-align: center;
+
+    padding:
+        30px
+        20px
+        110px;
+
+    color: #777693;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+footer strong {
+    color: #b38aff;
+}
+
+
+/* =====================================================
+   BOTTOM NAV
+===================================================== */
+
+.bottom-nav {
+
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    background:
+        rgba(7,8,27,0.92);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    backdrop-filter:
+        blur(20px);
+
+    z-index: 200;
+}
+
+.nav-item {
+
+    min-width: 58px;
+
+    padding:
+        6px 8px;
+
+    color: #74738f;
+
+    text-decoration: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    font-size: 10px;
+}
+
+.nav-icon {
+
+    font-size: 20px;
+}
+
+.nav-item.active {
+
+    color: #bd92ff;
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 700px) {
+
+    header {
+        padding: 0 35px;
+    }
+
+    main {
+        padding-top: 65px;
+    }
+
+    .game-card {
+        padding: 30px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+    .download-buttons {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .game-card {
+
+        padding: 19px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="logo">
+
+        <div class="logo-mark">
+            FZ
+        </div>
+
+        <div>
+            FARIHA <span>ZAHIN</span>
+        </div>
+
+    </div>
+
+
+    <a
+        class="back-button"
+        href="index.html"
+        aria-label="Home">
+
+        ←
+
+    </a>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+        <div class="label">
+            FZ GAME COLLECTION
+        </div>
+
+        <h1>
+            My Games 🎮
+        </h1>
+
+        <p class="subtitle">
+
+            Explore my collection of
+            games and download them
+            for your device.
+
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         GAMES
+    ================================================== -->
+
+    <section class="games-container">
+
+
+        <!-- APPLE CATCHER -->
+
+        <article class="game-card">
+
+
+            <div class="game-icon">
+                🍎
+            </div>
+
+
+            <h2>
+                My Apple Catcher
+            </h2>
+
+
+            <p class="game-description">
+
+                Catch the falling apples,
+                beat your high score and
+                see how long you can survive!
+
+            </p>
+
+
+            <!-- TAGS -->
+
+            <div class="tags">
+
+                <span class="tag">
+                    🎮 Arcade
+                </span>
+
+                <span class="tag">
+                    📱 Android
+                </span>
+
+                <span class="tag">
+                    💻 Windows
+                </span>
+
+                <span class="tag">
+                    🏆 High Score
+                </span>
+
+            </div>
+
+
+            <div class="divider"></div>
+
+
+            <!-- DOWNLOAD -->
+
+            <div class="download-title">
+
+                Download Game
+
+            </div>
+
+
+            <div class="download-buttons">
+
+
+                <!-- ANDROID -->
+
+                <a
+                    class="download-button"
+                    href="games/My_Apple_Catcher_v2.apk"
+                    download>
+
+                    <span class="download-icon">
+                        📱
+                    </span>
+
+                    <span>
+                        Android APK
+                    </span>
+
+                </a>
+
+
+                <!-- WINDOWS -->
+
+                <a
+                    class="download-button secondary"
+                    href="games/My_Apple_Catcher.exe"
+                    download>
+
+                    <span class="download-icon">
+                        💻
+                    </span>
+
+                    <span>
+                        Windows EXE
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+            <div class="notice">
+
+                Choose the version for your device.
+                Android users should download the APK;
+                Windows users should download the EXE.
+
+            </div>
+
+
+        </article>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+        Made with ❤️ by
+        <strong>Fariha Zahin</strong>
+    </div>
+
+    <div>
+        © 2026 FZ Fariha Zahin Collection
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="bottom-nav">
+
+
+    <a
+        class="nav-item"
+        href="index.html">
+
+        <div class="nav-icon">
+            🏠
+        </div>
+
+        <div>
+            Home
+        </div>
+
+    </a>
+
+
+    <a
+        class="nav-item active"
+        href="games.html">
+
+        <div class="nav-icon">
+            🎮
+        </div>
+
+        <div>
+            Games
+        </div>
+
+    </a>
+
+
+    <a
+        class="nav-item"
+        href="apps.html">
+
+        <div class="nav-icon">
+            📱
+        </div>
+
+        <div>
+            Apps
+        </div>
+
+    </a>
+
+
+    <a
+        class="nav-item"
+        href="index.html#about">
+
+        <div class="nav-icon">
+            💜
+        </div>
+
+        <div>
+            About
+        </div>
+
+    </a>
+
+
+</nav>
+
+
+</body>
+
+</html>
