@@ -1008,7 +1008,7 @@ START GAME
 ========================= -->
 
 <a
-    href="https://smilinggirl946-cmyk.github.io/FarihaZahinCollection/apple-catcher/My_Apple_Catcher_v3.0_1786445936950.apk"
+    href="https://raw.githubusercontent.com/smilinggirl946-cmyk/FarihaZahinCollection/main/apple-catcher/My_Apple_Catcher_v3.0_1786445936950.apk"
     class="download-button"
 >
     🍎 DOWNLOAD APK
@@ -2533,74 +2533,6 @@ newApple();
     updateLives();
 updateLevelDisplay();
 newApple();
-
-
-/* APK DOWNLOAD */
-
-const apkUrl =
-"https://github.com/smilinggirl946-cmyk/FarihaZahinCollection/releases/download/v3.0/My_Apple_Catcher_v3.0_1786445936950.apk";
-
-document
-.getElementById("downloadApkButton")
-.addEventListener("click", async function () {
-
-    try {
-
-        this.textContent = "⬇️ DOWNLOADING...";
-
-        const response =
-        await fetch(apkUrl);
-
-        if (!response.ok) {
-            throw new Error(
-                "Download failed: " +
-                response.status
-            );
-        }
-
-        const blob =
-        await response.blob();
-
-        const blobUrl =
-        URL.createObjectURL(blob);
-
-        const link =
-        document.createElement("a");
-
-        link.href = blobUrl;
-
-        link.download =
-        "My_Apple_Catcher_v3.0.apk";
-
-        document.body.appendChild(link);
-
-        link.click();
-
-        link.remove();
-
-        URL.revokeObjectURL(blobUrl);
-
-        this.textContent =
-        "🍎 DOWNLOAD APK";
-
-    }
-    catch(error) {
-
-        console.error(error);
-
-        this.textContent =
-        "❌ DOWNLOAD FAILED";
-
-        setTimeout(() => {
-
-            this.textContent =
-            "🍎 DOWNLOAD APK";
-
-        }, 2500);
-
-    }
-
-});
 
 </script>
 
