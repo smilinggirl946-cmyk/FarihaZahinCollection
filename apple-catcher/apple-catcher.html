@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,
-      initial-scale=1.0,
-      maximum-scale=1.0,
-      user-scalable=no">
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
 <meta name="theme-color" content="#70c9f5">
 
@@ -35,6 +34,15 @@ body{
     background:#70c9f5;
 }
 
+button,a{
+    -webkit-user-select:none;
+    user-select:none;
+}
+
+.hidden{
+    display:none!important;
+}
+
 #game{
     position:relative;
     width:100vw;
@@ -42,11 +50,9 @@ body{
     overflow:hidden;
 }
 
-.hidden{
-    display:none!important;
-}
-
-/* WORLD */
+/* =========================
+   WORLD
+========================= */
 
 #world{
     position:absolute;
@@ -221,16 +227,16 @@ body{
     height:80px;
     left:0;
     bottom:0;
-
     background:linear-gradient(
         #4ca64b,
         #318536
     );
-
     z-index:3;
 }
 
-/* CONTROL BAR */
+/* =========================
+   CONTROL BAR
+========================= */
 
 #controlBar{
     position:absolute;
@@ -252,15 +258,11 @@ body{
     border:0;
     border-radius:10px;
     padding:10px 11px;
-
     font-size:15px;
     font-weight:bold;
-
     background:white;
     color:#333;
-
     box-shadow:0 3px 0 #777;
-
     pointer-events:auto;
     touch-action:manipulation;
     white-space:nowrap;
@@ -278,7 +280,6 @@ body{
     top:82px;
     left:50%;
     width:120px;
-
     transform:translateX(-100%);
 
     display:flex;
@@ -291,7 +292,6 @@ body{
 
     color:white;
     font-weight:bold;
-
     text-shadow:2px 2px 4px #333;
 }
 
@@ -317,24 +317,19 @@ body{
     color:white;
     font-size:17px;
     font-weight:bold;
-
     text-shadow:2px 2px 4px #333;
     white-space:nowrap;
 }
-
-/* LEVEL */
 
 #levelDisplay{
     position:absolute;
     top:108px;
     left:50%;
-
     transform:translateX(-50%);
 
     color:white;
     font-size:14px;
     font-weight:bold;
-
     text-shadow:2px 2px 4px #333;
 
     z-index:50;
@@ -347,7 +342,6 @@ body{
     position:absolute;
     top:80px;
     left:50%;
-
     transform:translateX(-100%);
 
     width:155px;
@@ -366,13 +360,14 @@ body{
     margin-right:2px;
 }
 
-/* APPLE */
+/* =========================
+   APPLE
+========================= */
 
 #apple{
     position:absolute;
     width:46px;
     height:46px;
-
     z-index:10;
 
     filter:
@@ -386,7 +381,6 @@ body{
     position:absolute;
     width:42px;
     height:40px;
-
     left:2px;
     top:6px;
 
@@ -411,7 +405,6 @@ body{
     height:8px;
 
     background:#26883a;
-
     border-radius:100% 0;
 
     top:0;
@@ -432,7 +425,9 @@ body{
     left:21px;
 }
 
-/* BASKET */
+/* =========================
+   BASKET
+========================= */
 
 #basket{
     position:absolute;
@@ -441,7 +436,6 @@ body{
 
     bottom:30px;
     left:50%;
-
     transform:translateX(-50%);
 
     background:
@@ -488,7 +482,6 @@ body{
     height:8px;
 
     border-radius:50%;
-
     background:#ffd84d;
 
     pointer-events:none;
@@ -499,7 +492,6 @@ body{
 }
 
 @keyframes particle{
-
     to{
         opacity:0;
 
@@ -510,7 +502,6 @@ body{
         )
         scale(.1);
     }
-
 }
 
 /* FLOATING SCORE */
@@ -534,7 +525,6 @@ body{
 }
 
 @keyframes floatScore{
-
     to{
         opacity:0;
 
@@ -542,7 +532,6 @@ body{
         translateY(-45px)
         scale(1.2);
     }
-
 }
 
 /* LEVEL FLASH */
@@ -597,7 +586,6 @@ body{
         translate(-50%,-65%)
         scale(1);
     }
-
 }
 
 /* PAUSE */
@@ -630,7 +618,9 @@ body{
     pointer-events:none;
 }
 
-/* SCREENS */
+/* =========================
+   SCREENS
+========================= */
 
 .screen{
     position:absolute;
@@ -688,20 +678,15 @@ body{
 
 .modeButtons{
     display:flex;
-
     gap:8px;
-
     flex-wrap:wrap;
-
     justify-content:center;
-
     margin-top:12px;
 }
 
 .modeButton{
     padding:9px 12px !important;
     margin:0 !important;
-
     font-size:14px !important;
 
     background:#fff !important;
@@ -716,21 +701,19 @@ body{
 
 .creator{
     margin-top:20px;
-
     font-size:15px;
-
     opacity:.95;
 }
 
 #controls{
     margin-top:10px;
-
     font-size:13px;
-
     opacity:.85;
 }
 
-/* DOWNLOAD BUTTON */
+/* =========================
+   APK DOWNLOAD BUTTON
+========================= */
 
 .download-button{
     display:inline-block;
@@ -748,12 +731,15 @@ body{
     border-radius:12px;
 
     font-size:18px;
+
     font-weight:bold;
 
     box-shadow:
     0 4px 0 #a27c14;
 
     cursor:pointer;
+
+    touch-action:manipulation;
 }
 
 .download-button:active{
@@ -826,7 +812,6 @@ body{
     75%{
         transform:translateX(5px);
     }
-
 }
 
 /* MOBILE */
@@ -863,10 +848,7 @@ body{
     .screen p{
         font-size:16px;
     }
-
 }
-
-/* SMALL PHONES */
 
 @media(max-width:370px){
 
@@ -888,6 +870,10 @@ body{
         font-size:15px;
     }
 
+    .download-button{
+        padding:12px 20px;
+        font-size:16px;
+    }
 }
 
 </style>
@@ -906,16 +892,16 @@ body{
 
 <div id="tree">
 
-    <div class="leaf leaf1"></div>
-    <div class="leaf leaf2"></div>
-    <div class="leaf leaf3"></div>
-    <div class="leaf leaf4"></div>
-    <div class="leaf leaf5"></div>
+<div class="leaf leaf1"></div>
+<div class="leaf leaf2"></div>
+<div class="leaf leaf3"></div>
+<div class="leaf leaf4"></div>
+<div class="leaf leaf5"></div>
 
-    <div class="branch branch1"></div>
-    <div class="branch branch2"></div>
+<div class="branch branch1"></div>
+<div class="branch branch2"></div>
 
-    <div id="trunk"></div>
+<div id="trunk"></div>
 
 </div>
 
@@ -923,55 +909,43 @@ body{
 
 <div id="controlBar">
 
-    <button
-        id="soundButton"
-        class="controlButton">
-        SOUND ON
-    </button>
+<button id="soundButton" class="controlButton">
+SOUND ON
+</button>
 
-    <button
-        id="pauseButton"
-        class="controlButton">
-        PAUSE
-    </button>
+<button id="pauseButton" class="controlButton">
+PAUSE
+</button>
 
-    <button
-        id="vibrationButton"
-        class="controlButton">
-        VIBRATE ON
-    </button>
+<button id="vibrationButton" class="controlButton">
+VIBRATE ON
+</button>
 
 </div>
 
 <div id="scoreArea">
-
-    <div id="score">
-        Score: 0
-    </div>
-
+<div id="score">Score: 0</div>
 </div>
 
 <div id="highScoreDisplay">
-    Best: 0
+Best: 0
 </div>
 
 <div id="levelDisplay">
-    Level 1
+Level 1
 </div>
 
 <div id="lives">
-
-    <span>♥</span>
-    <span>♥</span>
-    <span>♥</span>
-
+<span>♥</span>
+<span>♥</span>
+<span>♥</span>
 </div>
 
 <div id="apple">
 
-    <div class="appleBody"></div>
-    <div class="appleStem"></div>
-    <div class="appleLeaf"></div>
+<div class="appleBody"></div>
+<div class="appleStem"></div>
+<div class="appleLeaf"></div>
 
 </div>
 
@@ -979,137 +953,146 @@ body{
 
 </div>
 
+<div id="pauseMessage" class="hidden">
+PAUSED
+</div>
+
+
+<!-- =========================
+     HOME SCREEN
+========================= -->
+
+<div id="startScreen" class="screen">
+
+<h1>
+🍎 My Apple Catcher
+</h1>
+
+<p>
+Catch the falling apples!
+</p>
+
+<p>
+Choose your game mode
+</p>
+
+<div class="modeButtons">
+
+<button
+class="modeButton selected"
+data-mode="classic">
+CLASSIC
+</button>
+
+<button
+class="modeButton"
+data-mode="time">
+TIME RUSH ⚡
+</button>
+
+<button
+class="modeButton"
+data-mode="endless">
+ENDLESS
+</button>
+
+</div>
+
+<button id="startButton">
+START GAME
+</button>
+
+
+<!-- =========================
+     WORKING GITHUB APK BUTTON
+========================= -->
+
+<a
+href="https://github.com/smilinggirl946-cmyk/FarihaZahinCollection/releases/download/v3.0/My_Apple_Catcher_v3.0_1786445936950.apk"
+class="download-button"
+target="_blank"
+rel="noopener"
+>
+🍎 DOWNLOAD APK
+</a>
+
+
+<div id="controls">
+Touch / Mouse • Left / Right arrows
+</div>
+
+<div class="creator">
+Developed by
+<b>Fariha Zahin</b>
+</div>
+
+</div>
+
+
+<!-- =========================
+     GAME OVER
+========================= -->
+
+<div id="gameOverScreen" class="screen hidden">
+
+<h1 id="gameOverTitle">
+🏆 Game Over
+</h1>
+
+<div id="resultsBox">
+
+<div class="resultRow">
+<span>Score</span>
+<span id="finalScore">0</span>
+</div>
+
+<div class="resultRow">
+<span>Best</span>
+<span id="finalBest">0</span>
+</div>
+
+<div class="resultRow">
+<span>Level</span>
+<span id="finalLevel">1</span>
+</div>
+
+<div class="resultRow">
+<span>Mode</span>
+<span id="finalMode">Classic</span>
+</div>
+
 <div
-    id="pauseMessage"
-    class="hidden">
-    PAUSED
+id="achievementText"
+class="achievement">
 </div>
-
-<!-- HOME SCREEN -->
-
-<div
-    id="startScreen"
-    class="screen">
-
-    <h1>
-        🍎 My Apple Catcher
-    </h1>
-
-    <p>
-        Catch the falling apples!
-    </p>
-
-    <p>
-        Choose your game mode
-    </p>
-
-    <div class="modeButtons">
-
-        <button
-            class="modeButton selected"
-            data-mode="classic">
-            CLASSIC
-        </button>
-
-        <button
-            class="modeButton"
-            data-mode="time">
-            TIME RUSH ⚡
-        </button>
-
-        <button
-            class="modeButton"
-            data-mode="endless">
-            ENDLESS
-        </button>
-
-    </div>
-
-    <button id="startButton">
-        START GAME
-    </button>
-
-    <!-- YOUR WORKING GITHUB RELEASE DOWNLOAD -->
-
-    <a
-        href="https://github.com/smilinggirl946-cmyk/FarihaZahinCollection/releases/download/v3.0/My_Apple_Catcher_v3.0_1786445936950.apk"
-        class="download-button"
-    >
-        🍎 DOWNLOAD APK
-    </a>
-
-    <div id="controls">
-        Touch / Mouse • Left / Right arrows
-    </div>
-
-    <div class="creator">
-        Developed by
-        <b>Fariha Zahin</b>
-    </div>
 
 </div>
 
-<!-- GAME OVER -->
+<button id="restartButton">
+PLAY AGAIN
+</button>
 
-<div
-    id="gameOverScreen"
-    class="screen hidden">
+<button
+id="homeButton"
+class="homeButton">
+⌂ BACK TO HOMEPAGE
+</button>
 
-    <h1 id="gameOverTitle">
-        🏆 Game Over
-    </h1>
-
-    <div id="resultsBox">
-
-        <div class="resultRow">
-            <span>Score</span>
-            <span id="finalScore">0</span>
-        </div>
-
-        <div class="resultRow">
-            <span>Best</span>
-            <span id="finalBest">0</span>
-        </div>
-
-        <div class="resultRow">
-            <span>Level</span>
-            <span id="finalLevel">1</span>
-        </div>
-
-        <div class="resultRow">
-            <span>Mode</span>
-            <span id="finalMode">Classic</span>
-        </div>
-
-        <div
-            id="achievementText"
-            class="achievement">
-        </div>
-
-    </div>
-
-    <button id="restartButton">
-        PLAY AGAIN
-    </button>
-
-    <button
-        id="homeButton"
-        class="homeButton">
-        ⌂ BACK TO HOMEPAGE
-    </button>
-
-    <div class="creator">
-        Developed by
-        <b>Fariha Zahin</b>
-    </div>
+<div class="creator">
+Developed by
+<b>Fariha Zahin</b>
+</div>
 
 </div>
 
 </div>
+
 
 <script>
 
-/* ELEMENTS */
+/* =========================
+   ELEMENTS
+========================= */
 
 const game =
 document.getElementById("game");
@@ -1181,7 +1164,9 @@ const modeButtons =
 document.querySelectorAll(".modeButton");
 
 
-/* VARIABLES */
+/* =========================
+   VARIABLES
+========================= */
 
 let score = 0;
 let lives = 3;
@@ -1190,8 +1175,7 @@ let level = 1;
 let appleX = 100;
 let appleY = 100;
 
-let basketX =
-innerWidth / 2;
+let basketX = innerWidth / 2;
 
 let appleSpeed = 3;
 
@@ -1219,1352 +1203,1332 @@ let timeRushLevel = 1;
 let fallsThisLevel = 0;
 
 
-/* HIGH SCORE */
+/* =========================
+   HIGH SCORE
+========================= */
 
 let highScore =
 Number(
-    localStorage.getItem(
-        "myAppleCatcherHighScore"
-    ) || 0
+localStorage.getItem(
+"myAppleCatcherHighScore"
+) || 0
 );
 
 highScoreText.textContent =
 "Best: " + highScore;
 
 
-/* MODE */
+/* =========================
+   MODE
+========================= */
 
 modeButtons.forEach(button => {
 
-    button.addEventListener(
-        "click",
-        function(){
+button.addEventListener("click",function(){
 
-            modeButtons.forEach(b => {
-                b.classList.remove("selected");
-            });
+modeButtons.forEach(b =>
+b.classList.remove("selected"));
 
-            button.classList.add("selected");
+button.classList.add("selected");
 
-            selectedMode =
-            button.dataset.mode;
+selectedMode =
+button.dataset.mode;
 
-        }
-    );
+});
 
 });
 
 
-/* AUDIO */
+/* =========================
+   AUDIO
+========================= */
 
 function getAudio(){
 
-    if(!soundOn)
-        return null;
+if(!soundOn) return null;
 
-    try{
+try{
 
-        const AC =
-        window.AudioContext ||
-        window.webkitAudioContext;
+const AC =
+window.AudioContext ||
+window.webkitAudioContext;
 
-        if(!AC)
-            return null;
+if(!AC) return null;
 
-        if(!audioContext)
-            audioContext = new AC();
+if(!audioContext)
+audioContext = new AC();
 
-        if(
-            audioContext.state ===
-            "suspended"
-        ){
+if(audioContext.state === "suspended")
+audioContext.resume().catch(()=>{});
 
-            audioContext.resume()
-            .catch(()=>{});
+return audioContext;
 
-        }
+}catch(e){
 
-        return audioContext;
+return null;
 
-    }
-    catch(e){
-
-        return null;
-
-    }
+}
 
 }
 
 function tone(
-    freq,
-    duration,
-    type="sine",
-    volume=.12
+freq,
+duration,
+type="sine",
+volume=.12
 ){
 
-    const audio =
-    getAudio();
+const audio = getAudio();
 
-    if(!audio)
-        return;
+if(!audio) return;
 
-    try{
+try{
 
-        const osc =
-        audio.createOscillator();
+const osc =
+audio.createOscillator();
 
-        const gain =
-        audio.createGain();
+const gain =
+audio.createGain();
 
-        osc.type = type;
-        osc.frequency.value = freq;
+osc.type = type;
+osc.frequency.value = freq;
 
-        gain.gain.setValueAtTime(
-            volume,
-            audio.currentTime
-        );
+gain.gain.setValueAtTime(
+volume,
+audio.currentTime
+);
 
-        gain.gain.exponentialRampToValueAtTime(
-            .001,
-            audio.currentTime + duration
-        );
+gain.gain.exponentialRampToValueAtTime(
+.001,
+audio.currentTime + duration
+);
 
-        osc.connect(gain);
-        gain.connect(audio.destination);
+osc.connect(gain);
+gain.connect(audio.destination);
 
-        osc.start();
+osc.start();
 
-        osc.stop(
-            audio.currentTime + duration
-        );
+osc.stop(
+audio.currentTime + duration
+);
 
-    }
-    catch(e){}
+}catch(e){}
 
 }
 
 function catchSound(){
 
-    tone(650,.08,"sine",.14);
+tone(650,.08,"sine",.14);
 
-    setTimeout(
-        () => tone(900,.08,"sine",.10),
-        60
-    );
+setTimeout(
+()=>tone(900,.08,"sine",.10),
+60
+);
 
 }
 
 function missSound(){
-    tone(180,.22,"sawtooth",.10);
+tone(180,.22,"sawtooth",.10);
 }
 
 function levelSound(){
 
-    tone(500,.1,"triangle",.12);
+tone(500,.1,"triangle",.12);
 
-    setTimeout(
-        () => tone(700,.1,"triangle",.12),
-        100
-    );
+setTimeout(
+()=>tone(700,.1,"triangle",.12),
+100
+);
 
-    setTimeout(
-        () => tone(900,.16,"triangle",.12),
-        200
-    );
+setTimeout(
+()=>tone(900,.16,"triangle",.12),
+200
+);
 
 }
 
 function gameOverSound(){
 
-    tone(420,.15,"triangle",.13);
+tone(420,.15,"triangle",.13);
 
-    setTimeout(
-        () => tone(300,.18,"triangle",.12),
-        150
-    );
+setTimeout(
+()=>tone(300,.18,"triangle",.12),
+150
+);
 
-    setTimeout(
-        () => tone(180,.3,"triangle",.12),
-        330
-    );
+setTimeout(
+()=>tone(180,.3,"triangle",.12),
+330
+);
 
 }
 
 
-/* MUSIC */
+/* =========================
+   MUSIC
+========================= */
 
 function startMusic(){
 
-    if(!soundOn)
-        return;
+if(!soundOn) return;
 
-    stopMusic();
+stopMusic();
 
-    const audio =
-    getAudio();
+const audio = getAudio();
 
-    if(!audio)
-        return;
+if(!audio) return;
 
-    const notes = [
-        261.63,
-        329.63,
-        392.00,
-        523.25,
-        392.00,
-        329.63,
-        293.66,
-        349.23
-    ];
+const notes=[
+261.63,
+329.63,
+392.00,
+523.25,
+392.00,
+329.63,
+293.66,
+349.23
+];
 
-    let index = 0;
+let index=0;
 
-    musicTimer =
-    setInterval(
-        () => {
+musicTimer=setInterval(()=>{
 
-            if(
-                !gameRunning ||
-                paused ||
-                !soundOn
-            )
-                return;
+if(
+!gameRunning ||
+paused ||
+!soundOn
+) return;
 
-            tone(
-                notes[
-                    index %
-                    notes.length
-                ],
-                .20,
-                "triangle",
-                .028
-            );
+tone(
+notes[index % notes.length],
+.20,
+"triangle",
+.028
+);
 
-            index++;
+index++;
 
-        },
-        360
-    );
+},360);
 
 }
 
 function stopMusic(){
 
-    if(musicTimer){
+if(musicTimer){
 
-        clearInterval(musicTimer);
+clearInterval(musicTimer);
+musicTimer=null;
 
-        musicTimer = null;
-
-    }
+}
 
 }
 
 
-/* VIBRATION */
+/* =========================
+   VIBRATION
+========================= */
 
 function vibrate(pattern){
 
-    if(!vibrationOn)
-        return;
+if(!vibrationOn) return;
 
-    if("vibrate" in navigator){
+if("vibrate" in navigator){
 
-        try{
-            navigator.vibrate(pattern);
-        }
-        catch(e){}
+try{
+navigator.vibrate(pattern);
+}catch(e){}
 
-    }
+}
 
 }
 
 
-/* LIVES */
+/* =========================
+   LIVES
+========================= */
 
 function updateLives(){
 
-    const hearts =
-    livesContainer.querySelectorAll("span");
+const hearts =
+livesContainer.querySelectorAll("span");
 
-    hearts.forEach(
-        (heart,index) => {
+hearts.forEach((heart,index)=>{
 
-            heart.style.opacity =
-            index < lives
-            ? "1"
-            : ".2";
+heart.style.opacity =
+index < lives ? "1" : ".2";
 
-        }
-    );
+});
 
 }
 
 
-/* SPEED */
+/* =========================
+   SPEED
+========================= */
 
 function updateTimeRushSpeed(){
-    appleSpeed = timeRushLevel;
+
+appleSpeed=timeRushLevel;
+
 }
 
 function updateClassicSpeed(){
 
-    level =
-    Math.floor(score / 10) + 1;
+level=
+Math.floor(score/10)+1;
 
-    appleSpeed =
-    3 + (level - 1) * .45;
+appleSpeed=
+3+(level-1)*.45;
 
 }
 
 function updateEndlessSpeed(){
-    appleSpeed = 4;
+
+appleSpeed=4;
+
 }
 
 
-/* LEVEL DISPLAY */
+/* =========================
+   LEVEL
+========================= */
 
 function updateLevelDisplay(){
 
-    if(selectedMode === "time"){
+if(selectedMode==="time"){
 
-        levelDisplay.textContent =
-        "Level " +
-        timeRushLevel +
-        "/25 • " +
-        fallsThisLevel +
-        "/10";
-
-    }
-    else if(selectedMode === "endless"){
-
-        levelDisplay.textContent =
-        "ENDLESS";
-
-    }
-    else{
-
-        levelDisplay.textContent =
-        "Level " + level;
-
-    }
+levelDisplay.textContent =
+"Level " +
+timeRushLevel +
+"/25 • " +
+fallsThisLevel +
+"/10";
 
 }
 
+else if(selectedMode==="endless"){
 
-/* LEVEL FLASH */
+levelDisplay.textContent="ENDLESS";
+
+}
+
+else{
+
+levelDisplay.textContent =
+"Level " + level;
+
+}
+
+}
 
 function showLevelUp(text){
 
-    const el =
-    document.createElement("div");
+const el =
+document.createElement("div");
 
-    el.className = "levelFlash";
-    el.textContent = text;
+el.className="levelFlash";
+el.textContent=text;
 
-    game.appendChild(el);
+game.appendChild(el);
 
-    setTimeout(
-        () => el.remove(),
-        1000
-    );
+setTimeout(
+()=>el.remove(),
+1000
+);
 
 }
 
 
-/* BASKET */
+/* =========================
+   BASKET
+========================= */
 
 function setBasketPosition(x){
 
-    if(!gameRunning || paused)
-        return;
+if(!gameRunning || paused)
+return;
 
-    const half =
-    basket.offsetWidth / 2;
+const half =
+basket.offsetWidth/2;
 
-    basketX = x;
+basketX=x;
 
-    basketX =
-    Math.max(
-        half,
-        Math.min(
-            innerWidth - half,
-            basketX
-        )
-    );
+basketX=Math.max(
+half,
+Math.min(
+innerWidth-half,
+basketX
+)
+);
 
-    basket.style.left =
-    basketX + "px";
+basket.style.left =
+basketX+"px";
 
 }
 
 
-/* TOUCH */
+/* =========================
+   TOUCH
+========================= */
 
 game.addEventListener(
-    "pointerdown",
-    e => {
+"pointerdown",
+e=>{
 
-        if(!gameRunning || paused)
-            return;
+if(!gameRunning || paused)
+return;
 
-        if(e.target.closest("button"))
-            return;
+if(e.target.closest("button"))
+return;
 
-        setBasketPosition(e.clientX);
+if(e.target.closest("a"))
+return;
 
-    }
+setBasketPosition(e.clientX);
+
+}
 );
 
 game.addEventListener(
-    "pointermove",
-    e => {
+"pointermove",
+e=>{
 
-        if(!gameRunning || paused)
-            return;
+if(!gameRunning || paused)
+return;
 
-        if(e.target.closest("button"))
-            return;
+if(e.target.closest("button"))
+return;
 
-        setBasketPosition(e.clientX);
+if(e.target.closest("a"))
+return;
 
-    }
+setBasketPosition(e.clientX);
+
+}
 );
 
 
-/* KEYBOARD */
+/* =========================
+   KEYBOARD
+========================= */
 
 document.addEventListener(
-    "keydown",
-    e => {
+"keydown",
+e=>{
 
-        if(!gameRunning)
-            return;
+if(!gameRunning) return;
 
-        if(e.key === "ArrowLeft"){
+if(e.key==="ArrowLeft"){
 
-            e.preventDefault();
+e.preventDefault();
 
-            if(!paused)
-                setBasketPosition(
-                    basketX - 35
-                );
+if(!paused)
+setBasketPosition(
+basketX-35
+);
 
-        }
+}
 
-        if(e.key === "ArrowRight"){
+if(e.key==="ArrowRight"){
 
-            e.preventDefault();
+e.preventDefault();
 
-            if(!paused)
-                setBasketPosition(
-                    basketX + 35
-                );
+if(!paused)
+setBasketPosition(
+basketX+35
+);
 
-        }
+}
 
-        if(e.code === "Space"){
+if(e.code==="Space"){
 
-            e.preventDefault();
+e.preventDefault();
 
-            togglePause();
+togglePause();
 
-        }
+}
 
-    }
+}
 );
 
 
-/* APPLE TYPE */
+/* =========================
+   APPLE TYPE
+========================= */
 
 function chooseAppleType(){
 
-    const random =
-    Math.random();
+const random=Math.random();
 
-    if(random < .08)
-        appleType = "gold";
+if(random<.08)
+appleType="gold";
 
-    else if(random < .14)
-        appleType = "rotten";
+else if(random<.14)
+appleType="rotten";
 
-    else
-        appleType = "normal";
+else
+appleType="normal";
 
-    updateAppleAppearance();
+updateAppleAppearance();
 
 }
 
 function updateAppleAppearance(){
 
-    const body =
-    apple.querySelector(".appleBody");
+const body =
+apple.querySelector(".appleBody");
 
-    if(appleType === "gold"){
+if(appleType==="gold"){
 
-        body.style.background =
-        "linear-gradient(135deg,#fff08a,#ffc400,#e59a00)";
+body.style.background=
+"linear-gradient(135deg,#fff08a,#ffc400,#e59a00)";
 
-    }
-    else if(appleType === "rotten"){
+}
 
-        body.style.background =
-        "linear-gradient(135deg,#8dca42,#557d24,#314b17)";
+else if(appleType==="rotten"){
 
-    }
-    else{
+body.style.background=
+"linear-gradient(135deg,#8dca42,#557d24,#314b17)";
 
-        body.style.background =
-        "linear-gradient(135deg,#ff5a50,#d71920 65%,#a70e15)";
+}
 
-    }
+else{
+
+body.style.background=
+"linear-gradient(135deg,#ff5a50,#d71920 65%,#a70e15)";
+
+}
 
 }
 
 
-/* NEW APPLE */
+/* =========================
+   NEW APPLE
+========================= */
 
 function newApple(){
 
-    appleY = 100;
+appleY=100;
 
-    const maxX =
-    Math.max(10,innerWidth - 60);
+const maxX =
+Math.max(10,innerWidth-60);
 
-    appleX =
-    Math.random() * maxX;
+appleX =
+Math.random()*maxX;
 
-    apple.style.left =
-    appleX + "px";
+apple.style.left=
+appleX+"px";
 
-    apple.style.top =
-    appleY + "px";
+apple.style.top=
+appleY+"px";
 
-    chooseAppleType();
+chooseAppleType();
 
 }
 
 
-/* PARTICLES */
+/* =========================
+   PARTICLES
+========================= */
 
 function particles(x,y,count=8){
 
-    for(
-        let i=0;
-        i<count;
-        i++
-    ){
+for(let i=0;i<count;i++){
 
-        const p =
-        document.createElement("div");
+const p =
+document.createElement("div");
 
-        p.className = "particle";
+p.className="particle";
 
-        p.style.left = x + "px";
-        p.style.top = y + "px";
+p.style.left=x+"px";
+p.style.top=y+"px";
 
-        const angle =
-        Math.random() *
-        Math.PI * 2;
+const angle =
+Math.random()*Math.PI*2;
 
-        const distance =
-        25 + Math.random() * 45;
+const distance =
+25+Math.random()*45;
 
-        p.style.setProperty(
-            "--dx",
-            Math.cos(angle) *
-            distance + "px"
-        );
+p.style.setProperty(
+"--dx",
+Math.cos(angle)*distance+"px"
+);
 
-        p.style.setProperty(
-            "--dy",
-            Math.sin(angle) *
-            distance + "px"
-        );
+p.style.setProperty(
+"--dy",
+Math.sin(angle)*distance+"px"
+);
 
-        game.appendChild(p);
+game.appendChild(p);
 
-        setTimeout(
-            () => p.remove(),
-            650
-        );
+setTimeout(
+()=>p.remove(),
+650
+);
 
-    }
+}
 
 }
 
 
-/* FLOATING SCORE */
+/* =========================
+   FLOATING SCORE
+========================= */
 
 function floatingScore(x,y,text){
 
-    const el =
-    document.createElement("div");
+const el =
+document.createElement("div");
 
-    el.className =
-    "floatingScore";
+el.className="floatingScore";
 
-    el.textContent =
-    text;
+el.textContent=text;
 
-    el.style.left =
-    x + "px";
+el.style.left=x+"px";
+el.style.top=y+"px";
 
-    el.style.top =
-    y + "px";
+game.appendChild(el);
 
-    game.appendChild(el);
-
-    setTimeout(
-        () => el.remove(),
-        800
-    );
+setTimeout(
+()=>el.remove(),
+800
+);
 
 }
 
 
-/* TIME RUSH */
+/* =========================
+   TIME RUSH
+========================= */
 
 function completeTimeRushFall(){
 
-    fallsThisLevel++;
+fallsThisLevel++;
 
-    updateLevelDisplay();
+updateLevelDisplay();
 
-    if(
-        fallsThisLevel >=
-        FALLS_PER_LEVEL
-    ){
+if(fallsThisLevel>=FALLS_PER_LEVEL){
 
-        if(
-            timeRushLevel >=
-            TOTAL_TIME_LEVELS
-        ){
+if(timeRushLevel>=TOTAL_TIME_LEVELS){
 
-            showLevelUp(
-                "🏆 25 LEVELS COMPLETE!"
-            );
+showLevelUp(
+"🏆 25 LEVELS COMPLETE!"
+);
 
-            levelSound();
+levelSound();
 
-            setTimeout(
-                () => endGame(true),
-                900
-            );
+setTimeout(
+()=>endGame(true),
+900
+);
 
-            return;
+return;
 
-        }
+}
 
-        timeRushLevel++;
+timeRushLevel++;
+fallsThisLevel=0;
 
-        fallsThisLevel = 0;
+updateTimeRushSpeed();
+updateLevelDisplay();
 
-        updateTimeRushSpeed();
+showLevelUp(
+"⚡ LEVEL "+
+timeRushLevel+
+" • "+
+timeRushLevel+
+"× SPEED!"
+);
 
-        updateLevelDisplay();
+levelSound();
 
-        showLevelUp(
-            "⚡ LEVEL " +
-            timeRushLevel +
-            " • " +
-            timeRushLevel +
-            "× SPEED!"
-        );
+vibrate([50,50,100]);
 
-        levelSound();
-
-        vibrate([50,50,100]);
-
-    }
+}
 
 }
 
 
-/* CATCH */
+/* =========================
+   CATCH APPLE
+========================= */
 
 function catchApple(){
 
-    let points = 1;
+let points=1;
 
-    if(appleType === "gold"){
+if(appleType==="gold"){
 
-        points = 3;
+points=3;
 
-        particles(
-            appleX + 20,
-            appleY + 20,
-            14
-        );
+particles(
+appleX+20,
+appleY+20,
+14
+);
 
-        floatingScore(
-            appleX,
-            appleY,
-            "+3 🍎"
-        );
+floatingScore(
+appleX,
+appleY,
+"+3 🍎"
+);
 
-    }
-    else if(appleType === "rotten"){
+}
 
-        points = -1;
+else if(appleType==="rotten"){
 
-        particles(
-            appleX + 20,
-            appleY + 20,
-            6
-        );
+points=-1;
 
-        floatingScore(
-            appleX,
-            appleY,
-            "-1"
-        );
+particles(
+appleX+20,
+appleY+20,
+6
+);
 
-    }
-    else{
+floatingScore(
+appleX,
+appleY,
+"-1"
+);
 
-        particles(
-            appleX + 20,
-            appleY + 20,
-            8
-        );
+}
 
-        floatingScore(
-            appleX,
-            appleY,
-            "+1"
-        );
+else{
 
-    }
+particles(
+appleX+20,
+appleY+20,
+8
+);
 
-    score += points;
+floatingScore(
+appleX,
+appleY,
+"+1"
+);
 
-    if(score < 0)
-        score = 0;
+}
 
-    scoreText.textContent =
-    "Score: " + score;
+score+=points;
 
-    catchSound();
+if(score<0)
+score=0;
 
-    vibrate(40);
+scoreText.textContent=
+"Score: "+score;
 
-    if(selectedMode === "time"){
+catchSound();
 
-        completeTimeRushFall();
+vibrate(40);
 
-        if(!gameRunning)
-            return;
+if(selectedMode==="time"){
 
-    }
-    else if(selectedMode === "classic"){
+completeTimeRushFall();
 
-        updateClassicSpeed();
+if(!gameRunning)
+return;
 
-    }
-    else{
+}
 
-        updateEndlessSpeed();
+else if(selectedMode==="classic"){
 
-    }
+updateClassicSpeed();
 
-    updateLevelDisplay();
+}
 
-    newApple();
+else{
+
+updateEndlessSpeed();
+
+}
+
+updateLevelDisplay();
+
+newApple();
 
 }
 
 
-/* MISS */
+/* =========================
+   MISS
+========================= */
 
 function missApple(){
 
-    if(selectedMode === "time"){
+if(selectedMode==="time"){
 
-        fallsThisLevel++;
+fallsThisLevel++;
+lives--;
 
-        lives--;
+updateLives();
 
-        updateLives();
+missSound();
 
-        missSound();
+vibrate([100,60,100]);
 
-        vibrate([100,60,100]);
+game.classList.remove("shake");
 
-        game.classList.remove("shake");
+void game.offsetWidth;
 
-        void game.offsetWidth;
+game.classList.add("shake");
 
-        game.classList.add("shake");
+if(lives<=0){
 
-        if(lives <= 0){
+endGame(false);
+return;
 
-            endGame(false);
+}
 
-            return;
+if(fallsThisLevel>=FALLS_PER_LEVEL){
 
-        }
+if(timeRushLevel>=TOTAL_TIME_LEVELS){
 
-        if(
-            fallsThisLevel >=
-            FALLS_PER_LEVEL
-        ){
+showLevelUp(
+"🏆 25 LEVELS COMPLETE!"
+);
 
-            if(
-                timeRushLevel >=
-                TOTAL_TIME_LEVELS
-            ){
+setTimeout(
+()=>endGame(true),
+900
+);
 
-                showLevelUp(
-                    "🏆 25 LEVELS COMPLETE!"
-                );
+return;
 
-                setTimeout(
-                    () => endGame(true),
-                    900
-                );
+}
 
-                return;
+timeRushLevel++;
+fallsThisLevel=0;
 
-            }
+updateTimeRushSpeed();
 
-            timeRushLevel++;
+showLevelUp(
+"⚡ LEVEL "+
+timeRushLevel+
+" • "+
+timeRushLevel+
+"× SPEED!"
+);
 
-            fallsThisLevel = 0;
+levelSound();
 
-            updateTimeRushSpeed();
+vibrate([50,50,100]);
 
-            showLevelUp(
-                "⚡ LEVEL " +
-                timeRushLevel +
-                " • " +
-                timeRushLevel +
-                "× SPEED!"
-            );
+}
 
-            levelSound();
+updateLevelDisplay();
 
-            vibrate([50,50,100]);
+newApple();
 
-        }
+return;
 
-        updateLevelDisplay();
+}
 
-        newApple();
+if(appleType!=="rotten"){
 
-        return;
+lives--;
 
-    }
+updateLives();
 
-    if(appleType !== "rotten"){
+missSound();
 
-        lives--;
+vibrate([100,60,100]);
 
-        updateLives();
+game.classList.remove("shake");
 
-        missSound();
+void game.offsetWidth;
 
-        vibrate([100,60,100]);
+game.classList.add("shake");
 
-        game.classList.remove("shake");
+if(lives<=0){
 
-        void game.offsetWidth;
+endGame(false);
+return;
 
-        game.classList.add("shake");
+}
 
-        if(lives <= 0){
+}
 
-            endGame(false);
-
-            return;
-
-        }
-
-    }
-
-    newApple();
+newApple();
 
 }
 
 
-/* GAME LOOP */
+/* =========================
+   GAME LOOP
+========================= */
 
 function gameLoop(timestamp){
 
-    if(!gameRunning)
-        return;
+if(!gameRunning)
+return;
 
-    if(!lastTime)
-        lastTime = timestamp;
+if(!lastTime)
+lastTime=timestamp;
 
-    const delta =
-    timestamp - lastTime;
+const delta =
+timestamp-lastTime;
 
-    lastTime = timestamp;
+lastTime=timestamp;
 
-    if(!paused){
+if(!paused){
 
-        appleY +=
-        appleSpeed *
-        (delta / 16.67);
+appleY +=
+appleSpeed*(delta/16.67);
 
-        apple.style.top =
-        appleY + "px";
+apple.style.top=
+appleY+"px";
 
-        const a =
-        apple.getBoundingClientRect();
+const a =
+apple.getBoundingClientRect();
 
-        const b =
-        basket.getBoundingClientRect();
+const b =
+basket.getBoundingClientRect();
 
-        if(
-            a.bottom >= b.top &&
-            a.top <= b.bottom &&
-            a.right >= b.left &&
-            a.left <= b.right
-        ){
+if(
+a.bottom>=b.top &&
+a.top<=b.bottom &&
+a.right>=b.left &&
+a.left<=b.right
+){
 
-            catchApple();
+catchApple();
 
-        }
+}
 
-        if(
-            appleY >
-            innerHeight
-        ){
+if(appleY>innerHeight){
 
-            missApple();
+missApple();
 
-        }
+}
 
-    }
+}
 
-    animationFrame =
-    requestAnimationFrame(gameLoop);
+animationFrame =
+requestAnimationFrame(gameLoop);
 
 }
 
 
-/* PAUSE */
+/* =========================
+   PAUSE
+========================= */
 
 function togglePause(){
 
-    if(!gameRunning)
-        return;
+if(!gameRunning)
+return;
 
-    paused = !paused;
+paused=!paused;
 
-    if(paused){
+if(paused){
 
-        pauseButton.textContent =
-        "RESUME";
+pauseButton.textContent="RESUME";
 
-        pauseMessage
-        .classList
-        .remove("hidden");
+pauseMessage.classList.remove(
+"hidden"
+);
 
-    }
-    else{
+}
 
-        pauseButton.textContent =
-        "PAUSE";
+else{
 
-        pauseMessage
-        .classList
-        .add("hidden");
+pauseButton.textContent="PAUSE";
 
-        lastTime = 0;
+pauseMessage.classList.add(
+"hidden"
+);
 
-    }
+lastTime=0;
+
+}
 
 }
 
 
-/* BUTTONS */
+/* =========================
+   CONTROL BUTTONS
+========================= */
 
-pauseButton.onclick =
-function(e){
+pauseButton.onclick=e=>{
 
-    e.preventDefault();
-    e.stopPropagation();
+e.preventDefault();
+e.stopPropagation();
 
-    togglePause();
-
-};
-
-soundButton.onclick =
-function(e){
-
-    e.preventDefault();
-    e.stopPropagation();
-
-    soundOn = !soundOn;
-
-    soundButton.textContent =
-    soundOn
-    ? "SOUND ON"
-    : "SOUND OFF";
-
-    if(soundOn){
-
-        getAudio();
-
-        if(gameRunning)
-            startMusic();
-
-    }
-    else{
-
-        stopMusic();
-
-    }
+togglePause();
 
 };
 
-vibrationButton.onclick =
-function(e){
+soundButton.onclick=e=>{
 
-    e.preventDefault();
-    e.stopPropagation();
+e.preventDefault();
+e.stopPropagation();
 
-    vibrationOn =
-    !vibrationOn;
+soundOn=!soundOn;
 
-    vibrationButton.textContent =
-    vibrationOn
-    ? "VIBRATE ON"
-    : "VIBRATE OFF";
+soundButton.textContent=
+soundOn
+?"SOUND ON"
+:"SOUND OFF";
 
-    if(vibrationOn)
-        vibrate([70,40,70]);
+if(soundOn){
+
+getAudio();
+
+if(gameRunning)
+startMusic();
+
+}
+
+else{
+
+stopMusic();
+
+}
+
+};
+
+vibrationButton.onclick=e=>{
+
+e.preventDefault();
+e.stopPropagation();
+
+vibrationOn=!vibrationOn;
+
+vibrationButton.textContent=
+vibrationOn
+?"VIBRATE ON"
+:"VIBRATE OFF";
+
+if(vibrationOn)
+vibrate([70,40,70]);
 
 };
 
 
-/* ACHIEVEMENT */
+/* =========================
+   ACHIEVEMENT
+========================= */
 
 function getAchievement(){
 
-    if(
-        selectedMode === "time" &&
-        timeRushLevel >= 25
-    )
-        return "🏆 TIME RUSH MASTER!";
+if(
+selectedMode==="time" &&
+timeRushLevel>=25
+)
+return "🏆 TIME RUSH MASTER!";
 
-    if(score >= 100)
-        return "🏆 APPLE MASTER! 100+ points!";
+if(score>=100)
+return "🏆 APPLE MASTER! 100+ points!";
 
-    if(score >= 50)
-        return "🌟 AMAZING CATCHER! 50+ points!";
+if(score>=50)
+return "🌟 AMAZING CATCHER! 50+ points!";
 
-    if(score >= 25)
-        return "🍎 APPLE PRO! 25+ points!";
+if(score>=25)
+return "🍎 APPLE PRO! 25+ points!";
 
-    if(score >= 10)
-        return "⭐ GREAT START! 10+ points!";
+if(score>=10)
+return "⭐ GREAT START! 10+ points!";
 
-    if(score > 0)
-        return "🍎 First apples caught!";
+if(score>0)
+return "🍎 First apples caught!";
 
-    return "Keep practicing!";
+return "Keep practicing!";
 
 }
 
 
-/* START */
+/* =========================
+   START GAME
+========================= */
 
 function startGame(){
 
-    score = 0;
-    lives = 3;
-    level = 1;
+score=0;
+lives=3;
+level=1;
 
-    timeRushLevel = 1;
-    fallsThisLevel = 0;
+timeRushLevel=1;
+fallsThisLevel=0;
 
-    paused = false;
-    gameRunning = true;
+paused=false;
+gameRunning=true;
 
-    lastTime = 0;
+lastTime=0;
 
-    if(selectedMode === "time")
-        appleSpeed = 1;
+if(selectedMode==="time")
+appleSpeed=1;
 
-    else if(selectedMode === "endless")
-        appleSpeed = 4;
+else if(selectedMode==="endless")
+appleSpeed=4;
 
-    else
-        appleSpeed = 3;
+else
+appleSpeed=3;
 
-    scoreText.textContent =
-    "Score: 0";
-
-    updateLives();
-    updateLevelDisplay();
-
-    pauseButton.textContent =
-    "PAUSE";
-
-    pauseMessage
-    .classList
-    .add("hidden");
-
-    startScreen
-    .classList
-    .add("hidden");
-
-    gameOverScreen
-    .classList
-    .add("hidden");
-
-    basketX =
-    innerWidth / 2;
-
-    basket.style.left =
-    basketX + "px";
-
-    newApple();
-
-    getAudio();
-
-    startMusic();
-
-    if(animationFrame !== null){
-
-        cancelAnimationFrame(
-            animationFrame
-        );
-
-    }
-
-    animationFrame =
-    requestAnimationFrame(
-        gameLoop
-    );
-
-}
-
-
-/* END GAME */
-
-function endGame(completed=false){
-
-    if(!gameRunning)
-        return;
-
-    gameRunning = false;
-    paused = false;
-
-    stopMusic();
-
-    if(completed){
-
-        gameOverTitle.textContent =
-        "🏆 TIME RUSH COMPLETE!";
-
-        vibrate(
-            [100,60,100,60,200]
-        );
-
-    }
-    else{
-
-        gameOverTitle.textContent =
-        "🏆 Game Over";
-
-        gameOverSound();
-
-        vibrate(
-            [150,80,150]
-        );
-
-    }
-
-    if(animationFrame !== null){
-
-        cancelAnimationFrame(
-            animationFrame
-        );
-
-        animationFrame = null;
-
-    }
-
-    if(score > highScore){
-
-        highScore = score;
-
-        localStorage.setItem(
-            "myAppleCatcherHighScore",
-            highScore
-        );
-
-    }
-
-    highScoreText.textContent =
-    "Best: " + highScore;
-
-    finalScore.textContent =
-    score;
-
-    finalBest.textContent =
-    highScore;
-
-    if(selectedMode === "time"){
-
-        finalLevel.textContent =
-        timeRushLevel +
-        " / " +
-        TOTAL_TIME_LEVELS;
-
-    }
-    else if(selectedMode === "classic"){
-
-        finalLevel.textContent =
-        level;
-
-    }
-    else{
-
-        finalLevel.textContent =
-        "—";
-
-    }
-
-    finalMode.textContent =
-    selectedMode === "classic"
-    ? "Classic"
-    : selectedMode === "time"
-    ? "Time Rush"
-    : "Endless";
-
-    achievementText.textContent =
-    getAchievement();
-
-    gameOverScreen
-    .classList
-    .remove("hidden");
-
-}
-
-
-/* START BUTTON */
-
-startButton.onclick =
-function(e){
-
-    e.preventDefault();
-    e.stopPropagation();
-
-    startGame();
-
-};
-
-
-/* RESTART */
-
-restartButton.onclick =
-function(e){
-
-    e.preventDefault();
-    e.stopPropagation();
-
-    startGame();
-
-};
-
-
-/* BACK TO HOMEPAGE */
-
-homeButton.onclick =
-function(e){
-
-    e.preventDefault();
-    e.stopPropagation();
-
-    gameRunning = false;
-    paused = false;
-
-    stopMusic();
-
-    if(animationFrame !== null){
-
-        cancelAnimationFrame(
-            animationFrame
-        );
-
-        animationFrame = null;
-
-    }
-
-    pauseMessage
-    .classList
-    .add("hidden");
-
-    gameOverScreen
-    .classList
-    .add("hidden");
-
-    startScreen
-    .classList
-    .remove("hidden");
-
-    score = 0;
-    lives = 3;
-    level = 1;
-
-    timeRushLevel = 1;
-    fallsThisLevel = 0;
-
-    scoreText.textContent =
-    "Score: 0";
-
-    updateLives();
-    updateLevelDisplay();
-
-    pauseButton.textContent =
-    "PAUSE";
-
-    basketX =
-    innerWidth / 2;
-
-    basket.style.left =
-    basketX + "px";
-
-    newApple();
-
-};
-
-
-/* RESIZE */
-
-window.addEventListener(
-    "resize",
-    () => {
-
-        const half =
-        basket.offsetWidth / 2;
-
-        basketX =
-        Math.max(
-            half,
-            Math.min(
-                innerWidth - half,
-                basketX
-            )
-        );
-
-        basket.style.left =
-        basketX + "px";
-
-    }
-);
-
-
-/* INITIAL */
+scoreText.textContent="Score: 0";
 
 updateLives();
 updateLevelDisplay();
+
+pauseButton.textContent="PAUSE";
+
+pauseMessage.classList.add("hidden");
+
+startScreen.classList.add("hidden");
+
+gameOverScreen.classList.add("hidden");
+
+basketX=innerWidth/2;
+
+basket.style.left=
+basketX+"px";
+
+newApple();
+
+getAudio();
+
+startMusic();
+
+if(animationFrame!==null){
+
+cancelAnimationFrame(
+animationFrame
+);
+
+}
+
+animationFrame =
+requestAnimationFrame(
+gameLoop
+);
+
+}
+
+
+/* =========================
+   END GAME
+========================= */
+
+function endGame(completed=false){
+
+if(!gameRunning)
+return;
+
+gameRunning=false;
+paused=false;
+
+stopMusic();
+
+if(completed){
+
+gameOverTitle.textContent=
+"🏆 TIME RUSH COMPLETE!";
+
+vibrate(
+[100,60,100,60,200]
+);
+
+}
+
+else{
+
+gameOverTitle.textContent=
+"🏆 Game Over";
+
+gameOverSound();
+
+vibrate(
+[150,80,150]
+);
+
+}
+
+if(animationFrame!==null){
+
+cancelAnimationFrame(
+animationFrame
+);
+
+animationFrame=null;
+
+}
+
+if(score>highScore){
+
+highScore=score;
+
+localStorage.setItem(
+"myAppleCatcherHighScore",
+highScore
+);
+
+}
+
+highScoreText.textContent=
+"Best: "+highScore;
+
+finalScore.textContent=score;
+finalBest.textContent=highScore;
+
+if(selectedMode==="time"){
+
+finalLevel.textContent=
+timeRushLevel+
+" / "+
+TOTAL_TIME_LEVELS;
+
+}
+
+else if(selectedMode==="classic"){
+
+finalLevel.textContent=level;
+
+}
+
+else{
+
+finalLevel.textContent="—";
+
+}
+
+finalMode.textContent=
+selectedMode==="classic"
+?"Classic"
+:selectedMode==="time"
+?"Time Rush"
+:"Endless";
+
+achievementText.textContent=
+getAchievement();
+
+gameOverScreen.classList.remove(
+"hidden"
+);
+
+}
+
+
+/* =========================
+   START BUTTON
+========================= */
+
+startButton.onclick=e=>{
+
+e.preventDefault();
+e.stopPropagation();
+
+startGame();
+
+};
+
+
+/* =========================
+   RESTART
+========================= */
+
+restartButton.onclick=e=>{
+
+e.preventDefault();
+e.stopPropagation();
+
+startGame();
+
+};
+
+
+/* =========================
+   BACK TO HOMEPAGE
+========================= */
+
+homeButton.onclick=e=>{
+
+e.preventDefault();
+e.stopPropagation();
+
+gameRunning=false;
+paused=false;
+
+stopMusic();
+
+if(animationFrame!==null){
+
+cancelAnimationFrame(
+animationFrame
+);
+
+animationFrame=null;
+
+}
+
+pauseMessage.classList.add(
+"hidden"
+);
+
+gameOverScreen.classList.add(
+"hidden"
+);
+
+startScreen.classList.remove(
+"hidden"
+);
+
+score=0;
+lives=3;
+level=1;
+
+timeRushLevel=1;
+fallsThisLevel=0;
+
+scoreText.textContent="Score: 0";
+
+updateLives();
+updateLevelDisplay();
+
+pauseButton.textContent="PAUSE";
+
+basketX=innerWidth/2;
+
+basket.style.left=
+basketX+"px";
+
+newApple();
+
+};
+
+
+/* =========================
+   RESIZE
+========================= */
+
+window.addEventListener(
+"resize",
+()=>{
+
+const half =
+basket.offsetWidth/2;
+
+basketX=Math.max(
+half,
+Math.min(
+innerWidth-half,
+basketX
+)
+);
+
+basket.style.left=
+basketX+"px";
+
+}
+);
+
+
+/* =========================
+   INITIAL
+========================= */
+
+updateLives();
+
+updateLevelDisplay();
+
 newApple();
 
 </script>
