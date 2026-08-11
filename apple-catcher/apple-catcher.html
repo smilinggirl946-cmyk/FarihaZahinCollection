@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -11,8 +9,7 @@
       maximum-scale=1.0,
       user-scalable=no">
 
-<meta name="theme-color"
-      content="#70c9f5">
+<meta name="theme-color" content="#70c9f5">
 
 <title>My Apple Catcher</title>
 
@@ -23,26 +20,23 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body{
+html,body{
     margin:0;
     padding:0;
     width:100%;
     height:100%;
     overflow:hidden;
 
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     touch-action:none;
 }
 
 body{
     background:#70c9f5;
-}
-
-button,
-a{
-    -webkit-tap-highlight-color:transparent;
 }
 
 #game{
@@ -57,9 +51,7 @@ a{
 }
 
 
-/* =====================================================
-   WORLD
-===================================================== */
+/* ================= WORLD ================= */
 
 #world{
     position:absolute;
@@ -77,62 +69,50 @@ a{
 }
 
 
-/* =====================================================
-   SUN
-===================================================== */
+/* ================= SUN ================= */
 
 #sun{
     position:absolute;
-
     width:70px;
     height:70px;
-
     top:18px;
     right:30px;
 
     border-radius:50%;
-
     background:#ffd84d;
 
     box-shadow:
-        0 0 35px rgba(255,216,77,.75);
+        0 0 35px
+        rgba(255,216,77,.75);
 }
 
 
-/* =====================================================
-   CLOUDS
-===================================================== */
+/* ================= CLOUDS ================= */
 
 .cloud{
     position:absolute;
-
     width:90px;
     height:35px;
 
     background:white;
-
     border-radius:30px;
-
     opacity:.85;
 
-    animation:cloudMove 18s ease-in-out infinite;
+    animation:
+        cloudMove 18s ease-in-out infinite;
 }
 
 .cloud:before,
 .cloud:after{
     content:"";
-
     position:absolute;
-
     background:white;
-
     border-radius:50%;
 }
 
 .cloud:before{
     width:45px;
     height:45px;
-
     left:15px;
     top:-22px;
 }
@@ -140,7 +120,6 @@ a{
 .cloud:after{
     width:50px;
     height:50px;
-
     right:8px;
     top:-27px;
 }
@@ -155,38 +134,30 @@ a{
     right:120px;
 
     transform:scale(.8);
-
     animation-duration:25s;
 }
 
 @keyframes cloudMove{
-
     50%{
         margin-left:25px;
     }
-
 }
 
 
-/* =====================================================
-   TREE
-===================================================== */
+/* ================= TREE ================= */
 
 #tree{
     position:absolute;
-
     width:150px;
     height:260px;
 
     left:25px;
     bottom:80px;
-
     z-index:2;
 }
 
 #trunk{
     position:absolute;
-
     width:42px;
     height:145px;
 
@@ -206,12 +177,10 @@ a{
 
 .branch{
     position:absolute;
-
     width:20px;
     height:85px;
 
     background:#75452a;
-
     border-radius:10px;
 
     transform-origin:bottom;
@@ -220,20 +189,17 @@ a{
 .branch1{
     left:48px;
     bottom:105px;
-
     transform:rotate(-40deg);
 }
 
 .branch2{
     left:72px;
     bottom:105px;
-
     transform:rotate(40deg);
 }
 
 .leaf{
     position:absolute;
-
     width:90px;
     height:90px;
 
@@ -247,7 +213,8 @@ a{
     border-radius:50%;
 
     box-shadow:
-        inset -8px -8px 0 rgba(0,0,0,.08);
+        inset -8px -8px 0
+        rgba(0,0,0,.08);
 }
 
 .leaf1{
@@ -276,9 +243,7 @@ a{
 }
 
 
-/* =====================================================
-   GROUND
-===================================================== */
+/* ================= GROUND ================= */
 
 #ground{
     position:absolute;
@@ -299,9 +264,7 @@ a{
 }
 
 
-/* =====================================================
-   CONTROL BAR
-===================================================== */
+/* ================= CONTROLS ================= */
 
 #controlBar{
     position:absolute;
@@ -314,7 +277,6 @@ a{
     width:90%;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
@@ -344,7 +306,6 @@ a{
     pointer-events:auto;
 
     touch-action:manipulation;
-
     white-space:nowrap;
 }
 
@@ -356,9 +317,7 @@ a{
 }
 
 
-/* =====================================================
-   SCORE
-===================================================== */
+/* ================= SCORE ================= */
 
 #scoreArea{
     position:absolute;
@@ -371,7 +330,6 @@ a{
     transform:translateX(-100%);
 
     display:flex;
-
     justify-content:flex-end;
     align-items:center;
 
@@ -380,7 +338,6 @@ a{
     z-index:50;
 
     color:white;
-
     font-weight:bold;
 
     text-shadow:
@@ -401,7 +358,6 @@ a{
     width:120px;
 
     display:flex;
-
     justify-content:flex-start;
     align-items:center;
 
@@ -421,9 +377,7 @@ a{
 }
 
 
-/* =====================================================
-   LEVEL
-===================================================== */
+/* ================= LEVEL ================= */
 
 #levelDisplay{
     position:absolute;
@@ -447,9 +401,7 @@ a{
 }
 
 
-/* =====================================================
-   LIVES
-===================================================== */
+/* ================= LIVES ================= */
 
 #lives{
     position:absolute;
@@ -479,9 +431,7 @@ a{
 }
 
 
-/* =====================================================
-   APPLE
-===================================================== */
+/* ================= APPLE ================= */
 
 #apple{
     position:absolute;
@@ -554,9 +504,7 @@ a{
 }
 
 
-/* =====================================================
-   BASKET
-===================================================== */
+/* ================= BASKET ================= */
 
 #basket{
     position:absolute;
@@ -607,9 +555,7 @@ a{
 }
 
 
-/* =====================================================
-   PARTICLES
-===================================================== */
+/* ================= PARTICLES ================= */
 
 .particle{
     position:absolute;
@@ -622,7 +568,6 @@ a{
     background:#ffd84d;
 
     pointer-events:none;
-
     z-index:60;
 
     animation:
@@ -632,7 +577,6 @@ a{
 @keyframes particle{
 
     to{
-
         opacity:0;
 
         transform:
@@ -642,13 +586,10 @@ a{
             )
             scale(.1);
     }
-
 }
 
 
-/* =====================================================
-   FLOATING SCORE
-===================================================== */
+/* ================= FLOATING SCORE ================= */
 
 .floatingScore{
     position:absolute;
@@ -672,20 +613,16 @@ a{
 @keyframes floatScore{
 
     to{
-
         opacity:0;
 
         transform:
             translateY(-45px)
             scale(1.2);
     }
-
 }
 
 
-/* =====================================================
-   LEVEL FLASH
-===================================================== */
+/* ================= LEVEL FLASH ================= */
 
 .levelFlash{
     position:absolute;
@@ -715,7 +652,6 @@ a{
 @keyframes levelFlash{
 
     0%{
-
         opacity:0;
 
         transform:
@@ -724,7 +660,6 @@ a{
     }
 
     35%{
-
         opacity:1;
 
         transform:
@@ -733,20 +668,16 @@ a{
     }
 
     100%{
-
         opacity:0;
 
         transform:
             translate(-50%,-65%)
             scale(1);
     }
-
 }
 
 
-/* =====================================================
-   PAUSE
-===================================================== */
+/* ================= PAUSE ================= */
 
 #pauseMessage{
     position:absolute;
@@ -777,13 +708,10 @@ a{
 }
 
 
-/* =====================================================
-   SCREENS
-===================================================== */
+/* ================= SCREENS ================= */
 
 .screen{
     position:absolute;
-
     inset:0;
 
     background:
@@ -830,28 +758,13 @@ a{
     font-weight:bold;
 
     background:#f5c542;
-
     color:#333;
 
     box-shadow:
         0 5px 0 #a27c14;
 
     touch-action:manipulation;
-
-    cursor:pointer;
 }
-
-.screen button:active{
-    transform:translateY(3px);
-
-    box-shadow:
-        0 2px 0 #a27c14;
-}
-
-
-/* =====================================================
-   MODE BUTTONS
-===================================================== */
 
 .modeButtons{
     display:flex;
@@ -867,7 +780,6 @@ a{
 
 .modeButton{
     padding:9px 12px !important;
-
     margin:0 !important;
 
     font-size:14px !important;
@@ -882,10 +794,21 @@ a{
     background:#f5c542 !important;
 }
 
+.creator{
+    margin-top:20px;
+    font-size:15px;
+    opacity:.95;
+}
 
-/* =====================================================
-   APK DOWNLOAD
-===================================================== */
+#controls{
+    margin-top:10px;
+
+    font-size:13px;
+    opacity:.85;
+}
+
+
+/* ================= DOWNLOAD ================= */
 
 .downloadButton{
     display:inline-block;
@@ -895,19 +818,17 @@ a{
     margin-top:14px;
 
     background:#f5c542;
-
-    color:#222 !important;
+    color:#222;
 
     text-decoration:none;
 
     border-radius:12px;
 
     font-size:18px;
-
     font-weight:bold;
 
     box-shadow:
-        0 5px 0 #a27c14;
+        0 4px 0 #a27c14;
 
     touch-action:manipulation;
 }
@@ -916,54 +837,16 @@ a{
     transform:translateY(3px);
 
     box-shadow:
-        0 2px 0 #a27c14;
+        0 1px 0 #a27c14;
 }
 
 
-/* =====================================================
-   HOMEPAGE BUTTON
-===================================================== */
-
-.homeButton{
-    background:#ffffff !important;
-
-    color:#333 !important;
-
-    box-shadow:
-        0 5px 0 #777 !important;
-}
-
-
-/* =====================================================
-   CREATOR
-===================================================== */
-
-.creator{
-    margin-top:20px;
-
-    font-size:15px;
-
-    opacity:.95;
-}
-
-#controls{
-    margin-top:10px;
-
-    font-size:13px;
-
-    opacity:.85;
-}
-
-
-/* =====================================================
-   RESULTS
-===================================================== */
+/* ================= RESULTS ================= */
 
 #resultsBox{
     width:min(90%,360px);
 
     padding:18px;
-
     margin-top:10px;
 
     border-radius:18px;
@@ -982,7 +865,6 @@ a{
     justify-content:space-between;
 
     font-size:17px;
-
     font-weight:bold;
 
     margin:8px 0;
@@ -994,14 +876,19 @@ a{
     margin-top:10px;
 
     color:#ffe36b;
-
     font-weight:bold;
 }
 
+.homeButton{
+    background:#ffffff !important;
+    color:#333 !important;
 
-/* =====================================================
-   SHAKE
-===================================================== */
+    box-shadow:
+        0 5px 0 #777 !important;
+}
+
+
+/* ================= SHAKE ================= */
 
 .shake{
     animation:
@@ -1017,13 +904,10 @@ a{
     75%{
         transform:translateX(5px);
     }
-
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
@@ -1057,13 +941,10 @@ a{
     .screen p{
         font-size:16px;
     }
-
 }
 
 
-/* =====================================================
-   SMALL PHONES
-===================================================== */
+/* ================= SMALL PHONES ================= */
 
 @media(max-width:370px){
 
@@ -1085,15 +966,9 @@ a{
         font-size:15px;
     }
 
-    .downloadButton{
-        padding:12px 20px;
-        font-size:16px;
-    }
-
 }
 
 </style>
-
 </head>
 
 
@@ -1165,11 +1040,9 @@ a{
 
 </div>
 
-
 <div id="highScoreDisplay">
     Best: 0
 </div>
-
 
 <div id="levelDisplay">
     Level 1
@@ -1192,9 +1065,7 @@ a{
 <div id="apple">
 
     <div class="appleBody"></div>
-
     <div class="appleStem"></div>
-
     <div class="appleLeaf"></div>
 
 </div>
@@ -1218,9 +1089,7 @@ a{
 </div>
 
 
-<!-- =================================================
-     MAIN GAME HOME SCREEN
-================================================= -->
+<!-- ================= HOME SCREEN ================= -->
 
 <div
     id="startScreen"
@@ -1244,27 +1113,19 @@ a{
         <button
             class="modeButton selected"
             data-mode="classic">
-
             CLASSIC
-
         </button>
-
 
         <button
             class="modeButton"
             data-mode="time">
-
             TIME RUSH ⚡
-
         </button>
-
 
         <button
             class="modeButton"
             data-mode="endless">
-
             ENDLESS
-
         </button>
 
     </div>
@@ -1275,14 +1136,12 @@ a{
     </button>
 
 
-    <!-- =================================================
-         APK DOWNLOAD BUTTON
-    ================================================= -->
+    <!-- GITHUB APK DOWNLOAD -->
 
     <a
-        href="https://github.com/smilinggirl946-cmyk/FarihaZahinCollection/raw/refs/heads/main/apple-catcher/My_Apple_Catcher_v3.0_1786445936950.apk"
-        download="My_Apple_Catcher_v3.0.apk"
-        class="downloadButton">
+        href="https://github.com/smilinggirl946-cmyk/FarihaZahinCollection/releases/download/v3.0/My_Apple_Catcher_v3.0_1786445936950.apk"
+        class="downloadButton"
+        download="My_Apple_Catcher_v3.0.apk">
 
         🍎 DOWNLOAD APK
 
@@ -1306,9 +1165,7 @@ a{
 </div>
 
 
-<!-- =================================================
-     GAME OVER SCREEN
-================================================= -->
+<!-- ================= GAME OVER ================= -->
 
 <div
     id="gameOverScreen"
@@ -1323,9 +1180,7 @@ a{
 
         <div class="resultRow">
 
-            <span>
-                Score
-            </span>
+            <span>Score</span>
 
             <span id="finalScore">
                 0
@@ -1336,9 +1191,7 @@ a{
 
         <div class="resultRow">
 
-            <span>
-                Best
-            </span>
+            <span>Best</span>
 
             <span id="finalBest">
                 0
@@ -1349,9 +1202,7 @@ a{
 
         <div class="resultRow">
 
-            <span>
-                Level
-            </span>
+            <span>Level</span>
 
             <span id="finalLevel">
                 1
@@ -1362,9 +1213,7 @@ a{
 
         <div class="resultRow">
 
-            <span>
-                Mode
-            </span>
+            <span>Mode</span>
 
             <span id="finalMode">
                 Classic
@@ -1386,13 +1235,7 @@ a{
     </button>
 
 
-    <!--
-       IMPORTANT:
-       This goes to the MAIN WEBSITE HOME PAGE.
-       Because this file is inside:
-       /apple-catcher/
-       ../index.html means the parent homepage.
-    -->
+    <!-- RETURNS TO THIS GAME'S HOME SCREEN -->
 
     <button
         id="homeButton"
@@ -1401,6 +1244,18 @@ a{
         ⌂ BACK TO HOMEPAGE
 
     </button>
+
+
+    <!-- APK DOWNLOAD ALSO AVAILABLE HERE -->
+
+    <a
+        href="https://github.com/smilinggirl946-cmyk/FarihaZahinCollection/releases/download/v3.0/My_Apple_Catcher_v3.0_1786445936950.apk"
+        class="downloadButton"
+        download="My_Apple_Catcher_v3.0.apk">
+
+        🍎 DOWNLOAD APK
+
+    </a>
 
 
     <div class="creator">
@@ -1417,9 +1272,7 @@ a{
 
 <script>
 
-/* =====================================================
-   ELEMENTS
-===================================================== */
+/* ================= ELEMENTS ================= */
 
 const game =
 document.getElementById("game");
@@ -1491,31 +1344,23 @@ const modeButtons =
 document.querySelectorAll(".modeButton");
 
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+/* ================= VARIABLES ================= */
 
 let score = 0;
-
 let lives = 3;
-
 let level = 1;
 
 let appleX = 100;
-
 let appleY = 100;
 
-let basketX =
-    innerWidth / 2;
+let basketX = innerWidth / 2;
 
 let appleSpeed = 3;
 
 let gameRunning = false;
-
 let paused = false;
 
 let soundOn = true;
-
 let vibrationOn = true;
 
 let animationFrame = null;
@@ -1525,28 +1370,17 @@ let selectedMode = "classic";
 let appleType = "normal";
 
 let audioContext = null;
-
 let musicTimer = null;
-
 let lastTime = 0;
 
-
-/* =====================================================
-   TIME RUSH
-===================================================== */
-
 const TOTAL_TIME_LEVELS = 25;
-
 const FALLS_PER_LEVEL = 10;
 
 let timeRushLevel = 1;
-
 let fallsThisLevel = 0;
 
 
-/* =====================================================
-   HIGH SCORE
-===================================================== */
+/* ================= HIGH SCORE ================= */
 
 let highScore =
 Number(
@@ -1559,9 +1393,7 @@ highScoreText.textContent =
     "Best: " + highScore;
 
 
-/* =====================================================
-   MODE SELECTION
-===================================================== */
+/* ================= MODE ================= */
 
 modeButtons.forEach(button => {
 
@@ -1569,24 +1401,14 @@ modeButtons.forEach(button => {
         "click",
         function(){
 
-            modeButtons.forEach(
-                b => {
+            modeButtons.forEach(b => {
+                b.classList.remove("selected");
+            });
 
-                    b.classList.remove(
-                        "selected"
-                    );
-
-                }
-            );
-
-            button.classList.add(
-                "selected"
-            );
+            button.classList.add("selected");
 
             selectedMode =
                 button.dataset.mode;
-
-            updateLevelDisplay();
 
         }
     );
@@ -1594,9 +1416,7 @@ modeButtons.forEach(button => {
 });
 
 
-/* =====================================================
-   AUDIO
-===================================================== */
+/* ================= AUDIO ================= */
 
 function getAudio(){
 
@@ -1613,16 +1433,14 @@ function getAudio(){
             return null;
 
         if(!audioContext)
-            audioContext =
-                new AC();
+            audioContext = new AC();
 
         if(
             audioContext.state ===
             "suspended"
         ){
 
-            audioContext
-                .resume()
+            audioContext.resume()
                 .catch(()=>{});
 
         }
@@ -1660,11 +1478,8 @@ function tone(
         const gain =
             audio.createGain();
 
-        osc.type =
-            type;
-
-        osc.frequency.value =
-            freq;
+        osc.type = type;
+        osc.frequency.value = freq;
 
         gain.gain.setValueAtTime(
             volume,
@@ -1673,21 +1488,16 @@ function tone(
 
         gain.gain.exponentialRampToValueAtTime(
             .001,
-            audio.currentTime +
-            duration
+            audio.currentTime + duration
         );
 
         osc.connect(gain);
-
-        gain.connect(
-            audio.destination
-        );
+        gain.connect(audio.destination);
 
         osc.start();
 
         osc.stop(
-            audio.currentTime +
-            duration
+            audio.currentTime + duration
         );
 
     }
@@ -1814,9 +1624,7 @@ function gameOverSound(){
 }
 
 
-/* =====================================================
-   MUSIC
-===================================================== */
+/* ================= MUSIC ================= */
 
 function startMusic(){
 
@@ -1832,7 +1640,6 @@ function startMusic(){
         return;
 
     const notes = [
-
         261.63,
         329.63,
         392.00,
@@ -1841,7 +1648,6 @@ function startMusic(){
         329.63,
         293.66,
         349.23
-
     ];
 
     let index = 0;
@@ -1880,10 +1686,7 @@ function stopMusic(){
 
     if(musicTimer){
 
-        clearInterval(
-            musicTimer
-        );
-
+        clearInterval(musicTimer);
         musicTimer = null;
 
     }
@@ -1891,25 +1694,17 @@ function stopMusic(){
 }
 
 
-/* =====================================================
-   VIBRATION
-===================================================== */
+/* ================= VIBRATION ================= */
 
 function vibrate(pattern){
 
     if(!vibrationOn)
         return;
 
-    if(
-        "vibrate" in navigator
-    ){
+    if("vibrate" in navigator){
 
         try{
-
-            navigator.vibrate(
-                pattern
-            );
-
+            navigator.vibrate(pattern);
         }
         catch(e){}
 
@@ -1918,17 +1713,13 @@ function vibrate(pattern){
 }
 
 
-/* =====================================================
-   LIVES
-===================================================== */
+/* ================= LIVES ================= */
 
 function updateLives(){
 
     const hearts =
         livesContainer
-        .querySelectorAll(
-            "span"
-        );
+        .querySelectorAll("span");
 
     hearts.forEach(
         (heart,index) => {
@@ -1944,23 +1735,11 @@ function updateLives(){
 }
 
 
-/* =====================================================
-   SPEED
-===================================================== */
-
-function updateTimeRushSpeed(){
-
-    appleSpeed =
-        timeRushLevel;
-
-}
-
+/* ================= LEVEL ================= */
 
 function updateLevelDisplay(){
 
-    if(
-        selectedMode === "time"
-    ){
+    if(selectedMode === "time"){
 
         levelDisplay.textContent =
             "Level " +
@@ -1970,9 +1749,7 @@ function updateLevelDisplay(){
             "/10";
 
     }
-    else if(
-        selectedMode === "endless"
-    ){
+    else if(selectedMode === "endless"){
 
         levelDisplay.textContent =
             "ENDLESS";
@@ -1992,9 +1769,7 @@ function updateLevelDisplay(){
 function updateClassicSpeed(){
 
     level =
-        Math.floor(
-            score / 10
-        ) + 1;
+        Math.floor(score / 10) + 1;
 
     appleSpeed =
         3 +
@@ -2010,40 +1785,35 @@ function updateEndlessSpeed(){
 }
 
 
-/* =====================================================
-   LEVEL FLASH
-===================================================== */
+function updateTimeRushSpeed(){
+
+    appleSpeed =
+        timeRushLevel;
+
+}
+
+
+/* ================= LEVEL FLASH ================= */
 
 function showLevelUp(text){
 
     const el =
-        document.createElement(
-            "div"
-        );
+        document.createElement("div");
 
-    el.className =
-        "levelFlash";
-
-    el.textContent =
-        text;
+    el.className = "levelFlash";
+    el.textContent = text;
 
     game.appendChild(el);
 
     setTimeout(
-        () => {
-
-            el.remove();
-
-        },
+        () => el.remove(),
         1000
     );
 
 }
 
 
-/* =====================================================
-   BASKET
-===================================================== */
+/* ================= BASKET ================= */
 
 function setBasketPosition(x){
 
@@ -2073,9 +1843,7 @@ function setBasketPosition(x){
 }
 
 
-/* =====================================================
-   TOUCH
-===================================================== */
+/* ================= TOUCH ================= */
 
 game.addEventListener(
     "pointerdown",
@@ -2125,9 +1893,7 @@ game.addEventListener(
 );
 
 
-/* =====================================================
-   KEYBOARD
-===================================================== */
+/* ================= KEYBOARD ================= */
 
 document.addEventListener(
     "keydown",
@@ -2136,9 +1902,7 @@ document.addEventListener(
         if(!gameRunning)
             return;
 
-        if(
-            e.key === "ArrowLeft"
-        ){
+        if(e.key === "ArrowLeft"){
 
             e.preventDefault();
 
@@ -2152,10 +1916,7 @@ document.addEventListener(
 
         }
 
-
-        if(
-            e.key === "ArrowRight"
-        ){
+        if(e.key === "ArrowRight"){
 
             e.preventDefault();
 
@@ -2169,10 +1930,7 @@ document.addEventListener(
 
         }
 
-
-        if(
-            e.code === "Space"
-        ){
+        if(e.code === "Space"){
 
             e.preventDefault();
 
@@ -2184,35 +1942,26 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   APPLE TYPE
-===================================================== */
+/* ================= APPLE TYPE ================= */
 
 function chooseAppleType(){
 
     const random =
         Math.random();
 
-    if(
-        random < .08
-    ){
+    if(random < .08){
 
-        appleType =
-            "gold";
+        appleType = "gold";
 
     }
-    else if(
-        random < .14
-    ){
+    else if(random < .14){
 
-        appleType =
-            "rotten";
+        appleType = "rotten";
 
     }
     else{
 
-        appleType =
-            "normal";
+        appleType = "normal";
 
     }
 
@@ -2224,21 +1973,15 @@ function chooseAppleType(){
 function updateAppleAppearance(){
 
     const body =
-        apple.querySelector(
-            ".appleBody"
-        );
+        apple.querySelector(".appleBody");
 
-    if(
-        appleType === "gold"
-    ){
+    if(appleType === "gold"){
 
         body.style.background =
             "linear-gradient(135deg,#fff08a,#ffc400,#e59a00)";
 
     }
-    else if(
-        appleType === "rotten"
-    ){
+    else if(appleType === "rotten"){
 
         body.style.background =
             "linear-gradient(135deg,#8dca42,#557d24,#314b17)";
@@ -2254,9 +1997,7 @@ function updateAppleAppearance(){
 }
 
 
-/* =====================================================
-   NEW APPLE
-===================================================== */
+/* ================= NEW APPLE ================= */
 
 function newApple(){
 
@@ -2269,8 +2010,7 @@ function newApple(){
         );
 
     appleX =
-        Math.random() *
-        maxX;
+        Math.random() * maxX;
 
     apple.style.left =
         appleX + "px";
@@ -2283,9 +2023,7 @@ function newApple(){
 }
 
 
-/* =====================================================
-   PARTICLES
-===================================================== */
+/* ================= PARTICLES ================= */
 
 function particles(
     x,
@@ -2300,18 +2038,12 @@ function particles(
     ){
 
         const p =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
 
-        p.className =
-            "particle";
+        p.className = "particle";
 
-        p.style.left =
-            x + "px";
-
-        p.style.top =
-            y + "px";
+        p.style.left = x + "px";
+        p.style.top = y + "px";
 
         const angle =
             Math.random() *
@@ -2338,11 +2070,7 @@ function particles(
         game.appendChild(p);
 
         setTimeout(
-            () => {
-
-                p.remove();
-
-            },
+            () => p.remove(),
             650
         );
 
@@ -2351,9 +2079,7 @@ function particles(
 }
 
 
-/* =====================================================
-   FLOATING SCORE
-===================================================== */
+/* ================= FLOATING SCORE ================= */
 
 function floatingScore(
     x,
@@ -2362,9 +2088,7 @@ function floatingScore(
 ){
 
     const el =
-        document.createElement(
-            "div"
-        );
+        document.createElement("div");
 
     el.className =
         "floatingScore";
@@ -2381,20 +2105,14 @@ function floatingScore(
     game.appendChild(el);
 
     setTimeout(
-        () => {
-
-            el.remove();
-
-        },
+        () => el.remove(),
         800
     );
 
 }
 
 
-/* =====================================================
-   TIME RUSH FALL
-===================================================== */
+/* ================= TIME RUSH ================= */
 
 function completeTimeRushFall(){
 
@@ -2419,11 +2137,7 @@ function completeTimeRushFall(){
             levelSound();
 
             setTimeout(
-                () => {
-
-                    endGame(true);
-
-                },
+                () => endGame(true),
                 900
             );
 
@@ -2431,13 +2145,11 @@ function completeTimeRushFall(){
 
         }
 
-
         timeRushLevel++;
 
         fallsThisLevel = 0;
 
         updateTimeRushSpeed();
-
         updateLevelDisplay();
 
         showLevelUp(
@@ -2459,18 +2171,13 @@ function completeTimeRushFall(){
 }
 
 
-/* =====================================================
-   CATCH APPLE
-===================================================== */
+/* ================= CATCH ================= */
 
 function catchApple(){
 
     let points = 1;
 
-
-    if(
-        appleType === "gold"
-    ){
+    if(appleType === "gold"){
 
         points = 3;
 
@@ -2487,9 +2194,7 @@ function catchApple(){
         );
 
     }
-    else if(
-        appleType === "rotten"
-    ){
+    else if(appleType === "rotten"){
 
         points = -1;
 
@@ -2528,20 +2233,14 @@ function catchApple(){
     if(score < 0)
         score = 0;
 
-
     scoreText.textContent =
-        "Score: " +
-        score;
-
+        "Score: " + score;
 
     catchSound();
-
     vibrate(40);
 
 
-    if(
-        selectedMode === "time"
-    ){
+    if(selectedMode === "time"){
 
         completeTimeRushFall();
 
@@ -2549,9 +2248,7 @@ function catchApple(){
             return;
 
     }
-    else if(
-        selectedMode === "classic"
-    ){
+    else if(selectedMode === "classic"){
 
         updateClassicSpeed();
 
@@ -2570,15 +2267,11 @@ function catchApple(){
 }
 
 
-/* =====================================================
-   MISSED APPLE
-===================================================== */
+/* ================= MISS ================= */
 
 function missApple(){
 
-    if(
-        selectedMode === "time"
-    ){
+    if(selectedMode === "time"){
 
         fallsThisLevel++;
 
@@ -2593,23 +2286,16 @@ function missApple(){
         );
 
 
-        game.classList.remove(
-            "shake"
-        );
+        game.classList.remove("shake");
 
         void game.offsetWidth;
 
-        game.classList.add(
-            "shake"
-        );
+        game.classList.add("shake");
 
 
-        if(
-            lives <= 0
-        ){
+        if(lives <= 0){
 
             endGame(false);
-
             return;
 
         }
@@ -2630,11 +2316,7 @@ function missApple(){
                 );
 
                 setTimeout(
-                    () => {
-
-                        endGame(true);
-
-                    },
+                    () => endGame(true),
                     900
                 );
 
@@ -2667,7 +2349,6 @@ function missApple(){
 
 
         updateLevelDisplay();
-
         newApple();
 
         return;
@@ -2675,9 +2356,7 @@ function missApple(){
     }
 
 
-    if(
-        appleType !== "rotten"
-    ){
+    if(appleType !== "rotten"){
 
         lives--;
 
@@ -2690,23 +2369,16 @@ function missApple(){
         );
 
 
-        game.classList.remove(
-            "shake"
-        );
+        game.classList.remove("shake");
 
         void game.offsetWidth;
 
-        game.classList.add(
-            "shake"
-        );
+        game.classList.add("shake");
 
 
-        if(
-            lives <= 0
-        ){
+        if(lives <= 0){
 
             endGame(false);
-
             return;
 
         }
@@ -2719,26 +2391,20 @@ function missApple(){
 }
 
 
-/* =====================================================
-   GAME LOOP
-===================================================== */
+/* ================= GAME LOOP ================= */
 
 function gameLoop(timestamp){
 
     if(!gameRunning)
         return;
 
-
     if(!lastTime)
         lastTime = timestamp;
 
-
     const delta =
-        timestamp -
-        lastTime;
+        timestamp - lastTime;
 
-    lastTime =
-        timestamp;
+    lastTime = timestamp;
 
 
     if(!paused){
@@ -2759,12 +2425,10 @@ function gameLoop(timestamp){
 
 
         if(
-
             a.bottom >= b.top &&
             a.top <= b.bottom &&
             a.right >= b.left &&
             a.left <= b.right
-
         ){
 
             catchApple();
@@ -2773,8 +2437,7 @@ function gameLoop(timestamp){
 
 
         if(
-            appleY >
-            innerHeight
+            appleY > innerHeight
         ){
 
             missApple();
@@ -2792,18 +2455,14 @@ function gameLoop(timestamp){
 }
 
 
-/* =====================================================
-   PAUSE
-===================================================== */
+/* ================= PAUSE ================= */
 
 function togglePause(){
 
     if(!gameRunning)
         return;
 
-
-    paused =
-        !paused;
+    paused = !paused;
 
 
     if(paused){
@@ -2832,15 +2491,10 @@ function togglePause(){
 }
 
 
-/* =====================================================
-   PAUSE BUTTON
-===================================================== */
-
 pauseButton.onclick =
 function(e){
 
     e.preventDefault();
-
     e.stopPropagation();
 
     togglePause();
@@ -2848,21 +2502,15 @@ function(e){
 };
 
 
-/* =====================================================
-   SOUND BUTTON
-===================================================== */
+/* ================= SOUND ================= */
 
 soundButton.onclick =
 function(e){
 
     e.preventDefault();
-
     e.stopPropagation();
 
-
-    soundOn =
-        !soundOn;
-
+    soundOn = !soundOn;
 
     soundButton.textContent =
         soundOn
@@ -2887,21 +2535,16 @@ function(e){
 };
 
 
-/* =====================================================
-   VIBRATION BUTTON
-===================================================== */
+/* ================= VIBRATION ================= */
 
 vibrationButton.onclick =
 function(e){
 
     e.preventDefault();
-
     e.stopPropagation();
-
 
     vibrationOn =
         !vibrationOn;
-
 
     vibrationButton.textContent =
         vibrationOn
@@ -2920,9 +2563,7 @@ function(e){
 };
 
 
-/* =====================================================
-   ACHIEVEMENT
-===================================================== */
+/* ================= ACHIEVEMENT ================= */
 
 function getAchievement(){
 
@@ -2955,39 +2596,28 @@ function getAchievement(){
 }
 
 
-/* =====================================================
-   START GAME
-===================================================== */
+/* ================= START GAME ================= */
 
 function startGame(){
 
     score = 0;
-
     lives = 3;
-
     level = 1;
 
     timeRushLevel = 1;
-
     fallsThisLevel = 0;
 
     paused = false;
-
     gameRunning = true;
-
     lastTime = 0;
 
 
-    if(
-        selectedMode === "time"
-    ){
+    if(selectedMode === "time"){
 
         appleSpeed = 1;
 
     }
-    else if(
-        selectedMode === "endless"
-    ){
+    else if(selectedMode === "endless"){
 
         appleSpeed = 4;
 
@@ -3002,15 +2632,12 @@ function startGame(){
     scoreText.textContent =
         "Score: 0";
 
-
     updateLives();
-
     updateLevelDisplay();
 
 
     pauseButton.textContent =
         "PAUSE";
-
 
     pauseMessage
         .classList
@@ -3021,14 +2648,9 @@ function startGame(){
         .classList
         .add("hidden");
 
-
     gameOverScreen
         .classList
         .add("hidden");
-
-
-    gameOverTitle.textContent =
-        "🏆 Game Over";
 
 
     basketX =
@@ -3040,15 +2662,11 @@ function startGame(){
 
     newApple();
 
-
     getAudio();
-
     startMusic();
 
 
-    if(
-        animationFrame !== null
-    ){
+    if(animationFrame !== null){
 
         cancelAnimationFrame(
             animationFrame
@@ -3062,24 +2680,17 @@ function startGame(){
             gameLoop
         );
 
-
-    enterFullscreen();
-
 }
 
 
-/* =====================================================
-   GAME OVER
-===================================================== */
+/* ================= GAME OVER ================= */
 
 function endGame(completed=false){
 
     if(!gameRunning)
         return;
 
-
     gameRunning = false;
-
     paused = false;
 
     stopMusic();
@@ -3109,9 +2720,7 @@ function endGame(completed=false){
     }
 
 
-    if(
-        animationFrame !== null
-    ){
+    if(animationFrame !== null){
 
         cancelAnimationFrame(
             animationFrame
@@ -3122,12 +2731,9 @@ function endGame(completed=false){
     }
 
 
-    if(
-        score > highScore
-    ){
+    if(score > highScore){
 
-        highScore =
-            score;
+        highScore = score;
 
         localStorage.setItem(
             "myAppleCatcherHighScore",
@@ -3138,21 +2744,17 @@ function endGame(completed=false){
 
 
     highScoreText.textContent =
-        "Best: " +
-        highScore;
+        "Best: " + highScore;
 
 
     finalScore.textContent =
         score;
 
-
     finalBest.textContent =
         highScore;
 
 
-    if(
-        selectedMode === "time"
-    ){
+    if(selectedMode === "time"){
 
         finalLevel.textContent =
             timeRushLevel +
@@ -3160,9 +2762,7 @@ function endGame(completed=false){
             TOTAL_TIME_LEVELS;
 
     }
-    else if(
-        selectedMode === "classic"
-    ){
+    else if(selectedMode === "classic"){
 
         finalLevel.textContent =
             level;
@@ -3195,44 +2795,12 @@ function endGame(completed=false){
 }
 
 
-/* =====================================================
-   FULLSCREEN
-===================================================== */
-
-function enterFullscreen(){
-
-    try{
-
-        if(
-            document
-            .documentElement
-            .requestFullscreen
-        ){
-
-            document
-            .documentElement
-            .requestFullscreen()
-            .catch(
-                () => {}
-            );
-
-        }
-
-    }
-    catch(e){}
-
-}
-
-
-/* =====================================================
-   START
-===================================================== */
+/* ================= START BUTTON ================= */
 
 startButton.onclick =
 function(e){
 
     e.preventDefault();
-
     e.stopPropagation();
 
     startGame();
@@ -3240,15 +2808,12 @@ function(e){
 };
 
 
-/* =====================================================
-   RESTART
-===================================================== */
+/* ================= RESTART ================= */
 
 restartButton.onclick =
 function(e){
 
     e.preventDefault();
-
     e.stopPropagation();
 
     startGame();
@@ -3257,27 +2822,26 @@ function(e){
 
 
 /* =====================================================
-   BACK TO MAIN HOMEPAGE
+   BACK TO HOMEPAGE
+   IMPORTANT:
+   This does NOT go to "/".
+   It returns to this game's own HOME SCREEN.
 ===================================================== */
 
 homeButton.onclick =
 function(e){
 
     e.preventDefault();
-
     e.stopPropagation();
 
 
     gameRunning = false;
-
     paused = false;
 
     stopMusic();
 
 
-    if(
-        animationFrame !== null
-    ){
+    if(animationFrame !== null){
 
         cancelAnimationFrame(
             animationFrame
@@ -3288,29 +2852,54 @@ function(e){
     }
 
 
-    /*
-       GO TO THE MAIN WEBSITE.
+    pauseMessage
+        .classList
+        .add("hidden");
 
-       Apple Catcher is located at:
 
-       /apple-catcher/Index.html
+    gameOverScreen
+        .classList
+        .add("hidden");
 
-       Therefore:
 
-       ../index.html
+    startScreen
+        .classList
+        .remove("hidden");
 
-       means the homepage one folder above.
-    */
 
-    window.location.href =
-        "../index.html";
+    score = 0;
+    lives = 3;
+    level = 1;
+
+    timeRushLevel = 1;
+    fallsThisLevel = 0;
+
+
+    scoreText.textContent =
+        "Score: 0";
+
+
+    updateLives();
+    updateLevelDisplay();
+
+
+    pauseButton.textContent =
+        "PAUSE";
+
+
+    basketX =
+        innerWidth / 2;
+
+    basket.style.left =
+        basketX + "px";
+
+
+    newApple();
 
 };
 
 
-/* =====================================================
-   RESIZE
-===================================================== */
+/* ================= RESIZE ================= */
 
 window.addEventListener(
     "resize",
@@ -3335,18 +2924,13 @@ window.addEventListener(
 );
 
 
-/* =====================================================
-   INITIAL
-===================================================== */
+/* ================= INITIAL ================= */
 
 updateLives();
-
 updateLevelDisplay();
-
 newApple();
 
 </script>
 
 </body>
-
 </html>
