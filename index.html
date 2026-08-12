@@ -9,9 +9,9 @@
 content="width=device-width, initial-scale=1.0,
 maximum-scale=1.0, user-scalable=no">
 
-<meta name="theme-color"
-content="#321526"
-id="themeColor">
+<meta name="theme-color" content="#180912">
+
+<meta name="color-scheme" content="dark">
 
 <title>FZ Fariha Zahin Collection</title>
 
@@ -29,337 +29,127 @@ id="themeColor">
 
 html {
     scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
+html.light {
+    color-scheme: light;
 }
 
 body {
-
     min-height: 100vh;
 
     font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-    color: #fff4f8;
+    color: #ffffff;
 
     background:
-
-    radial-gradient(
-        circle at 50% 0%,
-        rgba(255,71,145,.25),
-        transparent 34%
-    ),
-
-    radial-gradient(
-        circle at 100% 45%,
-        rgba(224,47,119,.14),
-        transparent 30%
-    ),
-
-    linear-gradient(
-        180deg,
-        #321526 0%,
-        #3b182b 48%,
-        #24101b 100%
-    );
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,71,145,.30),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 100% 45%,
+            rgba(224,47,119,.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #180912 0%,
+            #250d1c 48%,
+            #12070e 100%
+        );
 
     overflow-x: hidden;
 
     transition:
-    background .35s ease,
-    color .35s ease;
+        background .3s ease,
+        color .3s ease;
 }
 
 
 /* =====================================================
-   SYSTEM DARK THEME
-   DEFAULT DARK — SOFT, NOT PURE BLACK
+   DARK THEME — FORCE STABLE COLORS
 ===================================================== */
 
-@media (prefers-color-scheme: dark) {
-
-    body {
-
-        color: #fff4f8;
-
-        background:
-
+html:not(.light) body {
+    background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(255,71,145,.25),
+            rgba(255,71,145,.30),
             transparent 34%
         ),
-
         radial-gradient(
             circle at 100% 45%,
-            rgba(224,47,119,.14),
+            rgba(224,47,119,.18),
             transparent 30%
         ),
-
         linear-gradient(
             180deg,
-            #321526 0%,
-            #3b182b 48%,
-            #24101b 100%
+            #180912 0%,
+            #250d1c 48%,
+            #12070e 100%
         );
-    }
 
+    color: #ffffff;
 }
 
 
 /* =====================================================
    LIGHT THEME
-   SOFT PINK — NOT PURE WHITE
 ===================================================== */
 
-body.light {
+html.light body {
 
     color: #321525;
 
     background:
-
-    radial-gradient(
-        circle at 50% 0%,
-        rgba(255,113,171,.30),
-        transparent 35%
-    ),
-
-    radial-gradient(
-        circle at 100% 55%,
-        rgba(255,153,193,.18),
-        transparent 32%
-    ),
-
-    linear-gradient(
-        180deg,
-        #fff0f6 0%,
-        #ffe3ee 50%,
-        #ffedf4 100%
-    );
-}
-
-
-/* =====================================================
-   SYSTEM LIGHT
-===================================================== */
-
-@media (prefers-color-scheme: light) {
-
-    body:not(.dark-force) {
-
-        color: #321525;
-
-        background:
-
         radial-gradient(
             circle at 50% 0%,
-            rgba(255,113,171,.30),
+            rgba(255,113,171,.28),
             transparent 35%
         ),
-
         radial-gradient(
             circle at 100% 55%,
-            rgba(255,153,193,.18),
+            rgba(255,180,210,.18),
             transparent 32%
         ),
-
         linear-gradient(
             180deg,
-            #fff0f6 0%,
-            #ffe3ee 50%,
-            #ffedf4 100%
+            #fff8fb 0%,
+            #ffedf4 50%,
+            #fff7fa 100%
         );
-    }
-
 }
 
 
 /* =====================================================
-   LIGHT COMPONENTS
+   LIGHT MODE TEXT
 ===================================================== */
 
-body.light header {
-
-    background:
-    rgba(255,241,247,.88);
-
-    border-bottom:
-    1px solid rgba(150,65,100,.10);
-}
-
-body.light .hero-description,
-body.light .action-card p,
-body.light .about p {
-
+html.light .hero-description {
     color: #805b6d;
 }
 
-body.light .feature-strip,
-body.light .feature-strip,
-body.light .about {
-    background: rgba(255,255,255,.62);
-}
-
-body.light .action-card {
-    background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,.88),
-        rgba(255,225,238,.72)
-    );
-
-    border:
-    1px solid rgba(150,75,110,.12);
-
-    color: #321525;
-
-    box-shadow:
-    0 8px 25px rgba(120,50,85,.08);
-}
-
-body.light .action-card h3 {
-    color: #321525;
-}
-
-body.light .action-card p {
+html.light .action-card p {
     color: #805b6d;
 }
 
-body.light .action-icon {
-    background: rgba(255,92,158,.12);
-} 
-   
-
-    border-color:
-    rgba(160,75,110,.10);
-
-    color: #321525;
+html.light .about p {
+    color: #805b6d;
 }
 
-body.light .bottom-nav {
-
-    background:
-    rgba(255,241,247,.92);
-
-    border-top:
-    1px solid rgba(150,65,100,.10);
+html.light .feature-text {
+    color: #805b6d;
 }
 
-body.light .nav-item {
-
-    color: #9a7184;
-}
-
-body.light .menu {
-
-    background:
-    rgba(255,241,247,.97);
-
-    border-color:
-    rgba(150,65,100,.10);
-
-    box-shadow:
-    0 20px 60px rgba(90,30,55,.18);
-}
-
-body.light .menu a,
-body.light .settings-button {
-
-    color: #4b2739;
-}
-
-body.light .menu a:hover,
-body.light .settings-button:hover {
-
-    background:
-    rgba(255,76,146,.10);
-}
-
-body.light .menu-button {
-
-    background:
-    rgba(255,255,255,.55);
-
-    color: #4b2739;
-
-    border-color:
-    rgba(150,65,100,.10);
-}
-
-body.light footer {
-
-    color: #9b7587;
-}
-
-body.light .gradient {
-
-    background:
-
-    linear-gradient(
-        100deg,
-        #321525 15%,
-        #b73572 52%,
-        #e52e79 100%
-    );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-body.light .settings-overlay {
-
-    background:
-    rgba(50,20,35,.35);
-}
-
-body.light .settings-panel {
-
-    background:
-
-    linear-gradient(
-        180deg,
-        #fff0f6,
-        #ffe1ec
-    );
-
-    color: #321525;
-
-    border-color:
-    rgba(150,65,100,.12);
-}
-
-body.light .close-settings {
-
-    background:
-    rgba(100,40,70,.08);
-
-    color: #4b2739;
-}
-
-body.light .setting-row {
-
-    border-bottom:
-    1px solid rgba(120,50,80,.10);
-}
-
-body.light .setting-option {
-
-    background:
-    rgba(255,255,255,.45);
-
-    color: #4b2739;
-
-    border-color:
-    rgba(150,65,100,.10);
-}
-
-body.light .music-btn {
-
-    color: #4b2739;
-
-    background:
-    rgba(255,92,158,.12);
+html.light footer {
+    color: #8d7180;
 }
 
 
@@ -380,7 +170,7 @@ body::before {
     left: -150px;
 
     background:
-    rgba(255,61,140,.16);
+        rgba(255,61,140,.18);
 
     filter: blur(90px);
 
@@ -404,7 +194,7 @@ body::after {
     bottom: 100px;
 
     background:
-    rgba(255,72,151,.12);
+        rgba(255,72,151,.14);
 
     filter: blur(100px);
 
@@ -438,16 +228,24 @@ header {
     justify-content: space-between;
 
     background:
-    rgba(50,21,38,.80);
+        rgba(24,8,18,.78);
 
     border-bottom:
-    1px solid rgba(255,255,255,.07);
+        1px solid rgba(255,255,255,.07);
 
     backdrop-filter: blur(18px);
-
     -webkit-backdrop-filter: blur(18px);
 
     z-index: 100;
+}
+
+html.light header {
+
+    background:
+        rgba(255,248,251,.82);
+
+    border-bottom:
+        1px solid rgba(150,75,110,.10);
 }
 
 .logo {
@@ -478,15 +276,15 @@ header {
     justify-content: center;
 
     background:
-    linear-gradient(
-        135deg,
-        #ff78ae,
-        #e52e79
-    );
+        linear-gradient(
+            135deg,
+            #ff78ae,
+            #e52e79
+        );
 
     box-shadow:
-    0 5px 20px
-    rgba(255,70,145,.35);
+        0 5px 20px
+        rgba(255,70,145,.35);
 
     font-size: 13px;
 
@@ -497,18 +295,22 @@ header {
     color: #ff91ba;
 }
 
+html.light .logo {
+    color: #321525;
+}
+
 .menu-button {
 
     width: 42px;
     height: 42px;
 
     border:
-    1px solid rgba(255,255,255,.09);
+        1px solid rgba(255,255,255,.09);
 
     border-radius: 12px;
 
     background:
-    rgba(255,255,255,.055);
+        rgba(255,255,255,.055);
 
     color: white;
 
@@ -520,6 +322,17 @@ header {
 
     align-items: center;
     justify-content: center;
+}
+
+html.light .menu-button {
+
+    background:
+        rgba(255,255,255,.72);
+
+    border:
+        1px solid rgba(150,75,110,.12);
+
+    color: #321525;
 }
 
 
@@ -539,19 +352,31 @@ header {
     padding: 8px;
 
     background:
-    rgba(50,21,38,.97);
+        rgba(39,10,28,.97);
 
     border:
-    1px solid rgba(255,255,255,.09);
+        1px solid rgba(255,255,255,.09);
 
     border-radius: 17px;
 
     box-shadow:
-    0 20px 60px rgba(0,0,0,.35);
+        0 20px 60px rgba(0,0,0,.45);
 
     display: none;
 
     z-index: 300;
+}
+
+html.light .menu {
+
+    background:
+        rgba(255,250,252,.98);
+
+    border:
+        1px solid rgba(150,75,110,.12);
+
+    box-shadow:
+        0 20px 60px rgba(120,50,85,.15);
 }
 
 .menu.show {
@@ -588,11 +413,16 @@ header {
     cursor: pointer;
 }
 
+html.light .menu a,
+html.light .settings-button {
+    color: #321525;
+}
+
 .menu a:hover,
 .settings-button:hover {
 
     background:
-    rgba(255,76,146,.12);
+        rgba(255,76,146,.12);
 }
 
 
@@ -607,7 +437,7 @@ header {
     min-height: 690px;
 
     padding:
-    55px 20px 35px;
+        55px 20px 35px;
 
     display: flex;
 
@@ -631,12 +461,12 @@ header {
     padding: 7px 13px;
 
     border:
-    1px solid rgba(255,143,188,.22);
+        1px solid rgba(255,143,188,.22);
 
     border-radius: 100px;
 
     background:
-    rgba(255,76,145,.08);
+        rgba(255,76,145,.08);
 
     color: #ffacd0;
 
@@ -645,6 +475,17 @@ header {
     font-weight: 700;
 
     letter-spacing: 1.3px;
+}
+
+html.light .eyebrow {
+
+    background:
+        rgba(255,92,158,.08);
+
+    border-color:
+        rgba(210,80,135,.15);
+
+    color: #b63c70;
 }
 
 .eyebrow-dot {
@@ -657,7 +498,7 @@ header {
     background: #ff7eaf;
 
     box-shadow:
-    0 0 10px #ff4f91;
+        0 0 10px #ff4f91;
 }
 
 .hero-title {
@@ -667,7 +508,7 @@ header {
     max-width: 650px;
 
     font-size:
-    clamp(34px,10vw,60px);
+        clamp(34px,10vw,60px);
 
     line-height: 1.04;
 
@@ -679,14 +520,35 @@ header {
 .gradient {
 
     background:
-    linear-gradient(
-        100deg,
-        #fff 15%,
-        #ffb0d0 52%,
-        #ff5c9c 100%
-    );
+        linear-gradient(
+            100deg,
+            #fff 15%,
+            #ffb0d0 52%,
+            #ff5c9c 100%
+        );
 
     -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+html.light .hero-title {
+    color: #321525;
+}
+
+html.light .gradient {
+
+    background:
+        linear-gradient(
+            100deg,
+            #321525 10%,
+            #d34d86 52%,
+            #ed4388 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
 
     -webkit-text-fill-color: transparent;
 }
@@ -730,7 +592,7 @@ header {
     top: 55px;
 
     background:
-    rgba(255,68,145,.22);
+        rgba(255,68,145,.22);
 
     filter: blur(65px);
 
@@ -750,7 +612,7 @@ header {
 
 
 /* =====================================================
-   HAIR BACK
+   HAIR
 ===================================================== */
 
 .hair {
@@ -764,21 +626,21 @@ header {
     top: 10px;
 
     background:
-    linear-gradient(
-        145deg,
-        #17101a 0%,
-        #421d36 48%,
-        #090609 100%
-    );
+        linear-gradient(
+            145deg,
+            #17101a 0%,
+            #421d36 48%,
+            #090609 100%
+        );
 
     border-radius:
-    48% 52% 43% 43%
-    /
-    35% 37% 63% 65%;
+        48% 52% 43% 43%
+        /
+        35% 37% 63% 65%;
 
     box-shadow:
-    0 15px 35px
-    rgba(0,0,0,.3);
+        0 15px 35px
+        rgba(0,0,0,.3);
 
     z-index: 2;
 }
@@ -799,11 +661,11 @@ header {
     top: 119px;
 
     background:
-    linear-gradient(
-        90deg,
-        #d98f7c,
-        #efb19c
-    );
+        linear-gradient(
+            90deg,
+            #d98f7c,
+            #efb19c
+        );
 
     border-radius: 50%;
 
@@ -834,11 +696,11 @@ header {
     top: 193px;
 
     background:
-    linear-gradient(
-        90deg,
-        #d68f7b,
-        #efb09a
-    );
+        linear-gradient(
+            90deg,
+            #d68f7b,
+            #efb09a
+        );
 
     z-index: 4;
 }
@@ -859,18 +721,18 @@ header {
     top: 225px;
 
     background:
-    linear-gradient(
-        135deg,
-        #f04b91,
-        #a92360
-    );
+        linear-gradient(
+            135deg,
+            #f04b91,
+            #a92360
+        );
 
     border-radius:
-    55px 55px 22px 22px;
+        55px 55px 22px 22px;
 
     box-shadow:
-    0 -8px 35px
-    rgba(235,54,132,.25);
+        0 -8px 35px
+        rgba(235,54,132,.25);
 
     z-index: 4;
 }
@@ -891,21 +753,21 @@ header {
     top: 58px;
 
     background:
-    linear-gradient(
-        145deg,
-        #fbd0c0 0%,
-        #f3b49f 55%,
-        #e39a84 100%
-    );
+        linear-gradient(
+            145deg,
+            #fbd0c0 0%,
+            #f3b49f 55%,
+            #e39a84 100%
+        );
 
     border-radius:
-    48% 48% 50% 50%
-    /
-    39% 39% 61% 61%;
+        48% 48% 50% 50%
+        /
+        39% 39% 61% 61%;
 
     box-shadow:
-    inset -8px -10px 18px
-    rgba(155,73,66,.10);
+        inset -8px -10px 18px
+        rgba(155,73,66,.10);
 
     z-index: 10;
 }
@@ -923,7 +785,7 @@ header {
     top: 25px;
 
     background:
-    rgba(255,255,255,.16);
+        rgba(255,255,255,.16);
 
     filter: blur(7px);
 
@@ -945,7 +807,7 @@ header {
     top: 101px;
 
     background:
-    rgba(247,91,118,.20);
+        rgba(247,91,118,.20);
 
     border-radius: 50%;
 
@@ -1010,10 +872,10 @@ header {
     top: 55px;
 
     border-top:
-    4px solid #302039;
+        4px solid #302039;
 
     border-radius:
-    50% 50% 0 0;
+        50% 50% 0 0;
 
     z-index: 16;
 }
@@ -1087,7 +949,7 @@ header {
     top: 0;
 
     background:
-    rgba(150,76,70,.20);
+        rgba(150,76,70,.20);
 
     border-radius: 50%;
 }
@@ -1105,14 +967,14 @@ header {
     bottom: 0;
 
     border-bottom:
-    2px solid rgba(145,70,70,.38);
+        2px solid rgba(145,70,70,.38);
 
     border-radius: 50%;
 }
 
 
 /* =====================================================
-   SMILING LIPS
+   LIPS
 ===================================================== */
 
 .lips {
@@ -1143,18 +1005,18 @@ header {
     background: #b94b73;
 
     clip-path:
-    polygon(
-        0 55%,
-        18% 28%,
-        37% 43%,
-        50% 22%,
-        63% 43%,
-        82% 28%,
-        100% 55%,
-        83% 75%,
-        50% 90%,
-        17% 75%
-    );
+        polygon(
+            0 55%,
+            18% 28%,
+            37% 43%,
+            50% 22%,
+            63% 43%,
+            82% 28%,
+            100% 55%,
+            83% 75%,
+            50% 90%,
+            17% 75%
+        );
 }
 
 .lips::after {
@@ -1172,10 +1034,10 @@ header {
     background: #963153;
 
     border-radius:
-    0 0 50% 50%;
+        0 0 50% 50%;
 
     border-top:
-    2px solid #72233f;
+        2px solid #72233f;
 }
 
 
@@ -1193,11 +1055,10 @@ header {
     left: 92px;
     top: 31px;
 
-    background:
-    #17101a;
+    background: #17101a;
 
     border-radius:
-    55% 55% 35% 30%;
+        55% 55% 35% 30%;
 
     z-index: 11;
 
@@ -1216,11 +1077,10 @@ header {
     left: -6px;
     top: 18px;
 
-    background:
-    #17101a;
+    background: #17101a;
 
     border-radius:
-    70% 30% 60% 45%;
+        70% 30% 60% 45%;
 
     transform: rotate(8deg);
 
@@ -1239,11 +1099,10 @@ header {
     right: -5px;
     top: 17px;
 
-    background:
-    #17101a;
+    background: #17101a;
 
     border-radius:
-    30% 70% 45% 60%;
+        30% 70% 45% 60%;
 
     transform: rotate(-7deg);
 
@@ -1274,14 +1133,14 @@ header {
     height: 84px;
 
     border:
-    6px solid #4d293d;
+        6px solid #4d293d;
 
     background:
-    linear-gradient(
-        145deg,
-        #160b16,
-        #2a1023
-    );
+        linear-gradient(
+            145deg,
+            #160b16,
+            #2a1023
+        );
 
     border-radius: 9px;
 
@@ -1291,7 +1150,7 @@ header {
     justify-content: center;
 
     box-shadow:
-    0 12px 25px rgba(0,0,0,.35);
+        0 12px 25px rgba(0,0,0,.35);
 
     position: relative;
 }
@@ -1306,11 +1165,11 @@ header {
     height: 50px;
 
     background:
-    radial-gradient(
-        circle,
-        rgba(255,78,151,.22),
-        transparent 70%
-    );
+        radial-gradient(
+            circle,
+            rgba(255,78,151,.22),
+            transparent 70%
+        );
 }
 
 .screen-text {
@@ -1324,8 +1183,8 @@ header {
     color: #ff91bd;
 
     text-shadow:
-    0 0 18px
-    rgba(255,91,158,.65);
+        0 0 18px
+        rgba(255,91,158,.65);
 
     z-index: 2;
 }
@@ -1338,14 +1197,14 @@ header {
     margin-left: -12px;
 
     background:
-    linear-gradient(
-        180deg,
-        #684055,
-        #402536
-    );
+        linear-gradient(
+            180deg,
+            #684055,
+            #402536
+        );
 
     border-radius:
-    0 0 13px 13px;
+        0 0 13px 13px;
 }
 
 
@@ -1360,7 +1219,7 @@ header {
     max-width: 600px;
 
     margin:
-    0 auto 35px;
+        0 auto 35px;
 
     padding: 17px;
 
@@ -1371,12 +1230,24 @@ header {
     gap: 10px;
 
     background:
-    rgba(255,255,255,.035);
+        rgba(255,255,255,.035);
 
     border:
-    1px solid rgba(255,255,255,.07);
+        1px solid rgba(255,255,255,.07);
 
     border-radius: 18px;
+}
+
+html.light .feature-strip {
+
+    background:
+        rgba(255,255,255,.62);
+
+    border:
+        1px solid rgba(150,75,110,.10);
+
+    box-shadow:
+        0 8px 25px rgba(120,50,85,.05);
 }
 
 .feature {
@@ -1404,7 +1275,7 @@ header {
 
 
 /* =====================================================
-   ACTION CARDS
+   ACTION SECTION
 ===================================================== */
 
 .action-section {
@@ -1422,6 +1293,11 @@ header {
     gap: 14px;
 }
 
+
+/* =====================================================
+   ACTION CARDS — DARK
+===================================================== */
+
 .action-card {
 
     position: relative;
@@ -1435,21 +1311,80 @@ header {
     text-align: left;
 
     border:
-    1px solid rgba(255,255,255,.09);
+        1px solid rgba(255,255,255,.09);
 
     border-radius: 22px;
 
     background:
-    linear-gradient(
-        145deg,
-        rgba(226,50,120,.24),
-        rgba(255,255,255,.035)
-    );
+        linear-gradient(
+            145deg,
+            rgba(226,50,120,.24),
+            rgba(255,255,255,.035)
+        );
 
     color: white;
 
     cursor: pointer;
+
+    font-family: inherit;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .25s ease;
 }
+
+.action-card:active {
+    transform: scale(.98);
+}
+
+
+/* =====================================================
+   ACTION CARDS — LIGHT
+===================================================== */
+
+html.light .action-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.90),
+            rgba(255,225,238,.72)
+        );
+
+    border:
+        1px solid rgba(150,75,110,.12);
+
+    color: #321525;
+
+    box-shadow:
+        0 8px 25px
+        rgba(120,50,85,.08);
+}
+
+html.light .action-card h3 {
+    color: #321525;
+}
+
+html.light .action-card p {
+    color: #805b6d;
+}
+
+html.light .action-card:hover {
+
+    box-shadow:
+        0 12px 30px
+        rgba(120,50,85,.12);
+}
+
+
+/* =====================================================
+   ACTION ICON
+===================================================== */
 
 .action-icon {
 
@@ -1464,11 +1399,17 @@ header {
     border-radius: 13px;
 
     background:
-    rgba(255,92,158,.14);
+        rgba(255,92,158,.14);
 
     font-size: 21px;
 
     margin-bottom: 18px;
+}
+
+html.light .action-icon {
+
+    background:
+        rgba(255,92,158,.12);
 }
 
 .action-card h3 {
@@ -1505,12 +1446,25 @@ header {
     text-align: center;
 
     background:
-    rgba(255,255,255,.028);
+        rgba(255,255,255,.028);
 
     border:
-    1px solid rgba(255,255,255,.07);
+        1px solid rgba(255,255,255,.07);
 
     border-radius: 22px;
+}
+
+html.light .about {
+
+    background:
+        rgba(255,255,255,.62);
+
+    border:
+        1px solid rgba(150,75,110,.10);
+
+    box-shadow:
+        0 8px 25px
+        rgba(120,50,85,.05);
 }
 
 .about-label {
@@ -1524,11 +1478,19 @@ header {
     letter-spacing: 1.5px;
 }
 
+html.light .about-label {
+    color: #c94378;
+}
+
 .about h2 {
 
     margin-top: 9px;
 
     font-size: 24px;
+}
+
+html.light .about h2 {
+    color: #321525;
 }
 
 .about p {
@@ -1552,7 +1514,7 @@ footer {
     text-align: center;
 
     padding:
-    45px 20px 115px;
+        45px 20px 115px;
 
     color: #8d7180;
 
@@ -1565,9 +1527,13 @@ footer strong {
     color: #ff8fba;
 }
 
+html.light footer strong {
+    color: #c94378;
+}
+
 
 /* =====================================================
-   BOTTOM NAV
+   BOTTOM NAV — DARK
 ===================================================== */
 
 .bottom-nav {
@@ -1589,14 +1555,29 @@ footer strong {
     align-items: center;
 
     background:
-    rgba(50,21,38,.92);
+        rgba(24,7,17,.92);
 
     border-top:
-    1px solid rgba(255,255,255,.08);
+        1px solid rgba(255,255,255,.08);
 
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
     z-index: 200;
+}
+
+
+/* =====================================================
+   BOTTOM NAV — LIGHT
+===================================================== */
+
+html.light .bottom-nav {
+
+    background:
+        rgba(255,248,251,.92);
+
+    border-top:
+        1px solid rgba(150,75,110,.10);
 }
 
 .nav-item {
@@ -1605,7 +1586,7 @@ footer strong {
 
     padding: 6px 8px;
 
-    color: #a48695;
+    color: #806b77;
 
     text-decoration: none;
 
@@ -1622,6 +1603,10 @@ footer strong {
     font-size: 10px;
 }
 
+html.light .nav-item {
+    color: #9a7184;
+}
+
 .nav-icon {
 
     font-size: 20px;
@@ -1630,13 +1615,16 @@ footer strong {
 }
 
 .nav-item.active {
-
     color: #ff8fba;
+}
+
+html.light .nav-item.active {
+    color: #d54882;
 }
 
 
 /* =====================================================
-   SETTINGS PANEL
+   SETTINGS OVERLAY
 ===================================================== */
 
 .settings-overlay {
@@ -1646,7 +1634,7 @@ footer strong {
     inset: 0;
 
     background:
-    rgba(0,0,0,.58);
+        rgba(0,0,0,.58);
 
     backdrop-filter: blur(5px);
 
@@ -1663,29 +1651,57 @@ footer strong {
     display: flex;
 }
 
+
+/* =====================================================
+   SETTINGS PANEL — DARK
+===================================================== */
+
 .settings-panel {
 
     width: 100%;
 
     max-width: 520px;
 
-    padding: 24px 20px 30px;
+    padding:
+        24px 20px 30px;
 
     background:
-    linear-gradient(
-        180deg,
-        #321022,
-        #24101b
-    );
+        linear-gradient(
+            180deg,
+            #321022,
+            #190911
+        );
 
     border-radius:
-    28px 28px 0 0;
+        28px 28px 0 0;
 
     border-top:
-    1px solid rgba(255,255,255,.12);
+        1px solid rgba(255,255,255,.12);
 
     box-shadow:
-    0 -20px 70px rgba(0,0,0,.45);
+        0 -20px 70px rgba(0,0,0,.45);
+}
+
+
+/* =====================================================
+   SETTINGS PANEL — LIGHT
+===================================================== */
+
+html.light .settings-panel {
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff8fb,
+            #ffeaf3
+        );
+
+    border-top:
+        1px solid rgba(150,75,110,.12);
+
+    box-shadow:
+        0 -20px 70px
+        rgba(120,50,85,.15);
 }
 
 .settings-title {
@@ -1703,6 +1719,10 @@ footer strong {
     font-size: 21px;
 }
 
+html.light .settings-title h2 {
+    color: #321525;
+}
+
 .close-settings {
 
     width: 38px;
@@ -1713,19 +1733,39 @@ footer strong {
     border-radius: 11px;
 
     background:
-    rgba(255,255,255,.08);
+        rgba(255,255,255,.08);
 
     color: white;
 
     font-size: 20px;
+
+    cursor: pointer;
 }
+
+html.light .close-settings {
+
+    background:
+        rgba(150,75,110,.08);
+
+    color: #321525;
+}
+
+
+/* =====================================================
+   SETTINGS ROW
+===================================================== */
 
 .setting-row {
 
     padding: 15px 0;
 
     border-bottom:
-    1px solid rgba(255,255,255,.07);
+        1px solid rgba(255,255,255,.07);
+}
+
+html.light .setting-row {
+    border-bottom:
+        1px solid rgba(150,75,110,.10);
 }
 
 .setting-label {
@@ -1735,6 +1775,10 @@ footer strong {
     font-weight: 700;
 
     margin-bottom: 11px;
+}
+
+html.light .setting-label {
+    color: #321525;
 }
 
 .setting-options {
@@ -1751,31 +1795,51 @@ footer strong {
     padding: 9px 13px;
 
     border:
-    1px solid rgba(255,255,255,.10);
+        1px solid rgba(255,255,255,.10);
 
     border-radius: 11px;
 
     background:
-    rgba(255,255,255,.055);
+        rgba(255,255,255,.055);
 
     color: #f8e7ef;
 
     cursor: pointer;
 
     font-size: 12px;
+
+    font-family: inherit;
+}
+
+html.light .setting-option {
+
+    background:
+        rgba(255,255,255,.65);
+
+    border:
+        1px solid rgba(150,75,110,.12);
+
+    color: #321525;
 }
 
 .setting-option.active {
 
     background:
-    linear-gradient(
-        135deg,
-        #ff78ae,
-        #e52e79
-    );
+        linear-gradient(
+            135deg,
+            #ff78ae,
+            #e52e79
+        );
 
     border-color: transparent;
+
+    color: white;
 }
+
+
+/* =====================================================
+   VOLUME
+===================================================== */
 
 .volume-box {
 
@@ -1792,6 +1856,11 @@ footer strong {
 
     accent-color: #ff5c9c;
 }
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
 
 .music-controls {
 
@@ -1811,11 +1880,23 @@ footer strong {
     border-radius: 12px;
 
     background:
-    rgba(255,92,158,.15);
+        rgba(255,92,158,.15);
 
     color: white;
 
     font-weight: 700;
+
+    cursor: pointer;
+
+    font-family: inherit;
+}
+
+html.light .music-btn {
+
+    background:
+        rgba(255,92,158,.12);
+
+    color: #9d315f;
 }
 
 
@@ -2114,6 +2195,7 @@ footer strong {
 
 <section class="action-section">
 
+
     <button
         class="action-card"
         id="games"
@@ -2154,6 +2236,7 @@ footer strong {
         </p>
 
     </button>
+
 
 </section>
 
@@ -2293,16 +2376,7 @@ footer strong {
             <div class="setting-options">
 
                 <button
-                    class="setting-option"
-                    id="systemOption"
-                    onclick="setTheme('system')">
-
-                    📱 System
-
-                </button>
-
-                <button
-                    class="setting-option"
+                    class="setting-option active"
                     id="darkOption"
                     onclick="setTheme('dark')">
 
@@ -2446,7 +2520,6 @@ footer strong {
     id="backgroundMusic"
     src="music.mp3"
     loop>
-
 </audio>
 
 
@@ -2459,9 +2532,9 @@ footer strong {
 function toggleMenu() {
 
     document
-    .getElementById("menu")
-    .classList
-    .toggle("show");
+        .getElementById("menu")
+        .classList
+        .toggle("show");
 
 }
 
@@ -2475,10 +2548,10 @@ document.addEventListener(
     function(event) {
 
         const menu =
-        document.getElementById("menu");
+            document.getElementById("menu");
 
         const button =
-        document.getElementById("menuButton");
+            document.getElementById("menuButton");
 
         if (
             !menu.contains(event.target) &&
@@ -2500,171 +2573,77 @@ document.addEventListener(
 function openSettings() {
 
     document
-    .getElementById("settingsOverlay")
-    .classList
-    .add("show");
+        .getElementById("settingsOverlay")
+        .classList
+        .add("show");
 
     document
-    .getElementById("menu")
-    .classList
-    .remove("show");
+        .getElementById("menu")
+        .classList
+        .remove("show");
 
 }
 
 function closeSettings() {
 
     document
-    .getElementById("settingsOverlay")
-    .classList
-    .remove("show");
+        .getElementById("settingsOverlay")
+        .classList
+        .remove("show");
 
 }
 
 
 /* =====================================================
-   THEME SYSTEM
+   THEME
+   IMPORTANT:
+   Theme is controlled ONLY by this website.
+   It does not depend on Chrome/device theme.
 ===================================================== */
 
-const themeColor =
-document.getElementById("themeColor");
+function setTheme(theme) {
 
+    const isLight = theme === "light";
 
-function applySystemTheme() {
-
-    const dark =
-        window.matchMedia &&
-        window.matchMedia(
-            "(prefers-color-scheme: dark)"
-        ).matches;
+    document.documentElement.classList.toggle(
+        "light",
+        isLight
+    );
 
     document.body.classList.toggle(
         "light",
-        !dark
+        isLight
     );
 
-    document.body.classList.remove(
-        "dark-force"
-    );
+    document
+        .getElementById("darkOption")
+        .classList
+        .toggle(
+            "active",
+            !isLight
+        );
 
-    themeColor.setAttribute(
-        "content",
-        dark
-            ? "#321526"
-            : "#fff0f6"
-    );
+    document
+        .getElementById("lightOption")
+        .classList
+        .toggle(
+            "active",
+            isLight
+        );
 
-}
-
-
-function setTheme(theme) {
+    document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute(
+            "content",
+            isLight ? "#fff8fb" : "#180912"
+        );
 
     localStorage.setItem(
         "fzTheme",
         theme
     );
 
-
-    document.body.classList.remove(
-        "light",
-        "dark-force"
-    );
-
-
-    if (theme === "light") {
-
-        document.body.classList.add(
-            "light"
-        );
-
-        themeColor.setAttribute(
-            "content",
-            "#fff0f6"
-        );
-
-    }
-
-
-    else if (theme === "dark") {
-
-        document.body.classList.add(
-            "dark-force"
-        );
-
-        themeColor.setAttribute(
-            "content",
-            "#321526"
-        );
-
-    }
-
-
-    else {
-
-        applySystemTheme();
-
-    }
-
-
-    updateThemeButtons(theme);
-
 }
-
-
-function updateThemeButtons(theme) {
-
-    document
-    .getElementById("systemOption")
-    .classList
-    .toggle(
-        "active",
-        theme === "system"
-    );
-
-    document
-    .getElementById("darkOption")
-    .classList
-    .toggle(
-        "active",
-        theme === "dark"
-    );
-
-    document
-    .getElementById("lightOption")
-    .classList
-    .toggle(
-        "active",
-        theme === "light"
-    );
-
-}
-
-
-/* =====================================================
-   FOLLOW CHROME / ANDROID THEME
-===================================================== */
-
-const systemTheme =
-window.matchMedia(
-    "(prefers-color-scheme: dark)"
-);
-
-
-systemTheme.addEventListener(
-    "change",
-    function() {
-
-        const currentTheme =
-        localStorage.getItem("fzTheme")
-        || "system";
-
-        if (currentTheme === "system") {
-
-            applySystemTheme();
-
-        }
-
-    }
-);
 
 
 /* =====================================================
@@ -2674,16 +2653,14 @@ systemTheme.addEventListener(
 function setLanguage(language, button) {
 
     document
-    .querySelectorAll(
-        ".setting-row:nth-of-type(2) .setting-option"
-    )
-    .forEach(function(option) {
+        .querySelectorAll(
+            ".setting-row:nth-of-type(2) .setting-option"
+        )
+        .forEach(function(option) {
 
-        option.classList.remove(
-            "active"
-        );
+            option.classList.remove("active");
 
-    });
+        });
 
     button.classList.add("active");
 
@@ -2700,9 +2677,9 @@ function setLanguage(language, button) {
 ===================================================== */
 
 const music =
-document.getElementById(
-    "backgroundMusic"
-);
+    document.getElementById(
+        "backgroundMusic"
+    );
 
 music.volume = 0.7;
 
@@ -2713,8 +2690,8 @@ function changeVolume(value) {
         Number(value) / 100;
 
     document
-    .getElementById("volumeValue")
-    .textContent =
+        .getElementById("volumeValue")
+        .textContent =
         value + "%";
 
     localStorage.setItem(
@@ -2732,13 +2709,13 @@ function changeVolume(value) {
 function playMusic() {
 
     music.play()
-    .catch(function() {
+        .catch(function() {
 
-        alert(
-            "Tap Play again if your browser blocked autoplay."
-        );
+            alert(
+                "Tap Play again if your browser blocked autoplay."
+            );
 
-    });
+        });
 
 }
 
@@ -2774,30 +2751,74 @@ function openApps() {
 
 
 /* =====================================================
-   LOAD SAVED THEME
+   LOAD SAVED SETTINGS
 ===================================================== */
 
 const savedTheme =
-localStorage.getItem("fzTheme")
-|| "system";
-
-setTheme(savedTheme);
+    localStorage.getItem("fzTheme");
 
 
-/* =====================================================
-   LOAD SAVED VOLUME
-===================================================== */
+if (savedTheme) {
+
+    setTheme(savedTheme);
+
+} else {
+
+    setTheme("dark");
+
+}
+
 
 const savedVolume =
-localStorage.getItem("fzVolume");
+    localStorage.getItem("fzVolume");
+
 
 if (savedVolume) {
 
     document
-    .getElementById("volumeSlider")
-    .value = savedVolume;
+        .getElementById("volumeSlider")
+        .value = savedVolume;
 
     changeVolume(savedVolume);
+
+}
+
+
+/* =====================================================
+   LOAD SAVED LANGUAGE
+===================================================== */
+
+const savedLanguage =
+    localStorage.getItem("fzLanguage");
+
+if (savedLanguage) {
+
+    document
+        .querySelectorAll(
+            ".setting-row:nth-of-type(2) .setting-option"
+        )
+        .forEach(function(button) {
+
+            if (
+                button.textContent.trim() ===
+                savedLanguage
+            ) {
+
+                document
+                    .querySelectorAll(
+                        ".setting-row:nth-of-type(2) .setting-option"
+                    )
+                    .forEach(function(option) {
+
+                        option.classList.remove("active");
+
+                    });
+
+                button.classList.add("active");
+
+            }
+
+        });
 
 }
 
