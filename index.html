@@ -9,7 +9,7 @@
 content="width=device-width, initial-scale=1.0,
 maximum-scale=1.0, user-scalable=no">
 
-<meta name="theme-color" content="#080b18">
+<meta name="theme-color" content="#070b14">
 
 <meta name="color-scheme" content="dark">
 
@@ -33,52 +33,118 @@ html {
 
 body {
     min-height: 100vh;
-
-    font-family:
-        Inter,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    color: #f4f5ff;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    color: #f1f5ff;
 
     background:
         radial-gradient(
             circle at 50% -10%,
-            rgba(116, 87, 255, .20),
+            rgba(44, 111, 255, .18),
             transparent 32%
         ),
         radial-gradient(
-            circle at 100% 35%,
-            rgba(255, 92, 92, .10),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 0% 80%,
-            rgba(58, 91, 255, .08),
+            circle at 100% 40%,
+            rgba(91, 72, 220, .12),
             transparent 30%
         ),
         linear-gradient(
             180deg,
-            #080b18 0%,
-            #0b0e20 45%,
-            #070912 100%
+            #070b14 0%,
+            #0a1020 48%,
+            #050810 100%
         );
 
     overflow-x: hidden;
-
-    transition:
-        background .35s ease,
-        color .35s ease;
+    transition: background .3s ease, color .3s ease;
 }
 
+/* =====================================================
+   LIGHT THEME
+===================================================== */
+
+body.light {
+
+    color: #172033;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(76, 132, 255, .16),
+            transparent 34%
+        ),
+        linear-gradient(
+            180deg,
+            #eef3fb 0%,
+            #e5ebf6 55%,
+            #f1f4f9 100%
+        );
+}
+
+body.light header {
+    background: rgba(238,243,251,.88);
+    border-bottom-color: rgba(25,40,70,.10);
+}
+
+body.light .hero-description,
+body.light .action-card p,
+body.light .about p {
+    color: #657189;
+}
+
+body.light .feature-strip,
+body.light .about {
+    background: rgba(255,255,255,.45);
+    border-color: rgba(25,40,70,.10);
+}
+
+body.light .bottom-nav {
+    background: rgba(238,243,251,.94);
+    border-top-color: rgba(25,40,70,.10);
+}
+
+body.light .nav-item {
+    color: #6d7890;
+}
+
+body.light .menu {
+    background: rgba(235,241,250,.98);
+    border-color: rgba(25,40,70,.10);
+}
+
+body.light .menu a,
+body.light .settings-button {
+    color: #27344d;
+}
+
+body.light .action-card {
+    color: #172033;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(44,111,255,.12),
+            rgba(255,255,255,.35)
+        );
+    border-color: rgba(44,111,255,.16);
+}
+
+body.light .settings-panel {
+    background: linear-gradient(
+        180deg,
+        #e7edf7,
+        #dce4f1
+    );
+}
+
+body.light .setting-option {
+    color: #27344d;
+    border-color: rgba(25,40,70,.12);
+}
 
 /* =====================================================
    AMBIENT LIGHT
 ===================================================== */
 
 body::before {
-
     content: "";
 
     position: fixed;
@@ -89,8 +155,7 @@ body::before {
     top: 120px;
     left: -160px;
 
-    background:
-        rgba(91, 77, 255, .14);
+    background: rgba(35,100,255,.12);
 
     filter: blur(100px);
 
@@ -102,21 +167,19 @@ body::before {
 }
 
 body::after {
-
     content: "";
 
     position: fixed;
 
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
 
     right: -180px;
-    bottom: 120px;
+    bottom: 80px;
 
-    background:
-        rgba(255, 82, 109, .11);
+    background: rgba(98,73,255,.10);
 
-    filter: blur(105px);
+    filter: blur(110px);
 
     border-radius: 50%;
 
@@ -124,7 +187,6 @@ body::after {
 
     z-index: -1;
 }
-
 
 /* =====================================================
    HEADER
@@ -147,25 +209,16 @@ header {
 
     justify-content: space-between;
 
-    background:
-        rgba(7, 10, 23, .82);
+    background: rgba(7,11,20,.80);
 
     border-bottom:
         1px solid rgba(255,255,255,.06);
 
-    backdrop-filter:
-        blur(22px);
-
-    -webkit-backdrop-filter:
-        blur(22px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
     z-index: 100;
 }
-
-
-/* =====================================================
-   LOGO
-===================================================== */
 
 .logo {
 
@@ -177,17 +230,17 @@ header {
 
     font-size: 14px;
 
-    font-weight: 850;
+    font-weight: 800;
 
     letter-spacing: .8px;
 }
 
 .logo-mark {
 
-    width: 36px;
-    height: 36px;
+    width: 35px;
+    height: 35px;
 
-    border-radius: 11px;
+    border-radius: 10px;
 
     display: flex;
 
@@ -197,31 +250,21 @@ header {
     background:
         linear-gradient(
             135deg,
-            #6d5cff,
-            #8c55ff 55%,
-            #ff647c
+            #4d8dff,
+            #5a4be7
         );
 
     box-shadow:
-        0 7px 25px
-        rgba(102, 82, 255, .30);
+        0 6px 24px rgba(55,105,255,.28);
 
     font-size: 12px;
 
     font-weight: 900;
-
-    color: white;
 }
 
 .logo-name span {
-
-    color: #9b8cff;
+    color: #6ea0ff;
 }
-
-
-/* =====================================================
-   MENU BUTTON
-===================================================== */
 
 .menu-button {
 
@@ -236,7 +279,7 @@ header {
     background:
         rgba(255,255,255,.045);
 
-    color: #f5f4ff;
+    color: #edf3ff;
 
     font-size: 22px;
 
@@ -246,20 +289,7 @@ header {
 
     align-items: center;
     justify-content: center;
-
-    transition:
-        .25s ease;
 }
-
-.menu-button:hover {
-
-    background:
-        rgba(112, 91, 255, .15);
-
-    border-color:
-        rgba(130, 112, 255, .30);
-}
-
 
 /* =====================================================
    MENU
@@ -272,12 +302,11 @@ header {
     top: 76px;
     right: 14px;
 
-    width: 225px;
+    width: 220px;
 
     padding: 8px;
 
-    background:
-        rgba(14, 17, 39, .97);
+    background: rgba(10,16,30,.97);
 
     border:
         1px solid rgba(255,255,255,.08);
@@ -285,8 +314,7 @@ header {
     border-radius: 17px;
 
     box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.55);
+        0 25px 70px rgba(0,0,0,.55);
 
     display: none;
 
@@ -310,7 +338,7 @@ header {
 
     padding: 13px;
 
-    color: #dedff2;
+    color: #dce5f7;
 
     text-decoration: none;
 
@@ -325,21 +353,14 @@ header {
     text-align: left;
 
     cursor: pointer;
-
-    transition:
-        background .2s ease,
-        color .2s ease;
 }
 
 .menu a:hover,
 .settings-button:hover {
 
     background:
-        rgba(109, 92, 255, .13);
-
-    color: white;
+        rgba(65,117,255,.12);
 }
-
 
 /* =====================================================
    HERO
@@ -351,8 +372,7 @@ header {
 
     min-height: 690px;
 
-    padding:
-        55px 20px 35px;
+    padding: 55px 20px 35px;
 
     display: flex;
 
@@ -365,37 +385,29 @@ header {
     overflow: hidden;
 }
 
-
-/* =====================================================
-   EYEBROW
-===================================================== */
-
 .eyebrow {
 
     display: inline-flex;
 
     align-items: center;
 
-    gap: 8px;
+    gap: 7px;
 
-    padding:
-        7px 13px;
+    padding: 7px 13px;
 
     border:
-        1px solid
-        rgba(133, 116, 255, .22);
+        1px solid rgba(87,137,255,.25);
 
     border-radius: 100px;
 
     background:
-        rgba(105, 88, 255, .07);
+        rgba(55,108,255,.08);
 
-    color:
-        #aaa0ff;
+    color: #8eafff;
 
     font-size: 10px;
 
-    font-weight: 800;
+    font-weight: 700;
 
     letter-spacing: 1.4px;
 }
@@ -407,18 +419,11 @@ header {
 
     border-radius: 50%;
 
-    background:
-        #8574ff;
+    background: #5d91ff;
 
     box-shadow:
-        0 0 12px
-        rgba(126,108,255,.9);
+        0 0 12px #3e78ff;
 }
-
-
-/* =====================================================
-   HERO TITLE
-===================================================== */
 
 .hero-title {
 
@@ -427,13 +432,13 @@ header {
     max-width: 650px;
 
     font-size:
-        clamp(36px, 10vw, 62px);
+        clamp(35px,10vw,60px);
 
     line-height: 1.04;
 
     font-weight: 900;
 
-    letter-spacing: -2px;
+    letter-spacing: -1.8px;
 }
 
 .gradient {
@@ -441,21 +446,14 @@ header {
     background:
         linear-gradient(
             100deg,
-            #ffffff 0%,
-            #b5aaff 45%,
-            #ff7185 100%
+            #f2f6ff 10%,
+            #79a6ff 48%,
+            #7665ed 100%
         );
 
     -webkit-background-clip: text;
-
-    -webkit-text-fill-color:
-        transparent;
+    -webkit-text-fill-color: transparent;
 }
-
-
-/* =====================================================
-   DESCRIPTION
-===================================================== */
 
 .hero-description {
 
@@ -463,14 +461,12 @@ header {
 
     margin-top: 16px;
 
-    color:
-        #9499b8;
+    color: #8e9bb3;
 
     font-size: 14px;
 
     line-height: 1.7;
 }
-
 
 /* =====================================================
    CHARACTER STAGE
@@ -497,10 +493,9 @@ header {
     top: 55px;
 
     background:
-        rgba(105, 88, 255, .18);
+        rgba(48,105,255,.17);
 
-    filter:
-        blur(70px);
+    filter: blur(65px);
 
     border-radius: 50%;
 }
@@ -515,7 +510,6 @@ header {
     left: 20px;
     top: 0;
 }
-
 
 /* =====================================================
    HAIR BACK
@@ -534,9 +528,9 @@ header {
     background:
         linear-gradient(
             145deg,
-            #11111b 0%,
-            #29263f 48%,
-            #080811 100%
+            #090b12 0%,
+            #20283b 48%,
+            #05070c 100%
         );
 
     border-radius:
@@ -544,12 +538,10 @@ header {
         35% 37% 63% 65%;
 
     box-shadow:
-        0 15px 35px
-        rgba(0,0,0,.4);
+        0 15px 35px rgba(0,0,0,.45);
 
     z-index: 2;
 }
-
 
 /* =====================================================
    EARS
@@ -585,7 +577,6 @@ header {
     right: 73px;
 }
 
-
 /* =====================================================
    NECK
 ===================================================== */
@@ -610,7 +601,6 @@ header {
     z-index: 4;
 }
 
-
 /* =====================================================
    BODY
 ===================================================== */
@@ -628,20 +618,21 @@ header {
     background:
         linear-gradient(
             135deg,
-            #6254df,
-            #38339a
+            #17294d,
+            #101a34
         );
 
     border-radius:
         55px 55px 22px 22px;
 
     box-shadow:
-        0 -8px 35px
-        rgba(87,72,255,.18);
+        0 -8px 35px rgba(40,90,210,.18);
+
+    border-top:
+        1px solid rgba(110,160,255,.20);
 
     z-index: 4;
 }
-
 
 /* =====================================================
    FACE
@@ -676,11 +667,6 @@ header {
     z-index: 10;
 }
 
-
-/* =====================================================
-   FACE HIGHLIGHT
-===================================================== */
-
 .face::before {
 
     content: "";
@@ -696,12 +682,10 @@ header {
     background:
         rgba(255,255,255,.12);
 
-    filter:
-        blur(7px);
+    filter: blur(7px);
 
     border-radius: 50%;
 }
-
 
 /* =====================================================
    CHEEKS
@@ -717,7 +701,7 @@ header {
     top: 101px;
 
     background:
-        rgba(247,91,118,.20);
+        rgba(90,110,150,.12);
 
     border-radius: 50%;
 
@@ -732,7 +716,6 @@ header {
     right: 11px;
 }
 
-
 /* =====================================================
    EYEBROWS
 ===================================================== */
@@ -746,8 +729,7 @@ header {
 
     top: 43px;
 
-    background:
-        #352039;
+    background: #352039;
 
     border-radius: 20px;
 
@@ -758,18 +740,15 @@ header {
 
     left: 24px;
 
-    transform:
-        rotate(-7deg);
+    transform: rotate(-7deg);
 }
 
 .brow.right {
 
     right: 24px;
 
-    transform:
-        rotate(7deg);
+    transform: rotate(7deg);
 }
-
 
 /* =====================================================
    EYES
@@ -797,16 +776,14 @@ header {
 
     left: 23px;
 
-    transform:
-        rotate(-5deg);
+    transform: rotate(-5deg);
 }
 
 .eye.right {
 
     right: 23px;
 
-    transform:
-        rotate(5deg);
+    transform: rotate(5deg);
 }
 
 .eye::after {
@@ -820,8 +797,7 @@ header {
 
     top: -5px;
 
-    background:
-        #302039;
+    background: #302039;
 
     border-radius: 50%;
 }
@@ -833,7 +809,6 @@ header {
 .eye.right::after {
     right: -2px;
 }
-
 
 /* =====================================================
    NOSE
@@ -883,12 +858,10 @@ header {
     bottom: 0;
 
     border-bottom:
-        2px solid
-        rgba(145,70,70,.38);
+        2px solid rgba(145,70,70,.38);
 
     border-radius: 50%;
 }
-
 
 /* =====================================================
    LIPS
@@ -919,8 +892,7 @@ header {
     left: 0;
     top: 0;
 
-    background:
-        #b94b73;
+    background: #8b435d;
 
     clip-path:
         polygon(
@@ -949,16 +921,14 @@ header {
     left: 5px;
     top: 9px;
 
-    background:
-        #963153;
+    background: #703247;
 
     border-radius:
         0 0 50% 50%;
 
     border-top:
-        2px solid #72233f;
+        2px solid #57253a;
 }
-
 
 /* =====================================================
    FRONT HAIR
@@ -974,16 +944,14 @@ header {
     left: 92px;
     top: 31px;
 
-    background:
-        #11111b;
+    background: #090b12;
 
     border-radius:
         55% 55% 35% 30%;
 
     z-index: 11;
 
-    transform:
-        rotate(-2deg);
+    transform: rotate(-2deg);
 }
 
 .hair-front::before {
@@ -998,14 +966,12 @@ header {
     left: -6px;
     top: 18px;
 
-    background:
-        #11111b;
+    background: #090b12;
 
     border-radius:
         70% 30% 60% 45%;
 
-    transform:
-        rotate(8deg);
+    transform: rotate(8deg);
 
     z-index: 11;
 }
@@ -1022,18 +988,15 @@ header {
     right: -5px;
     top: 17px;
 
-    background:
-        #11111b;
+    background: #090b12;
 
     border-radius:
         30% 70% 45% 60%;
 
-    transform:
-        rotate(-7deg);
+    transform: rotate(-7deg);
 
     z-index: 11;
 }
-
 
 /* =====================================================
    LAPTOP
@@ -1058,13 +1021,13 @@ header {
     height: 84px;
 
     border:
-        6px solid #25264a;
+        6px solid #26334d;
 
     background:
         linear-gradient(
             145deg,
-            #090b18,
-            #151536
+            #07101d,
+            #111b31
         );
 
     border-radius: 9px;
@@ -1075,8 +1038,7 @@ header {
     justify-content: center;
 
     box-shadow:
-        0 12px 25px
-        rgba(0,0,0,.45);
+        0 12px 25px rgba(0,0,0,.45);
 
     position: relative;
 }
@@ -1093,7 +1055,7 @@ header {
     background:
         radial-gradient(
             circle,
-            rgba(111,91,255,.18),
+            rgba(65,122,255,.22),
             transparent 70%
         );
 }
@@ -1106,12 +1068,10 @@ header {
 
     font-weight: 900;
 
-    color:
-        #9a8cff;
+    color: #79a5ff;
 
     text-shadow:
-        0 0 18px
-        rgba(111,91,255,.55);
+        0 0 18px rgba(65,125,255,.65);
 
     z-index: 2;
 }
@@ -1126,14 +1086,13 @@ header {
     background:
         linear-gradient(
             180deg,
-            #35365a,
-            #20213b
+            #34425d,
+            #202b40
         );
 
     border-radius:
         0 0 13px 13px;
 }
-
 
 /* =====================================================
    FEATURE STRIP
@@ -1153,8 +1112,7 @@ header {
 
     display: flex;
 
-    justify-content:
-        space-around;
+    justify-content: space-around;
 
     gap: 10px;
 
@@ -1162,14 +1120,9 @@ header {
         rgba(255,255,255,.025);
 
     border:
-        1px solid
-        rgba(255,255,255,.065);
+        1px solid rgba(255,255,255,.065);
 
     border-radius: 18px;
-
-    box-shadow:
-        0 15px 45px
-        rgba(0,0,0,.12);
 }
 
 .feature {
@@ -1184,23 +1137,24 @@ header {
     font-size: 19px;
 
     margin-bottom: 5px;
+
+    filter:
+        saturate(.75);
 }
 
 .feature-text {
 
-    color:
-        #8f93b2;
+    color: #8290a9;
 
     font-size: 10px;
 
-    font-weight: 700;
+    font-weight: 600;
 
-    letter-spacing: .5px;
+    letter-spacing: .7px;
 }
 
-
 /* =====================================================
-   ACTION SECTION
+   ACTION CARDS
 ===================================================== */
 
 .action-section {
@@ -1220,11 +1174,6 @@ header {
     gap: 14px;
 }
 
-
-/* =====================================================
-   ACTION CARDS
-===================================================== */
-
 .action-card {
 
     position: relative;
@@ -1238,61 +1187,38 @@ header {
     text-align: left;
 
     border:
-        1px solid
-        rgba(255,255,255,.075);
+        1px solid rgba(255,255,255,.075);
 
     border-radius: 22px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(94,78,220,.16),
+            rgba(37,87,185,.18),
             rgba(255,255,255,.025)
         );
 
-    color: white;
+    color: #edf3ff;
 
     cursor: pointer;
 
     transition:
-        transform .25s ease,
-        border-color .25s ease,
-        background .25s ease;
-}
-
-.action-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 100px;
-    height: 100px;
-
-    right: -50px;
-    bottom: -50px;
-
-    background:
-        rgba(255,91,112,.10);
-
-    filter:
-        blur(30px);
-
-    border-radius: 50%;
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
 }
 
 .action-card:hover {
 
-    transform:
-        translateY(-4px);
+    transform: translateY(-3px);
 
     border-color:
-        rgba(126,110,255,.28);
+        rgba(84,135,255,.35);
 
     background:
         linear-gradient(
             145deg,
-            rgba(94,78,220,.22),
+            rgba(45,101,220,.25),
             rgba(255,255,255,.035)
         );
 }
@@ -1310,7 +1236,7 @@ header {
     border-radius: 13px;
 
     background:
-        rgba(107,91,255,.12);
+        rgba(57,108,255,.13);
 
     font-size: 21px;
 
@@ -1326,14 +1252,12 @@ header {
 
 .action-card p {
 
-    color:
-        #858aa8;
+    color: #8490a7;
 
     font-size: 11px;
 
     line-height: 1.5;
 }
-
 
 /* =====================================================
    ABOUT
@@ -1355,19 +1279,17 @@ header {
     text-align: center;
 
     background:
-        rgba(255,255,255,.018);
+        rgba(255,255,255,.022);
 
     border:
-        1px solid
-        rgba(255,255,255,.06);
+        1px solid rgba(255,255,255,.065);
 
     border-radius: 22px;
 }
 
 .about-label {
 
-    color:
-        #9c8eff;
+    color: #789fff;
 
     font-size: 10px;
 
@@ -1387,14 +1309,12 @@ header {
 
     margin-top: 10px;
 
-    color:
-        #858aa6;
+    color: #858fa3;
 
     font-size: 13px;
 
     line-height: 1.7;
 }
-
 
 /* =====================================================
    FOOTER
@@ -1407,8 +1327,7 @@ footer {
     padding:
         45px 20px 115px;
 
-    color:
-        #62677f;
+    color: #59647a;
 
     font-size: 11px;
 
@@ -1417,10 +1336,8 @@ footer {
 
 footer strong {
 
-    color:
-        #9a8cff;
+    color: #739bff;
 }
-
 
 /* =====================================================
    BOTTOM NAV
@@ -1436,28 +1353,22 @@ footer strong {
     width: 100%;
     height: 72px;
 
-    padding:
-        5px 8px;
+    padding: 5px 8px;
 
     display: flex;
 
-    justify-content:
-        space-around;
+    justify-content: space-around;
 
     align-items: center;
 
     background:
-        rgba(7,9,19,.94);
+        rgba(6,10,18,.94);
 
     border-top:
-        1px solid
-        rgba(255,255,255,.065);
+        1px solid rgba(255,255,255,.07);
 
-    backdrop-filter:
-        blur(22px);
-
-    -webkit-backdrop-filter:
-        blur(22px);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
 
     z-index: 200;
 }
@@ -1466,11 +1377,9 @@ footer strong {
 
     min-width: 58px;
 
-    padding:
-        6px 8px;
+    padding: 6px 8px;
 
-    color:
-        #62677f;
+    color: #59647a;
 
     text-decoration: none;
 
@@ -1499,10 +1408,8 @@ footer strong {
 
 .nav-item.active {
 
-    color:
-        #9c8eff;
+    color: #6f9cff;
 }
-
 
 /* =====================================================
    SETTINGS OVERLAY
@@ -1515,18 +1422,15 @@ footer strong {
     inset: 0;
 
     background:
-        rgba(0,0,0,.68);
+        rgba(0,0,0,.65);
 
-    backdrop-filter:
-        blur(7px);
+    backdrop-filter: blur(6px);
 
     display: none;
 
-    align-items:
-        flex-end;
+    align-items: flex-end;
 
-    justify-content:
-        center;
+    justify-content: center;
 
     z-index: 500;
 }
@@ -1535,11 +1439,6 @@ footer strong {
 
     display: flex;
 }
-
-
-/* =====================================================
-   SETTINGS PANEL
-===================================================== */
 
 .settings-panel {
 
@@ -1553,28 +1452,25 @@ footer strong {
     background:
         linear-gradient(
             180deg,
-            #171a39,
-            #090b18
+            #101a2d,
+            #070c16
         );
 
     border-radius:
         28px 28px 0 0;
 
     border-top:
-        1px solid
-        rgba(255,255,255,.10);
+        1px solid rgba(255,255,255,.10);
 
     box-shadow:
-        0 -25px 80px
-        rgba(0,0,0,.60);
+        0 -20px 70px rgba(0,0,0,.55);
 }
 
 .settings-title {
 
     display: flex;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
     align-items: center;
 
@@ -1605,19 +1501,12 @@ footer strong {
     cursor: pointer;
 }
 
-
-/* =====================================================
-   SETTING ROW
-===================================================== */
-
 .setting-row {
 
-    padding:
-        15px 0;
+    padding: 15px 0;
 
     border-bottom:
-        1px solid
-        rgba(255,255,255,.06);
+        1px solid rgba(255,255,255,.06);
 }
 
 .setting-label {
@@ -1644,23 +1533,18 @@ footer strong {
         9px 13px;
 
     border:
-        1px solid
-        rgba(255,255,255,.08);
+        1px solid rgba(255,255,255,.09);
 
     border-radius: 11px;
 
     background:
         rgba(255,255,255,.045);
 
-    color:
-        #dfe0ef;
+    color: #dce5f7;
 
     cursor: pointer;
 
     font-size: 12px;
-
-    transition:
-        .2s ease;
 }
 
 .setting-option.active {
@@ -1668,24 +1552,13 @@ footer strong {
     background:
         linear-gradient(
             135deg,
-            #6858e8,
-            #8b63f6
+            #4d8dff,
+            #5a4be7
         );
 
     border-color:
         transparent;
-
-    color: white;
-
-    box-shadow:
-        0 6px 20px
-        rgba(100,83,230,.25);
 }
-
-
-/* =====================================================
-   VOLUME
-===================================================== */
 
 .volume-box {
 
@@ -1694,23 +1567,14 @@ footer strong {
     align-items: center;
 
     gap: 10px;
-
-    color:
-        #8589a5;
 }
 
 .volume-box input {
 
     flex: 1;
 
-    accent-color:
-        #7c69f4;
+    accent-color: #5489ff;
 }
-
-
-/* =====================================================
-   MUSIC
-===================================================== */
 
 .music-controls {
 
@@ -1730,35 +1594,23 @@ footer strong {
     border-radius: 12px;
 
     background:
-        rgba(108,91,255,.13);
+        rgba(65,116,255,.13);
 
-    color: white;
+    color: #e6edff;
 
     font-weight: 700;
 
     cursor: pointer;
-
-    transition:
-        .2s ease;
 }
-
-.music-btn:hover {
-
-    background:
-        rgba(108,91,255,.23);
-}
-
 
 /* =====================================================
    DESKTOP
 ===================================================== */
 
-@media (min-width: 700px) {
+@media (min-width:700px) {
 
     header {
-
-        padding:
-            0 35px;
+        padding: 0 35px;
     }
 
     .hero {
@@ -1770,8 +1622,7 @@ footer strong {
 
     .character-stage {
 
-        transform:
-            scale(1.08);
+        transform: scale(1.08);
 
         margin-top: 25px;
     }
@@ -1784,22 +1635,19 @@ footer strong {
     }
 }
 
-
 /* =====================================================
    SMALL PHONES
 ===================================================== */
 
-@media (max-width: 370px) {
+@media (max-width:370px) {
 
     .hero-title {
-
         font-size: 32px;
     }
 
     .character-stage {
 
-        transform:
-            scale(.90);
+        transform: scale(.90);
 
         margin-top: 0;
 
@@ -1829,7 +1677,6 @@ footer strong {
 
 <body id="home">
 
-
 <!-- =====================================================
      HEADER
 ===================================================== -->
@@ -1843,8 +1690,7 @@ footer strong {
         </div>
 
         <div class="logo-name">
-            FARIHA
-            <span>ZAHIN</span>
+            FARIHA <span>ZAHIN</span>
         </div>
 
     </div>
@@ -1853,10 +1699,9 @@ footer strong {
     <button
         class="menu-button"
         id="menuButton"
-        onclick="toggleMenu()">
-
+        onclick="toggleMenu()"
+    >
         ☰
-
     </button>
 
 </header>
@@ -1869,32 +1714,26 @@ footer strong {
 <div class="menu" id="menu">
 
     <a href="#home">
-        🏠
-        <span>Home</span>
+        🏠 Home
     </a>
 
     <a href="#games">
-        🎮
-        <span>Games</span>
+        🎮 Games
     </a>
 
     <a href="#apps">
-        📱
-        <span>Apps</span>
+        📱 Apps
     </a>
 
     <a href="#about">
-        💗
-        <span>About</span>
+        💙 About
     </a>
 
     <button
         class="settings-button"
-        onclick="openSettings()">
-
-        ⚙️
-        <span>Settings</span>
-
+        onclick="openSettings()"
+    >
+        ⚙️ Settings
     </button>
 
 </div>
@@ -1907,7 +1746,6 @@ footer strong {
 <main>
 
 <section class="hero">
-
 
     <div class="eyebrow">
 
@@ -1939,9 +1777,7 @@ footer strong {
     </p>
 
 
-    <!-- =================================================
-         CHARACTER
-    ================================================== -->
+    <!-- CHARACTER -->
 
     <div class="character-stage">
 
@@ -1953,7 +1789,6 @@ footer strong {
             <div class="hair"></div>
 
             <div class="ear-left"></div>
-
             <div class="ear-right"></div>
 
             <div class="neck"></div>
@@ -1966,15 +1801,12 @@ footer strong {
             <div class="face">
 
                 <div class="cheek left"></div>
-
                 <div class="cheek right"></div>
 
                 <div class="brow left"></div>
-
                 <div class="brow right"></div>
 
                 <div class="eye left"></div>
-
                 <div class="eye right"></div>
 
                 <div class="nose"></div>
@@ -2013,10 +1845,10 @@ footer strong {
 
 
 <!-- =====================================================
-     FEATURES
+     FEATURE STRIP
 ===================================================== -->
 
-<section class="feature-strip">
+<div class="feature-strip">
 
     <div class="feature">
 
@@ -2056,20 +1888,20 @@ footer strong {
 
     </div>
 
-</section>
+</div>
 
 
 <!-- =====================================================
-     COLLECTION CARDS
+     ACTION CARDS
 ===================================================== -->
 
 <section class="action-section">
 
-
     <button
         class="action-card"
         id="games"
-        onclick="openGames()">
+        onclick="openGames()"
+    >
 
         <div class="action-icon">
             🎮
@@ -2090,7 +1922,8 @@ footer strong {
     <button
         class="action-card"
         id="apps"
-        onclick="openApps()">
+        onclick="openApps()"
+    >
 
         <div class="action-icon">
             📱
@@ -2107,7 +1940,6 @@ footer strong {
 
     </button>
 
-
 </section>
 
 
@@ -2117,14 +1949,15 @@ footer strong {
 
 <section
     class="about"
-    id="about">
+    id="about"
+>
 
     <div class="about-label">
         ABOUT FZ
     </div>
 
     <h2>
-        Welcome to my collection 💗
+        Welcome to my collection 💙
     </h2>
 
     <p>
@@ -2135,7 +1968,6 @@ footer strong {
     </p>
 
 </section>
-
 
 </main>
 
@@ -2166,7 +1998,8 @@ footer strong {
 
     <a
         class="nav-item active"
-        href="#home">
+        href="#home"
+    >
 
         <div class="nav-icon">
             🏠
@@ -2181,7 +2014,8 @@ footer strong {
 
     <a
         class="nav-item"
-        href="#games">
+        href="#games"
+    >
 
         <div class="nav-icon">
             🎮
@@ -2196,7 +2030,8 @@ footer strong {
 
     <a
         class="nav-item"
-        href="#apps">
+        href="#apps"
+    >
 
         <div class="nav-icon">
             📱
@@ -2211,10 +2046,11 @@ footer strong {
 
     <a
         class="nav-item"
-        href="#about">
+        href="#about"
+    >
 
         <div class="nav-icon">
-            💗
+            💙
         </div>
 
         <div>
@@ -2227,19 +2063,19 @@ footer strong {
 
 
 <!-- =====================================================
-     SETTINGS OVERLAY
+     SETTINGS
 ===================================================== -->
 
 <div
     class="settings-overlay"
     id="settingsOverlay"
-    onclick="closeSettingsOutside(event)">
-
+    onclick="closeSettingsOutside(event)"
+>
 
     <div
         class="settings-panel"
-        onclick="event.stopPropagation()">
-
+        onclick="event.stopPropagation()"
+    >
 
         <div class="settings-title">
 
@@ -2249,10 +2085,9 @@ footer strong {
 
             <button
                 class="close-settings"
-                onclick="closeSettings()">
-
+                onclick="closeSettings()"
+            >
                 ×
-
             </button>
 
         </div>
@@ -2271,19 +2106,17 @@ footer strong {
                 <button
                     class="setting-option active"
                     id="darkOption"
-                    onclick="setTheme('dark')">
-
+                    onclick="setTheme('dark')"
+                >
                     🌙 Dark
-
                 </button>
 
                 <button
                     class="setting-option"
                     id="lightOption"
-                    onclick="setTheme('light')">
-
+                    onclick="setTheme('light')"
+                >
                     ☀️ Light
-
                 </button>
 
             </div>
@@ -2303,34 +2136,30 @@ footer strong {
 
                 <button
                     class="setting-option active"
-                    onclick="setLanguage('English', this)">
-
+                    onclick="setLanguage('English',this)"
+                >
                     English
-
                 </button>
 
                 <button
                     class="setting-option"
-                    onclick="setLanguage('বাংলা', this)">
-
+                    onclick="setLanguage('বাংলা',this)"
+                >
                     বাংলা
-
                 </button>
 
                 <button
                     class="setting-option"
-                    onclick="setLanguage('हिन्दी', this)">
-
+                    onclick="setLanguage('हिन्दी',this)"
+                >
                     हिन्दी
-
                 </button>
 
                 <button
                     class="setting-option"
-                    onclick="setLanguage('اردو', this)">
-
+                    onclick="setLanguage('اردو',this)"
+                >
                     اردو
-
                 </button>
 
             </div>
@@ -2351,7 +2180,6 @@ footer strong {
 
             </div>
 
-
             <div class="volume-box">
 
                 🔈
@@ -2362,7 +2190,8 @@ footer strong {
                     min="0"
                     max="100"
                     value="70"
-                    oninput="changeVolume(this.value)">
+                    oninput="changeVolume(this.value)"
+                >
 
                 🔊
 
@@ -2383,18 +2212,16 @@ footer strong {
 
                 <button
                     class="music-btn"
-                    onclick="playMusic()">
-
+                    onclick="playMusic()"
+                >
                     ▶ Play
-
                 </button>
 
                 <button
                     class="music-btn"
-                    onclick="pauseMusic()">
-
+                    onclick="pauseMusic()"
+                >
                     ⏸ Pause
-
                 </button>
 
             </div>
@@ -2409,20 +2236,19 @@ footer strong {
 <!-- =====================================================
      BACKGROUND MUSIC
      
-     Put your music file beside index.html
-     and name it:
-     background.mp3
+     Put your music file in the same folder and
+     change the filename below if necessary.
 ===================================================== -->
 
 <audio
     id="backgroundMusic"
     loop
-    preload="auto">
-
+    preload="auto"
+>
     <source
-        src="background.mp3"
-        type="audio/mpeg">
-
+        src="background-music.mp3"
+        type="audio/mpeg"
+    >
 </audio>
 
 
@@ -2518,11 +2344,6 @@ function closeSettingsOutside(event) {
 
 function setTheme(theme) {
 
-    /*
-       The new commercial design is
-       intentionally DARK by default.
-    */
-
     document.body.classList.toggle(
         "light",
         theme === "light"
@@ -2558,20 +2379,17 @@ function setTheme(theme) {
 
 function setLanguage(language, button) {
 
-    const buttons =
-        document.querySelectorAll(
-            ".setting-row:nth-child(3) .setting-option"
-        );
-
-    buttons.forEach(
-        function(option) {
+    document
+        .querySelectorAll(
+            ".setting-row:nth-of-type(2) .setting-option"
+        )
+        .forEach(function(option) {
 
             option.classList.remove(
                 "active"
             );
 
-        }
-    );
+        });
 
     button.classList.add("active");
 
@@ -2619,16 +2437,15 @@ function changeVolume(value) {
 
 function playMusic() {
 
-    music.play()
-        .catch(
-            function() {
+    music
+        .play()
+        .catch(function() {
 
-                alert(
-                    "Tap Play again if your browser blocked the music."
-                );
+            alert(
+                "Tap Play again if your browser blocked music."
+            );
 
-            }
-        );
+        });
 
 }
 
@@ -2665,44 +2482,7 @@ function openApps() {
 
 
 /* =====================================================
-   ACTIVE BOTTOM NAV
-===================================================== */
-
-const navItems =
-    document.querySelectorAll(
-        ".nav-item"
-    );
-
-navItems.forEach(
-    function(item) {
-
-        item.addEventListener(
-            "click",
-            function() {
-
-                navItems.forEach(
-                    function(nav) {
-
-                        nav.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-                item.classList.add(
-                    "active"
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* =====================================================
-   LOAD SAVED THEME
+   LOAD SAVED SETTINGS
 ===================================================== */
 
 const savedTheme =
@@ -2717,10 +2497,6 @@ if (savedTheme) {
 }
 
 
-/* =====================================================
-   LOAD SAVED VOLUME
-===================================================== */
-
 const savedVolume =
     localStorage.getItem(
         "fzVolume"
@@ -2730,57 +2506,13 @@ if (savedVolume) {
 
     document
         .getElementById("volumeSlider")
-        .value = savedVolume;
+        .value =
+        savedVolume;
 
     changeVolume(savedVolume);
 
 }
 
-
-/* =====================================================
-   LOAD SAVED LANGUAGE
-===================================================== */
-
-const savedLanguage =
-    localStorage.getItem(
-        "fzLanguage"
-    );
-
-if (savedLanguage) {
-
-    const languageButtons =
-        document.querySelectorAll(
-            ".setting-row:nth-child(3) .setting-option"
-        );
-
-    languageButtons.forEach(
-        function(button) {
-
-            if (
-                button.textContent
-                    .trim() === savedLanguage
-            ) {
-
-                languageButtons.forEach(
-                    function(btn) {
-
-                        btn.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-                button.classList.add(
-                    "active"
-                );
-
-            }
-
-        }
-    );
-
-}
 
 </script>
 
