@@ -6,8 +6,10 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0,
-maximum-scale=1.0, user-scalable=no">
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
 
 <meta name="theme-color" content="#180912">
 
@@ -29,22 +31,11 @@ maximum-scale=1.0, user-scalable=no">
 
 html {
     scroll-behavior: smooth;
-    color-scheme: dark;
-}
-
-html.light {
-    color-scheme: light;
 }
 
 body {
     min-height: 100vh;
-
-    font-family:
-        Inter,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
     color: #ffffff;
 
     background:
@@ -74,91 +65,65 @@ body {
 
 
 /* =====================================================
-   DARK THEME — FORCE STABLE COLORS
-===================================================== */
-
-html:not(.light) body {
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(255,71,145,.30),
-            transparent 34%
-        ),
-        radial-gradient(
-            circle at 100% 45%,
-            rgba(224,47,119,.18),
-            transparent 30%
-        ),
-        linear-gradient(
-            180deg,
-            #180912 0%,
-            #250d1c 48%,
-            #12070e 100%
-        );
-
-    color: #ffffff;
-}
-
-
-/* =====================================================
    LIGHT THEME
 ===================================================== */
 
-html.light body {
-
+body.light {
     color: #321525;
 
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(255,113,171,.28),
+            rgba(255,113,171,.35),
             transparent 35%
-        ),
-        radial-gradient(
-            circle at 100% 55%,
-            rgba(255,180,210,.18),
-            transparent 32%
         ),
         linear-gradient(
             180deg,
-            #fff8fb 0%,
-            #ffedf4 50%,
-            #fff7fa 100%
+            #fff6fa,
+            #ffe8f1 55%,
+            #fff4f8
         );
 }
 
+body.light header {
+    background: rgba(255,245,249,.88);
+}
+
+body.light .hero-description,
+body.light .action-card p,
+body.light .about p {
+    color: #805b6d;
+}
+
+body.light .feature-strip,
+body.light .about,
+body.light .action-card {
+    background: rgba(255,255,255,.58);
+}
+
+body.light .bottom-nav {
+    background: rgba(255,245,249,.94);
+}
+
+body.light .nav-item {
+    color: #9a7184;
+}
+
+body.light .menu {
+    background: rgba(255,247,250,.98);
+}
+
+body.light .menu a,
+body.light .settings-button {
+    color: #482436;
+}
+
 
 /* =====================================================
-   LIGHT MODE TEXT
-===================================================== */
-
-html.light .hero-description {
-    color: #805b6d;
-}
-
-html.light .action-card p {
-    color: #805b6d;
-}
-
-html.light .about p {
-    color: #805b6d;
-}
-
-html.light .feature-text {
-    color: #805b6d;
-}
-
-html.light footer {
-    color: #8d7180;
-}
-
-
-/* =====================================================
-   AMBIENT
+   AMBIENT LIGHT
 ===================================================== */
 
 body::before {
-
     content: "";
 
     position: fixed;
@@ -169,8 +134,7 @@ body::before {
     top: 150px;
     left: -150px;
 
-    background:
-        rgba(255,61,140,.18);
+    background: rgba(255,61,140,.18);
 
     filter: blur(90px);
 
@@ -182,7 +146,6 @@ body::before {
 }
 
 body::after {
-
     content: "";
 
     position: fixed;
@@ -193,8 +156,7 @@ body::after {
     right: -170px;
     bottom: 100px;
 
-    background:
-        rgba(255,72,151,.14);
+    background: rgba(255,72,151,.14);
 
     filter: blur(100px);
 
@@ -211,7 +173,6 @@ body::after {
 ===================================================== */
 
 header {
-
     position: sticky;
 
     top: 0;
@@ -227,8 +188,7 @@ header {
 
     justify-content: space-between;
 
-    background:
-        rgba(24,8,18,.78);
+    background: rgba(24,8,18,.78);
 
     border-bottom:
         1px solid rgba(255,255,255,.07);
@@ -239,17 +199,7 @@ header {
     z-index: 100;
 }
 
-html.light header {
-
-    background:
-        rgba(255,248,251,.82);
-
-    border-bottom:
-        1px solid rgba(150,75,110,.10);
-}
-
 .logo {
-
     display: flex;
 
     align-items: center;
@@ -264,7 +214,6 @@ html.light header {
 }
 
 .logo-mark {
-
     width: 34px;
     height: 34px;
 
@@ -283,8 +232,7 @@ html.light header {
         );
 
     box-shadow:
-        0 5px 20px
-        rgba(255,70,145,.35);
+        0 5px 20px rgba(255,70,145,.35);
 
     font-size: 13px;
 
@@ -295,12 +243,7 @@ html.light header {
     color: #ff91ba;
 }
 
-html.light .logo {
-    color: #321525;
-}
-
 .menu-button {
-
     width: 42px;
     height: 42px;
 
@@ -322,17 +265,12 @@ html.light .logo {
 
     align-items: center;
     justify-content: center;
+
+    transition: .2s ease;
 }
 
-html.light .menu-button {
-
-    background:
-        rgba(255,255,255,.72);
-
-    border:
-        1px solid rgba(150,75,110,.12);
-
-    color: #321525;
+.menu-button:active {
+    transform: scale(.94);
 }
 
 
@@ -341,7 +279,6 @@ html.light .menu-button {
 ===================================================== */
 
 .menu {
-
     position: fixed;
 
     top: 76px;
@@ -365,27 +302,29 @@ html.light .menu-button {
     display: none;
 
     z-index: 300;
-}
 
-html.light .menu {
-
-    background:
-        rgba(255,250,252,.98);
-
-    border:
-        1px solid rgba(150,75,110,.12);
-
-    box-shadow:
-        0 20px 60px rgba(120,50,85,.15);
+    animation: menuIn .18s ease;
 }
 
 .menu.show {
     display: block;
 }
 
+@keyframes menuIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 .menu a,
 .settings-button {
-
     width: 100%;
 
     display: flex;
@@ -413,14 +352,8 @@ html.light .menu {
     cursor: pointer;
 }
 
-html.light .menu a,
-html.light .settings-button {
-    color: #321525;
-}
-
 .menu a:hover,
 .settings-button:hover {
-
     background:
         rgba(255,76,146,.12);
 }
@@ -431,7 +364,6 @@ html.light .settings-button {
 ===================================================== */
 
 .hero {
-
     position: relative;
 
     min-height: 690px;
@@ -451,7 +383,6 @@ html.light .settings-button {
 }
 
 .eyebrow {
-
     display: inline-flex;
 
     align-items: center;
@@ -477,19 +408,7 @@ html.light .settings-button {
     letter-spacing: 1.3px;
 }
 
-html.light .eyebrow {
-
-    background:
-        rgba(255,92,158,.08);
-
-    border-color:
-        rgba(210,80,135,.15);
-
-    color: #b63c70;
-}
-
 .eyebrow-dot {
-
     width: 6px;
     height: 6px;
 
@@ -502,7 +421,6 @@ html.light .eyebrow {
 }
 
 .hero-title {
-
     margin-top: 18px;
 
     max-width: 650px;
@@ -518,7 +436,6 @@ html.light .eyebrow {
 }
 
 .gradient {
-
     background:
         linear-gradient(
             100deg,
@@ -528,33 +445,10 @@ html.light .eyebrow {
         );
 
     -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-}
-
-html.light .hero-title {
-    color: #321525;
-}
-
-html.light .gradient {
-
-    background:
-        linear-gradient(
-            100deg,
-            #321525 10%,
-            #d34d86 52%,
-            #ed4388 100%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
     -webkit-text-fill-color: transparent;
 }
 
 .hero-description {
-
     max-width: 440px;
 
     margin-top: 16px;
@@ -572,7 +466,6 @@ html.light .gradient {
 ===================================================== */
 
 .character-stage {
-
     position: relative;
 
     width: 340px;
@@ -582,7 +475,6 @@ html.light .gradient {
 }
 
 .character-glow {
-
     position: absolute;
 
     width: 230px;
@@ -600,7 +492,6 @@ html.light .gradient {
 }
 
 .character {
-
     position: absolute;
 
     width: 300px;
@@ -612,11 +503,10 @@ html.light .gradient {
 
 
 /* =====================================================
-   HAIR
+   HAIR BACK
 ===================================================== */
 
 .hair {
-
     position: absolute;
 
     width: 220px;
@@ -634,13 +524,11 @@ html.light .gradient {
         );
 
     border-radius:
-        48% 52% 43% 43%
-        /
+        48% 52% 43% 43% /
         35% 37% 63% 65%;
 
     box-shadow:
-        0 15px 35px
-        rgba(0,0,0,.3);
+        0 15px 35px rgba(0,0,0,.3);
 
     z-index: 2;
 }
@@ -652,7 +540,6 @@ html.light .gradient {
 
 .ear-left,
 .ear-right {
-
     position: absolute;
 
     width: 17px;
@@ -686,7 +573,6 @@ html.light .gradient {
 ===================================================== */
 
 .neck {
-
     position: absolute;
 
     width: 47px;
@@ -711,7 +597,6 @@ html.light .gradient {
 ===================================================== */
 
 .body {
-
     position: absolute;
 
     width: 210px;
@@ -731,8 +616,7 @@ html.light .gradient {
         55px 55px 22px 22px;
 
     box-shadow:
-        0 -8px 35px
-        rgba(235,54,132,.25);
+        0 -8px 35px rgba(235,54,132,.25);
 
     z-index: 4;
 }
@@ -743,7 +627,6 @@ html.light .gradient {
 ===================================================== */
 
 .face {
-
     position: absolute;
 
     width: 132px;
@@ -761,8 +644,7 @@ html.light .gradient {
         );
 
     border-radius:
-        48% 48% 50% 50%
-        /
+        48% 48% 50% 50% /
         39% 39% 61% 61%;
 
     box-shadow:
@@ -772,8 +654,12 @@ html.light .gradient {
     z-index: 10;
 }
 
-.face::before {
 
+/* =====================================================
+   FACE HIGHLIGHT
+===================================================== */
+
+.face::before {
     content: "";
 
     position: absolute;
@@ -798,7 +684,6 @@ html.light .gradient {
 ===================================================== */
 
 .cheek {
-
     position: absolute;
 
     width: 28px;
@@ -828,7 +713,6 @@ html.light .gradient {
 ===================================================== */
 
 .brow {
-
     position: absolute;
 
     width: 30px;
@@ -844,17 +728,17 @@ html.light .gradient {
 }
 
 .brow.left {
-
     left: 24px;
 
-    transform: rotate(-7deg);
+    transform:
+        rotate(-7deg);
 }
 
 .brow.right {
-
     right: 24px;
 
-    transform: rotate(7deg);
+    transform:
+        rotate(7deg);
 }
 
 
@@ -863,7 +747,6 @@ html.light .gradient {
 ===================================================== */
 
 .eye {
-
     position: absolute;
 
     width: 31px;
@@ -881,21 +764,20 @@ html.light .gradient {
 }
 
 .eye.left {
-
     left: 23px;
 
-    transform: rotate(-5deg);
+    transform:
+        rotate(-5deg);
 }
 
 .eye.right {
-
     right: 23px;
 
-    transform: rotate(5deg);
+    transform:
+        rotate(5deg);
 }
 
 .eye::after {
-
     content: "";
 
     position: absolute;
@@ -924,7 +806,6 @@ html.light .gradient {
 ===================================================== */
 
 .nose {
-
     position: absolute;
 
     width: 22px;
@@ -937,7 +818,6 @@ html.light .gradient {
 }
 
 .nose::before {
-
     content: "";
 
     position: absolute;
@@ -955,7 +835,6 @@ html.light .gradient {
 }
 
 .nose::after {
-
     content: "";
 
     position: absolute;
@@ -978,7 +857,6 @@ html.light .gradient {
 ===================================================== */
 
 .lips {
-
     position: absolute;
 
     width: 43px;
@@ -991,7 +869,6 @@ html.light .gradient {
 }
 
 .lips::before {
-
     content: "";
 
     position: absolute;
@@ -1020,7 +897,6 @@ html.light .gradient {
 }
 
 .lips::after {
-
     content: "";
 
     position: absolute;
@@ -1046,7 +922,6 @@ html.light .gradient {
 ===================================================== */
 
 .hair-front {
-
     position: absolute;
 
     width: 116px;
@@ -1062,11 +937,11 @@ html.light .gradient {
 
     z-index: 11;
 
-    transform: rotate(-2deg);
+    transform:
+        rotate(-2deg);
 }
 
 .hair-front::before {
-
     content: "";
 
     position: absolute;
@@ -1082,13 +957,13 @@ html.light .gradient {
     border-radius:
         70% 30% 60% 45%;
 
-    transform: rotate(8deg);
+    transform:
+        rotate(8deg);
 
     z-index: 11;
 }
 
 .hair-front::after {
-
     content: "";
 
     position: absolute;
@@ -1104,7 +979,8 @@ html.light .gradient {
     border-radius:
         30% 70% 45% 60%;
 
-    transform: rotate(-7deg);
+    transform:
+        rotate(-7deg);
 
     z-index: 11;
 }
@@ -1115,7 +991,6 @@ html.light .gradient {
 ===================================================== */
 
 .laptop {
-
     position: absolute;
 
     width: 155px;
@@ -1128,7 +1003,6 @@ html.light .gradient {
 }
 
 .screen {
-
     width: 155px;
     height: 84px;
 
@@ -1156,7 +1030,6 @@ html.light .gradient {
 }
 
 .screen::before {
-
     content: "";
 
     position: absolute;
@@ -1173,7 +1046,6 @@ html.light .gradient {
 }
 
 .screen-text {
-
     position: relative;
 
     font-size: 27px;
@@ -1183,14 +1055,12 @@ html.light .gradient {
     color: #ff91bd;
 
     text-shadow:
-        0 0 18px
-        rgba(255,91,158,.65);
+        0 0 18px rgba(255,91,158,.65);
 
     z-index: 2;
 }
 
 .keyboard {
-
     width: 178px;
     height: 11px;
 
@@ -1213,8 +1083,8 @@ html.light .gradient {
 ===================================================== */
 
 .feature-strip {
-
-    width: calc(100% - 40px);
+    width:
+        calc(100% - 40px);
 
     max-width: 600px;
 
@@ -1238,34 +1108,19 @@ html.light .gradient {
     border-radius: 18px;
 }
 
-html.light .feature-strip {
-
-    background:
-        rgba(255,255,255,.62);
-
-    border:
-        1px solid rgba(150,75,110,.10);
-
-    box-shadow:
-        0 8px 25px rgba(120,50,85,.05);
-}
-
 .feature {
-
     text-align: center;
 
     flex: 1;
 }
 
 .feature-icon {
-
     font-size: 19px;
 
     margin-bottom: 5px;
 }
 
 .feature-text {
-
     color: #c7a6b5;
 
     font-size: 10px;
@@ -1275,31 +1130,27 @@ html.light .feature-strip {
 
 
 /* =====================================================
-   ACTION SECTION
+   ACTION CARDS
 ===================================================== */
 
 .action-section {
-
-    width: calc(100% - 40px);
+    width:
+        calc(100% - 40px);
 
     max-width: 600px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap: 14px;
 }
 
-
-/* =====================================================
-   ACTION CARDS — DARK
-===================================================== */
-
 .action-card {
-
     position: relative;
 
     min-height: 150px;
@@ -1326,68 +1177,23 @@ html.light .feature-strip {
 
     cursor: pointer;
 
-    font-family: inherit;
-
-    appearance: none;
-
-    -webkit-appearance: none;
-
     transition:
         transform .2s ease,
-        box-shadow .2s ease,
-        background .25s ease;
+        border-color .2s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(255,120,174,.35);
 }
 
 .action-card:active {
     transform: scale(.98);
 }
 
-
-/* =====================================================
-   ACTION CARDS — LIGHT
-===================================================== */
-
-html.light .action-card {
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.90),
-            rgba(255,225,238,.72)
-        );
-
-    border:
-        1px solid rgba(150,75,110,.12);
-
-    color: #321525;
-
-    box-shadow:
-        0 8px 25px
-        rgba(120,50,85,.08);
-}
-
-html.light .action-card h3 {
-    color: #321525;
-}
-
-html.light .action-card p {
-    color: #805b6d;
-}
-
-html.light .action-card:hover {
-
-    box-shadow:
-        0 12px 30px
-        rgba(120,50,85,.12);
-}
-
-
-/* =====================================================
-   ACTION ICON
-===================================================== */
-
 .action-icon {
-
     width: 43px;
     height: 43px;
 
@@ -1406,21 +1212,13 @@ html.light .action-card:hover {
     margin-bottom: 18px;
 }
 
-html.light .action-icon {
-
-    background:
-        rgba(255,92,158,.12);
-}
-
 .action-card h3 {
-
     font-size: 16px;
 
     margin-bottom: 5px;
 }
 
 .action-card p {
-
     color: #b89dab;
 
     font-size: 11px;
@@ -1434,14 +1232,16 @@ html.light .action-icon {
 ===================================================== */
 
 .about {
-
-    width: calc(100% - 40px);
+    width:
+        calc(100% - 40px);
 
     max-width: 600px;
 
-    margin: 55px auto 0;
+    margin:
+        55px auto 0;
 
-    padding: 28px 23px;
+    padding:
+        28px 23px;
 
     text-align: center;
 
@@ -1454,21 +1254,7 @@ html.light .action-icon {
     border-radius: 22px;
 }
 
-html.light .about {
-
-    background:
-        rgba(255,255,255,.62);
-
-    border:
-        1px solid rgba(150,75,110,.10);
-
-    box-shadow:
-        0 8px 25px
-        rgba(120,50,85,.05);
-}
-
 .about-label {
-
     color: #ff9bc2;
 
     font-size: 10px;
@@ -1478,23 +1264,13 @@ html.light .about {
     letter-spacing: 1.5px;
 }
 
-html.light .about-label {
-    color: #c94378;
-}
-
 .about h2 {
-
     margin-top: 9px;
 
     font-size: 24px;
 }
 
-html.light .about h2 {
-    color: #321525;
-}
-
 .about p {
-
     margin-top: 10px;
 
     color: #b99eab;
@@ -1510,7 +1286,6 @@ html.light .about h2 {
 ===================================================== */
 
 footer {
-
     text-align: center;
 
     padding:
@@ -1527,17 +1302,12 @@ footer strong {
     color: #ff8fba;
 }
 
-html.light footer strong {
-    color: #c94378;
-}
-
 
 /* =====================================================
-   BOTTOM NAV — DARK
+   BOTTOM NAVIGATION
 ===================================================== */
 
 .bottom-nav {
-
     position: fixed;
 
     left: 0;
@@ -1546,7 +1316,8 @@ html.light footer strong {
     width: 100%;
     height: 72px;
 
-    padding: 5px 8px;
+    padding:
+        5px 8px;
 
     display: flex;
 
@@ -1566,25 +1337,11 @@ html.light footer strong {
     z-index: 200;
 }
 
-
-/* =====================================================
-   BOTTOM NAV — LIGHT
-===================================================== */
-
-html.light .bottom-nav {
-
-    background:
-        rgba(255,248,251,.92);
-
-    border-top:
-        1px solid rgba(150,75,110,.10);
-}
-
 .nav-item {
-
     min-width: 58px;
 
-    padding: 6px 8px;
+    padding:
+        6px 8px;
 
     color: #806b77;
 
@@ -1601,14 +1358,11 @@ html.light .bottom-nav {
     border-radius: 12px;
 
     font-size: 10px;
-}
 
-html.light .nav-item {
-    color: #9a7184;
+    transition: .2s ease;
 }
 
 .nav-icon {
-
     font-size: 20px;
 
     line-height: 1;
@@ -1618,8 +1372,8 @@ html.light .nav-item {
     color: #ff8fba;
 }
 
-html.light .nav-item.active {
-    color: #d54882;
+.nav-item:active {
+    transform: scale(.92);
 }
 
 
@@ -1628,7 +1382,6 @@ html.light .nav-item.active {
 ===================================================== */
 
 .settings-overlay {
-
     position: fixed;
 
     inset: 0;
@@ -1637,6 +1390,7 @@ html.light .nav-item.active {
         rgba(0,0,0,.58);
 
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 
     display: none;
 
@@ -1651,13 +1405,7 @@ html.light .nav-item.active {
     display: flex;
 }
 
-
-/* =====================================================
-   SETTINGS PANEL — DARK
-===================================================== */
-
 .settings-panel {
-
     width: 100%;
 
     max-width: 520px;
@@ -1680,32 +1428,23 @@ html.light .nav-item.active {
 
     box-shadow:
         0 -20px 70px rgba(0,0,0,.45);
+
+    animation:
+        settingsUp .25s ease;
 }
 
+@keyframes settingsUp {
 
-/* =====================================================
-   SETTINGS PANEL — LIGHT
-===================================================== */
+    from {
+        transform: translateY(100%);
+    }
 
-html.light .settings-panel {
-
-    background:
-        linear-gradient(
-            180deg,
-            #fff8fb,
-            #ffeaf3
-        );
-
-    border-top:
-        1px solid rgba(150,75,110,.12);
-
-    box-shadow:
-        0 -20px 70px
-        rgba(120,50,85,.15);
+    to {
+        transform: translateY(0);
+    }
 }
 
 .settings-title {
-
     display: flex;
 
     justify-content: space-between;
@@ -1719,12 +1458,7 @@ html.light .settings-panel {
     font-size: 21px;
 }
 
-html.light .settings-title h2 {
-    color: #321525;
-}
-
 .close-settings {
-
     width: 38px;
     height: 38px;
 
@@ -1742,34 +1476,20 @@ html.light .settings-title h2 {
     cursor: pointer;
 }
 
-html.light .close-settings {
-
-    background:
-        rgba(150,75,110,.08);
-
-    color: #321525;
-}
-
 
 /* =====================================================
-   SETTINGS ROW
+   SETTINGS ROWS
 ===================================================== */
 
 .setting-row {
-
-    padding: 15px 0;
+    padding:
+        15px 0;
 
     border-bottom:
         1px solid rgba(255,255,255,.07);
 }
 
-html.light .setting-row {
-    border-bottom:
-        1px solid rgba(150,75,110,.10);
-}
-
 .setting-label {
-
     font-size: 14px;
 
     font-weight: 700;
@@ -1777,12 +1497,7 @@ html.light .setting-row {
     margin-bottom: 11px;
 }
 
-html.light .setting-label {
-    color: #321525;
-}
-
 .setting-options {
-
     display: flex;
 
     flex-wrap: wrap;
@@ -1791,8 +1506,8 @@ html.light .setting-label {
 }
 
 .setting-option {
-
-    padding: 9px 13px;
+    padding:
+        9px 13px;
 
     border:
         1px solid rgba(255,255,255,.10);
@@ -1807,23 +1522,9 @@ html.light .setting-label {
     cursor: pointer;
 
     font-size: 12px;
-
-    font-family: inherit;
-}
-
-html.light .setting-option {
-
-    background:
-        rgba(255,255,255,.65);
-
-    border:
-        1px solid rgba(150,75,110,.12);
-
-    color: #321525;
 }
 
 .setting-option.active {
-
     background:
         linear-gradient(
             135deg,
@@ -1832,8 +1533,6 @@ html.light .setting-option {
         );
 
     border-color: transparent;
-
-    color: white;
 }
 
 
@@ -1842,7 +1541,6 @@ html.light .setting-option {
 ===================================================== */
 
 .volume-box {
-
     display: flex;
 
     align-items: center;
@@ -1851,10 +1549,10 @@ html.light .setting-option {
 }
 
 .volume-box input {
-
     flex: 1;
 
-    accent-color: #ff5c9c;
+    accent-color:
+        #ff5c9c;
 }
 
 
@@ -1863,14 +1561,12 @@ html.light .setting-option {
 ===================================================== */
 
 .music-controls {
-
     display: flex;
 
     gap: 9px;
 }
 
 .music-btn {
-
     flex: 1;
 
     padding: 11px;
@@ -1887,16 +1583,6 @@ html.light .setting-option {
     font-weight: 700;
 
     cursor: pointer;
-
-    font-family: inherit;
-}
-
-html.light .music-btn {
-
-    background:
-        rgba(255,92,158,.12);
-
-    color: #9d315f;
 }
 
 
@@ -1907,25 +1593,24 @@ html.light .music-btn {
 @media (min-width:700px) {
 
     header {
-        padding: 0 35px;
+        padding:
+            0 35px;
     }
 
     .hero {
-
         min-height: 750px;
 
         padding-top: 70px;
     }
 
     .character-stage {
-
-        transform: scale(1.08);
+        transform:
+            scale(1.08);
 
         margin-top: 25px;
     }
 
     .action-card {
-
         min-height: 175px;
 
         padding: 25px;
@@ -1944,8 +1629,8 @@ html.light .music-btn {
     }
 
     .character-stage {
-
-        transform: scale(.90);
+        transform:
+            scale(.90);
 
         margin-top: 0;
 
@@ -1953,14 +1638,13 @@ html.light .music-btn {
     }
 
     .action-section {
-
-        width: calc(100% - 28px);
+        width:
+            calc(100% - 28px);
 
         gap: 10px;
     }
 
     .action-card {
-
         min-height: 140px;
 
         padding: 16px;
@@ -1972,7 +1656,7 @@ html.light .music-btn {
 </head>
 
 
-<body>
+<body id="home">
 
 
 <!-- =====================================================
@@ -1992,6 +1676,7 @@ html.light .music-btn {
         </div>
 
     </div>
+
 
     <button
         class="menu-button"
@@ -2039,14 +1724,12 @@ html.light .music-btn {
 
 
 <!-- =====================================================
-     MAIN
+     HERO
 ===================================================== -->
 
 <main>
 
-<section
-    class="hero"
-    id="home">
+<section class="hero">
 
     <div class="eyebrow">
 
@@ -2060,11 +1743,9 @@ html.light .music-btn {
     <h1 class="hero-title">
 
         Create.
-
         <span class="gradient">
             Play.
         </span>
-
         Enjoy.
 
     </h1>
@@ -2078,11 +1759,14 @@ html.light .music-btn {
     </p>
 
 
-    <!-- CHARACTER -->
+    <!-- =================================================
+         CHARACTER
+    ================================================== -->
 
     <div class="character-stage">
 
         <div class="character-glow"></div>
+
 
         <div class="character">
 
@@ -2096,6 +1780,8 @@ html.light .music-btn {
 
             <div class="body"></div>
 
+
+            <!-- FACE -->
 
             <div class="face">
 
@@ -2118,8 +1804,12 @@ html.light .music-btn {
             </div>
 
 
+            <!-- FRONT HAIR -->
+
             <div class="hair-front"></div>
 
+
+            <!-- LAPTOP -->
 
             <div class="laptop">
 
@@ -2143,10 +1833,10 @@ html.light .music-btn {
 
 
 <!-- =====================================================
-     FEATURES
+     FEATURE STRIP
 ===================================================== -->
 
-<div class="feature-strip">
+<section class="feature-strip">
 
     <div class="feature">
 
@@ -2186,15 +1876,14 @@ html.light .music-btn {
 
     </div>
 
-</div>
+</section>
 
 
 <!-- =====================================================
-     COLLECTION
+     COLLECTION CARDS
 ===================================================== -->
 
 <section class="action-section">
-
 
     <button
         class="action-card"
@@ -2210,8 +1899,8 @@ html.light .music-btn {
         </h3>
 
         <p>
-            Explore my games
-            and interactive projects.
+            Explore my games and
+            interactive projects.
         </p>
 
     </button>
@@ -2237,7 +1926,6 @@ html.light .music-btn {
 
     </button>
 
-
 </section>
 
 
@@ -2259,8 +1947,9 @@ html.light .music-btn {
 
     <p>
         A creative space for games,
-        apps and digital ideas made with
-        curiosity, imagination and code.
+        apps and digital ideas made
+        with curiosity, imagination
+        and code.
     </p>
 
 </section>
@@ -2287,7 +1976,7 @@ html.light .music-btn {
 
 
 <!-- =====================================================
-     BOTTOM NAV
+     BOTTOM NAVIGATION
 ===================================================== -->
 
 <nav class="bottom-nav">
@@ -2296,9 +1985,13 @@ html.light .music-btn {
         class="nav-item active"
         href="#home">
 
-        <div class="nav-icon">🏠</div>
+        <div class="nav-icon">
+            🏠
+        </div>
 
-        <div>Home</div>
+        <div>
+            Home
+        </div>
 
     </a>
 
@@ -2307,9 +2000,13 @@ html.light .music-btn {
         class="nav-item"
         href="#games">
 
-        <div class="nav-icon">🎮</div>
+        <div class="nav-icon">
+            🎮
+        </div>
 
-        <div>Games</div>
+        <div>
+            Games
+        </div>
 
     </a>
 
@@ -2318,9 +2015,13 @@ html.light .music-btn {
         class="nav-item"
         href="#apps">
 
-        <div class="nav-icon">📱</div>
+        <div class="nav-icon">
+            📱
+        </div>
 
-        <div>Apps</div>
+        <div>
+            Apps
+        </div>
 
     </a>
 
@@ -2329,9 +2030,13 @@ html.light .music-btn {
         class="nav-item"
         href="#about">
 
-        <div class="nav-icon">💗</div>
+        <div class="nav-icon">
+            💗
+        </div>
 
-        <div>About</div>
+        <div>
+            About
+        </div>
 
     </a>
 
@@ -2339,14 +2044,19 @@ html.light .music-btn {
 
 
 <!-- =====================================================
-     SETTINGS
+     SETTINGS OVERLAY
 ===================================================== -->
 
 <div
     class="settings-overlay"
-    id="settingsOverlay">
+    id="settingsOverlay"
+    onclick="closeSettingsOutside(event)">
 
-    <div class="settings-panel">
+
+    <div
+        class="settings-panel"
+        onclick="event.stopPropagation()">
+
 
         <div class="settings-title">
 
@@ -2384,6 +2094,7 @@ html.light .music-btn {
 
                 </button>
 
+
                 <button
                     class="setting-option"
                     id="lightOption"
@@ -2409,32 +2120,35 @@ html.light .music-btn {
             <div class="setting-options">
 
                 <button
-                    class="setting-option active"
-                    onclick="setLanguage('English',this)">
+                    class="setting-option active language-option"
+                    onclick="setLanguage('English', this)">
 
                     English
 
                 </button>
 
+
                 <button
-                    class="setting-option"
-                    onclick="setLanguage('বাংলা',this)">
+                    class="setting-option language-option"
+                    onclick="setLanguage('বাংলা', this)">
 
                     বাংলা
 
                 </button>
 
+
                 <button
-                    class="setting-option"
-                    onclick="setLanguage('हिन्दी',this)">
+                    class="setting-option language-option"
+                    onclick="setLanguage('हिन्दी', this)">
 
                     हिन्दी
 
                 </button>
 
+
                 <button
-                    class="setting-option"
-                    onclick="setLanguage('اردو',this)">
+                    class="setting-option language-option"
+                    onclick="setLanguage('اردو', this)">
 
                     اردو
 
@@ -2457,6 +2171,7 @@ html.light .music-btn {
                 </span>
 
             </div>
+
 
             <div class="volume-box">
 
@@ -2485,6 +2200,7 @@ html.light .music-btn {
                 🎵 Music
             </div>
 
+
             <div class="music-controls">
 
                 <button
@@ -2494,6 +2210,7 @@ html.light .music-btn {
                     ▶ Play
 
                 </button>
+
 
                 <button
                     class="music-btn"
@@ -2513,17 +2230,48 @@ html.light .music-btn {
 
 
 <!-- =====================================================
-     MUSIC
+     BACKGROUND MUSIC
+
+     Put your music file in the same folder and name it:
+     music.mp3
+
+     If you don't have music yet, that's okay.
 ===================================================== -->
 
 <audio
     id="backgroundMusic"
-    src="music.mp3"
-    loop>
+    loop
+    preload="auto">
+
+    <source
+        src="music.mp3"
+        type="audio/mpeg">
+
 </audio>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const menu =
+    document.getElementById("menu");
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const settingsOverlay =
+    document.getElementById("settingsOverlay");
+
+const music =
+    document.getElementById("backgroundMusic");
+
 
 /* =====================================================
    MENU
@@ -2531,31 +2279,22 @@ html.light .music-btn {
 
 function toggleMenu() {
 
-    document
-        .getElementById("menu")
-        .classList
-        .toggle("show");
+    menu.classList.toggle("show");
 
 }
 
 
 /* =====================================================
-   CLOSE MENU
+   CLOSE MENU WHEN CLICKING OUTSIDE
 ===================================================== */
 
 document.addEventListener(
     "click",
     function(event) {
 
-        const menu =
-            document.getElementById("menu");
-
-        const button =
-            document.getElementById("menuButton");
-
         if (
             !menu.contains(event.target) &&
-            !button.contains(event.target)
+            !menuButton.contains(event.target)
         ) {
 
             menu.classList.remove("show");
@@ -2567,81 +2306,90 @@ document.addEventListener(
 
 
 /* =====================================================
+   CLOSE MENU AFTER NAVIGATION
+===================================================== */
+
+document.querySelectorAll(
+    ".menu a"
+).forEach(function(link) {
+
+    link.addEventListener(
+        "click",
+        function() {
+
+            menu.classList.remove("show");
+
+        }
+    );
+
+});
+
+
+/* =====================================================
    SETTINGS
 ===================================================== */
 
 function openSettings() {
 
-    document
-        .getElementById("settingsOverlay")
-        .classList
-        .add("show");
+    settingsOverlay.classList.add("show");
 
-    document
-        .getElementById("menu")
-        .classList
-        .remove("show");
+    menu.classList.remove("show");
 
 }
 
+
 function closeSettings() {
 
-    document
-        .getElementById("settingsOverlay")
-        .classList
-        .remove("show");
+    settingsOverlay.classList.remove("show");
+
+}
+
+
+function closeSettingsOutside(event) {
+
+    if (
+        event.target === settingsOverlay
+    ) {
+
+        closeSettings();
+
+    }
 
 }
 
 
 /* =====================================================
    THEME
-   IMPORTANT:
-   Theme is controlled ONLY by this website.
-   It does not depend on Chrome/device theme.
 ===================================================== */
 
 function setTheme(theme) {
 
-    const isLight = theme === "light";
-
-    document.documentElement.classList.toggle(
-        "light",
-        isLight
-    );
-
     document.body.classList.toggle(
         "light",
-        isLight
+        theme === "light"
     );
 
-    document
-        .getElementById("darkOption")
-        .classList
-        .toggle(
-            "active",
-            !isLight
-        );
-
-    document
-        .getElementById("lightOption")
-        .classList
-        .toggle(
-            "active",
-            isLight
-        );
-
-    document
-        .querySelector('meta[name="theme-color"]')
-        .setAttribute(
-            "content",
-            isLight ? "#fff8fb" : "#180912"
-        );
 
     localStorage.setItem(
         "fzTheme",
         theme
     );
+
+
+    document
+        .getElementById("darkOption")
+        .classList.toggle(
+            "active",
+            theme === "dark"
+        );
+
+
+    document
+        .getElementById("lightOption")
+        .classList.toggle(
+            "active",
+            theme === "light"
+        );
 
 }
 
@@ -2654,15 +2402,19 @@ function setLanguage(language, button) {
 
     document
         .querySelectorAll(
-            ".setting-row:nth-of-type(2) .setting-option"
+            ".language-option"
         )
         .forEach(function(option) {
 
-            option.classList.remove("active");
+            option.classList.remove(
+                "active"
+            );
 
         });
 
+
     button.classList.add("active");
+
 
     localStorage.setItem(
         "fzLanguage",
@@ -2676,23 +2428,24 @@ function setLanguage(language, button) {
    VOLUME
 ===================================================== */
 
-const music =
-    document.getElementById(
-        "backgroundMusic"
-    );
-
-music.volume = 0.7;
-
-
 function changeVolume(value) {
 
-    music.volume =
+    const volume =
         Number(value) / 100;
+
+
+    if (music) {
+
+        music.volume = volume;
+
+    }
+
 
     document
         .getElementById("volumeValue")
         .textContent =
         value + "%";
+
 
     localStorage.setItem(
         "fzVolume",
@@ -2708,18 +2461,28 @@ function changeVolume(value) {
 
 function playMusic() {
 
+    if (!music) {
+        return;
+    }
+
+
     music.play()
         .catch(function() {
 
             alert(
-                "Tap Play again if your browser blocked autoplay."
+                "Please tap Play again to start the music."
             );
 
         });
 
 }
 
+
 function pauseMusic() {
+
+    if (!music) {
+        return;
+    }
 
     music.pause();
 
@@ -2751,35 +2514,48 @@ function openApps() {
 
 
 /* =====================================================
-   LOAD SAVED SETTINGS
+   BOTTOM NAV ACTIVE STATE
+===================================================== */
+
+document
+    .querySelectorAll(".nav-item")
+    .forEach(function(item) {
+
+        item.addEventListener(
+            "click",
+            function() {
+
+                document
+                    .querySelectorAll(".nav-item")
+                    .forEach(function(nav) {
+
+                        nav.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                item.classList.add(
+                    "active"
+                );
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   LOAD SAVED THEME
 ===================================================== */
 
 const savedTheme =
     localStorage.getItem("fzTheme");
 
-
 if (savedTheme) {
 
     setTheme(savedTheme);
-
-} else {
-
-    setTheme("dark");
-
-}
-
-
-const savedVolume =
-    localStorage.getItem("fzVolume");
-
-
-if (savedVolume) {
-
-    document
-        .getElementById("volumeSlider")
-        .value = savedVolume;
-
-    changeVolume(savedVolume);
 
 }
 
@@ -2795,26 +2571,23 @@ if (savedLanguage) {
 
     document
         .querySelectorAll(
-            ".setting-row:nth-of-type(2) .setting-option"
+            ".language-option"
         )
         .forEach(function(button) {
 
+            button.classList.remove(
+                "active"
+            );
+
+
             if (
-                button.textContent.trim() ===
-                savedLanguage
+                button.textContent.trim()
+                === savedLanguage
             ) {
 
-                document
-                    .querySelectorAll(
-                        ".setting-row:nth-of-type(2) .setting-option"
-                    )
-                    .forEach(function(option) {
-
-                        option.classList.remove("active");
-
-                    });
-
-                button.classList.add("active");
+                button.classList.add(
+                    "active"
+                );
 
             }
 
@@ -2822,7 +2595,52 @@ if (savedLanguage) {
 
 }
 
+
+/* =====================================================
+   LOAD SAVED VOLUME
+===================================================== */
+
+const savedVolume =
+    localStorage.getItem("fzVolume");
+
+if (savedVolume) {
+
+    document
+        .getElementById("volumeSlider")
+        .value = savedVolume;
+
+
+    changeVolume(savedVolume);
+
+}
+else {
+
+    changeVolume(70);
+
+}
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            menu.classList.remove("show");
+
+            closeSettings();
+
+        }
+
+    }
+);
+
 </script>
+
 
 </body>
 
