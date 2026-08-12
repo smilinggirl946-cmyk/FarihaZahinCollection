@@ -1239,188 +1239,341 @@ button.dataset.mode;
 
 });
 
+    /* =====================================================
+   AUDIO — MASTER VOLUME 100%
+===================================================== */
 
-/* =========================
-   AUDIO
-========================= */
+const MASTER_VOLUME = 1.0;
+
+
+/* =====================================================
+   GET AUDIO
+===================================================== */
 
 function getAudio(){
 
-if(!soundOn) return null;
+    if(!soundOn)
+        return null;
 
-try{
+    try{
 
-const AC =
-window.AudioContext ||
-window.webkitAudioContext;
+        const AC =
+            window.AudioContext ||
+            window.webkitAudioContext;
 
-if(!AC) return null;
+        if(!AC)
+            return null;
 
-if(!audioContext)
-audioContext = new AC();
+        if(!audioContext)
+            audioContext =
+                new AC();
 
-if(audioContext.state === "suspended")
-audioContext.resume().catch(()=>{});
+        if(
+            audioContext.state ===
+            "suspended"
+        ){
 
-return audioContext;
+            audioContext
+                .resume()
+                .catch(()=>{});
 
-}catch(e){
+        }
 
-return null;
+        return audioContext;
+
+    }
+    catch(e){
+
+        return null;
+
+    }
 
 }
 
-}
+
+/* =====================================================
+   TONE
+===================================================== */
 
 function tone(
-freq,
-duration,
-type="sine",
-volume=.12
+    freq,
+    duration,
+    type="sine",
+    volume=1.0
 ){
 
-const audio = getAudio();
+    const audio =
+        getAudio();
 
-if(!audio) return;
+    if(!audio)
+        return;
 
-try{
+    try{
 
-const osc =
-audio.createOscillator();
+        const osc =
+            audio.createOscillator();
 
-const gain =
-audio.createGain();
+        const gain =
+            audio.createGain();
 
-osc.type = type;
-osc.frequency.value = freq;
+        osc.type =
+            type;
 
-gain.gain.setValueAtTime(
-volume,
-audio.currentTime
-);
+        osc.frequency.value =
+            freq;
 
-gain.gain.exponentialRampToValueAtTime(
-.001,
-audio.currentTime + duration
-);
 
-osc.connect(gain);
-gain.connect(audio.destination);
+        /* MASTER VOLUME = 100% */
 
-osc.start();
+        const finalVolume =
+            Math.min(
+                1,
+                volume * MASTER_VOLUME
+            );
 
-osc.stop(
-audio.currentTime + duration
-);
 
-}catch(e){}
+        gain.gain.setValueAtTime(
+            finalVolume,
+            audio.currentTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            audio.currentTime +
+            duration
+        );
+
+
+        osc.connect(gain);
+
+        gain.connect(
+            audio.destination
+        );
+
+        osc.start();
+
+        osc.stop(
+            audio.currentTime +
+            duration
+        );
+
+    }
+    catch(e){}
 
 }
+
+
+/* =====================================================
+   APPLE CATCH SOUND — 100%
+===================================================== */
 
 function catchSound(){
 
-tone(650,.08,"sine",.14);
+    tone(
+        650,
+        .10,
+        "sine",
+        .90
+    );
 
-setTimeout(
-()=>tone(900,.08,"sine",.10),
-60
-);
+    setTimeout(
+        () => {
+
+            tone(
+                900,
+                .10,
+                "sine",
+                .75
+            );
+
+        },
+        60
+    );
 
 }
+
+
+/* =====================================================
+   MISS SOUND — 90%
+===================================================== */
 
 function missSound(){
-tone(180,.22,"sawtooth",.10);
+
+    tone(
+        180,
+        .22,
+        "sawtooth",
+        .80
+    );
+
 }
+
+
+/* =====================================================
+   LEVEL UP SOUND — 95%
+===================================================== */
 
 function levelSound(){
 
-tone(500,.1,"triangle",.12);
+    tone(
+        500,
+        .12,
+        "triangle",
+        .85
+    );
 
-setTimeout(
-()=>tone(700,.1,"triangle",.12),
-100
-);
+    setTimeout(
+        () => {
 
-setTimeout(
-()=>tone(900,.16,"triangle",.12),
-200
-);
+            tone(
+                700,
+                .12,
+                "triangle",
+                .85
+            );
+
+        },
+        100
+    );
+
+    setTimeout(
+        () => {
+
+            tone(
+                900,
+                .18,
+                "triangle",
+                .95
+            );
+
+        },
+        200
+    );
 
 }
+
+
+/* =====================================================
+   GAME OVER SOUND — 95%
+===================================================== */
 
 function gameOverSound(){
 
-tone(420,.15,"triangle",.13);
+    tone(
+        420,
+        .15,
+        "triangle",
+        .90
+    );
 
-setTimeout(
-()=>tone(300,.18,"triangle",.12),
-150
-);
+    setTimeout(
+        () => {
 
-setTimeout(
-()=>tone(180,.3,"triangle",.12),
-330
-);
+            tone(
+                300,
+                .18,
+                "triangle",
+                .85
+            );
+
+        },
+        150
+    );
+
+    setTimeout(
+        () => {
+
+            tone(
+                180,
+                .30,
+                "triangle",
+                .95
+            );
+
+        },
+        330
+    );
 
 }
 
 
-/* =========================
-   MUSIC
-========================= */
+/* =====================================================
+   MUSIC — 75%
+===================================================== */
 
 function startMusic(){
 
-if(!soundOn) return;
+    if(!soundOn)
+        return;
 
-stopMusic();
+    stopMusic();
 
-const audio = getAudio();
+    const audio =
+        getAudio();
 
-if(!audio) return;
+    if(!audio)
+        return;
 
-const notes=[
-261.63,
-329.63,
-392.00,
-523.25,
-392.00,
-329.63,
-293.66,
-349.23
-];
+    const notes = [
 
-let index=0;
+        261.63,
+        329.63,
+        392.00,
+        523.25,
+        392.00,
+        329.63,
+        293.66,
+        349.23
 
-musicTimer=setInterval(()=>{
+    ];
 
-if(
-!gameRunning ||
-paused ||
-!soundOn
-) return;
+    let index = 0;
 
-tone(
-notes[index % notes.length],
-.20,
-"triangle",
-.028
-);
+    musicTimer =
+        setInterval(
+            () => {
 
-index++;
+                if(
+                    !gameRunning ||
+                    paused ||
+                    !soundOn
+                )
+                    return;
 
-},360);
+                tone(
+                    notes[
+                        index %
+                        notes.length
+                    ],
+                    .20,
+                    "triangle",
+                    1.0
+                );
+
+                index++;
+
+            },
+            360
+        );
 
 }
+
+
+/* =====================================================
+   STOP MUSIC
+===================================================== */
 
 function stopMusic(){
 
-if(musicTimer){
+    if(musicTimer){
 
-clearInterval(musicTimer);
-musicTimer=null;
+        clearInterval(
+            musicTimer
+        );
 
-}
+        musicTimer = null;
+
+    }
 
 }
 
