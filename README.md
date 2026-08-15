@@ -1,12 +1,12 @@
-# 🎮 FarihaZahinGames
+# 🎮 FarihaZahinCollection
 
-### Games and Interactive Projects by Fariha Zahin
+### Games, Apps & Interactive Projects by Fariha Zahin
 
-Welcome to **FarihaZahinGames** — a collection of games, experiments,
-and interactive projects developed by **Fariha Zahin**.
+Welcome to **FarihaZahinCollection** — a collection of games, apps,
+experiments, and interactive projects developed by **Fariha Zahin**.
 
 This repository contains projects created for learning, development,
-experimentation, and creative exploration.
+experimentation, creativity, and software development.
 
 ---
 
@@ -16,13 +16,15 @@ experimentation, and creative exploration.
 
 🎮 Game Developer  
 💻 Programmer  
-🎨 Creative Developer
+📱 App Developer  
+🎨 Creative Developer  
+📚 Writer
 
 ---
 
-## 🎮 Projects
+## 🚀 Projects
 
-Some projects developed by Fariha Zahin include:
+This collection contains projects developed by Fariha Zahin.
 
 ### 🏝️ BATTLE ISLAND
 
@@ -55,25 +57,59 @@ A simple arcade-style game featuring:
 
 ---
 
-## 🚀 Technologies
+### 📖 Quran Word Meaning
 
-Projects in this repository may use technologies such as:
+A Quran learning application designed to help users explore
+Quranic words and their meanings.
+
+Features may include:
+
+- 📖 Surah selection
+- 🕋 Arabic Quran text
+- 🇬🇧 English meanings
+- 🇧🇩 Bangla meanings
+- 🔎 Word-by-word exploration
+- 📚 Quran meaning reference
+
+---
+
+### 🧮 Math Academy
+
+An educational mathematics application designed for learning
+and practicing mathematical concepts.
+
+Features may include:
+
+- 📐 Mathematics lessons
+- 🧮 Calculations
+- 📝 Practice questions
+- 🎯 Interactive learning
+- 📱 Mobile-friendly interface
+
+---
+
+## 🛠️ Technologies
+
+Projects in this collection may use technologies such as:
 
 - HTML5
 - CSS3
 - JavaScript
+- C / C++
 - Web APIs
 - Canvas
 - Web Audio API
 - Local Storage
+- Android technologies
 - GitHub Pages
-- Other third-party libraries and tools where applicable
+- Other tools, frameworks, and libraries where applicable
 
 ---
 
 ## 📱 Platforms
 
-Depending on the individual project, games may support:
+Depending on the individual project, applications and games may
+support:
 
 - 📱 Android
 - 💻 Windows / Desktop
@@ -87,7 +123,7 @@ platform-specific information.
 ## 📂 Repository Structure
 
 ```text
-FarihaZahinGames/
+FarihaZahinCollection/
 │
 ├── README.md
 ├── LICENSE
@@ -98,6 +134,16 @@ FarihaZahinGames/
 │   └── ...
 │
 ├── My-Apple-Catcher/
+│   ├── index.html
+│   ├── assets/
+│   └── ...
+│
+├── Quran-Word-Meaning/
+│   ├── index.html
+│   ├── assets/
+│   └── ...
+│
+├── Math-Academy/
 │   ├── index.html
 │   ├── assets/
 │   └── ...
