@@ -55,3 +55,15 @@ This collection is a place where I can build, experiment, learn, and share my di
 ---
 
 © 2026 Fariha Zahin. All rights reserved.
+
+## Copyright
+
+© 2026 Fariha Zahin — All Rights Reserved.
+
+This repository is publicly available for viewing and educational
+reference. No permission is granted to copy, modify, redistribute,
+republish, sell, or reuse the original source code or assets without
+prior written permission from Fariha Zahin.
+
+Third-party libraries, fonts, images, sounds, and other materials
+remain subject to their respective licenses and copyrights.
