@@ -1,69 +1,105 @@
-# 💗 Fariha Zahin Collection
+# 🎮 FarihaZahinGames
 
-Welcome to the **Fariha Zahin Collection** — a personal creative space for games, apps, experiments, and digital projects created by **Fariha Zahin**.
+### Games and Interactive Projects by Fariha Zahin
 
-## ✨ About
+Welcome to **FarihaZahinGames** — a collection of games, experiments,
+and interactive projects developed by **Fariha Zahin**.
 
-This repository contains my personal digital projects, including:
-
-- 🎮 Games
-- 📱 Android Apps
-- 💻 Web Projects
-- ✨ Creative Experiments
-
-Everything here is created with curiosity, creativity, and code.
-
-## 🎮 Featured Game
-
-### 🍎 My Apple Catcher
-
-A fun casual game where you catch falling apples and try to achieve your highest score.
-
-**Version:** 2.0
-
-**Available for:** Android 📱
-
-## 🌐 Website
-
-Visit the **Fariha Zahin Collection** website to explore my projects:
-
-**FZ Fariha Zahin Collection**
-
-## 🛠️ Technologies
-
-Projects in this collection may use:
-
-- HTML
-- CSS
-- JavaScript
-- GDevelop
-- Android APK
-- GitHub Pages
-
-## 👩‍💻 Creator
-
-**Fariha Zahin**
-
-Architect • CSE Student • Writer • Game & App Creator
-
-## 💗 Purpose
-
-This collection is a place where I can build, experiment, learn, and share my digital creations.
-
-> Create. Play. Enjoy. ✨
+This repository contains projects created for learning, development,
+experimentation, and creative exploration.
 
 ---
 
-© 2026 Fariha Zahin. All rights reserved.
+## 👩‍💻 Developer
 
-## Copyright
+**Fariha Zahin**
 
-© 2026 Fariha Zahin — All Rights Reserved.
+🎮 Game Developer  
+💻 Programmer  
+🎨 Creative Developer
 
-This repository is publicly available for viewing and educational
-reference. No permission is granted to copy, modify, redistribute,
-republish, sell, or reuse the original source code or assets without
-prior written permission from Fariha Zahin.
+---
 
-Third-party libraries, fonts, images, sounds, and other materials
-remain subject to their respective licenses and copyrights.
+## 🎮 Projects
+
+Some projects developed by Fariha Zahin include:
+
+### 🏝️ BATTLE ISLAND
+
+A war-themed action game featuring:
+
+- ⚔️ Multiple game modes
+- 🏝️ Different islands
+- 👾 Enemy battles
+- ⏱️ Time Rush mode
+- ❤️ Health system
+- 🎯 Shooting mechanics
+- 🎵 Sound and music
+- 📱 Mobile gameplay
+- 🎮 Interactive controls
+
+---
+
+### 🍎 My Apple Catcher
+
+A simple arcade-style game featuring:
+
+- 🍎 Apple catching gameplay
+- ❤️ Three-life system
+- 🏆 High-score system
+- 🔊 Sound effects
+- ⏸️ Pause and resume
+- 📱 Mobile support
+- 💻 Desktop support
+- 💾 Local high-score storage
+
+---
+
+## 🚀 Technologies
+
+Projects in this repository may use technologies such as:
+
+- HTML5
+- CSS3
+- JavaScript
+- Web APIs
+- Canvas
+- Web Audio API
+- Local Storage
+- GitHub Pages
+- Other third-party libraries and tools where applicable
+
+---
+
+## 📱 Platforms
+
+Depending on the individual project, games may support:
+
+- 📱 Android
+- 💻 Windows / Desktop
+- 🌐 Web browsers
+
+Please check the individual project's documentation for
+platform-specific information.
+
+---
+
+## 📂 Repository Structure
+
+```text
+FarihaZahinGames/
+│
+├── README.md
+├── LICENSE
+│
+├── Battle-Island/
+│   ├── index.html
+│   ├── assets/
+│   └── ...
+│
+├── My-Apple-Catcher/
+│   ├── index.html
+│   ├── assets/
+│   └── ...
+│
+└── ...
