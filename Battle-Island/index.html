@@ -1,0 +1,5952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+
+<meta name="theme-color" content="#050912">
+
+<title>BATTLE ISLAND — Fariha Zahin</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#050912;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+}
+
+#game{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background:#050912;
+}
+
+canvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+/* =========================================================
+   SCREENS
+========================================================= */
+
+.screen{
+    position:absolute;
+    inset:0;
+    z-index:100;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:15px;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(55,180,255,.18),
+            transparent 38%
+        ),
+        rgba(2,6,15,.82);
+
+    backdrop-filter:blur(10px);
+}
+
+.panel{
+    width:min(94vw,500px);
+    max-height:94vh;
+    overflow:auto;
+
+    padding:25px 22px;
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12,25,45,.97),
+            rgba(5,13,27,.97)
+        );
+
+    color:#fff;
+
+    text-align:center;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.65),
+        inset 0 1px rgba(255,255,255,.08);
+}
+
+.hidden{
+    display:none!important;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+    font-size:clamp(44px,11vw,72px);
+    line-height:.82;
+
+    font-weight:1000;
+    letter-spacing:-4px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4ee4ff,
+            #6586ff,
+            #c76cff
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    filter:drop-shadow(
+        0 8px 20px rgba(78,180,255,.15)
+    );
+}
+
+.subtitle{
+    margin-top:11px;
+
+    color:#a9bad0;
+
+    font-size:11px;
+    letter-spacing:2.5px;
+    font-weight:900;
+}
+
+.developer{
+    margin-top:17px;
+
+    color:#76e6ff;
+
+    font-size:11px;
+    letter-spacing:1.5px;
+    font-weight:900;
+}
+
+.description{
+    margin:18px auto;
+
+    max-width:400px;
+
+    color:#d4dfec;
+
+    font-size:13px;
+    line-height:1.55;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.mainBtn,
+.secondaryBtn,
+.modeBtn,
+.backBtn{
+    width:100%;
+
+    border-radius:15px;
+
+    color:#fff;
+
+    font-weight:900;
+
+    transition:.15s;
+}
+
+.mainBtn{
+    border:0;
+    padding:15px;
+
+    font-size:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #477bff,
+            #8757ff
+        );
+
+    box-shadow:
+        0 10px 28px rgba(76,91,255,.28);
+}
+
+.secondaryBtn{
+    margin-top:9px;
+
+    padding:13px;
+
+    font-size:14px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.055);
+}
+
+.backBtn{
+    margin-top:9px;
+
+    padding:12px;
+
+    font-size:13px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.045);
+}
+
+.mainBtn:active,
+.secondaryBtn:active,
+.modeBtn:active,
+.backBtn:active{
+    transform:scale(.96);
+}
+
+/* =========================================================
+   HOME RESOURCES
+========================================================= */
+
+.resources{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+
+    margin:17px 0 4px;
+}
+
+.resource{
+    min-width:92px;
+
+    padding:9px 12px;
+
+    border-radius:13px;
+
+    background:rgba(255,255,255,.055);
+
+    border:1px solid rgba(255,255,255,.09);
+
+    text-align:left;
+}
+
+.resource small{
+    display:block;
+
+    color:#8194aa;
+
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+.resource b{
+    display:block;
+
+    margin-top:2px;
+
+    font-size:16px;
+}
+
+/* =========================================================
+   MODE CARDS
+========================================================= */
+
+.modeGrid{
+    display:grid;
+    gap:9px;
+
+    margin-top:15px;
+}
+
+.modeBtn{
+    padding:15px;
+
+    text-align:left;
+
+    border:1px solid rgba(255,255,255,.11);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(57,116,255,.19),
+            rgba(130,70,255,.15)
+        );
+}
+
+.modeBtn span{
+    display:block;
+
+    font-size:17px;
+}
+
+.modeBtn small{
+    display:block;
+
+    margin-top:5px;
+
+    color:#aebed0;
+
+    font-size:10px;
+    line-height:1.45;
+}
+
+/* =========================================================
+   TOP MENU
+========================================================= */
+
+.menuTitle{
+    font-size:28px;
+    font-weight:1000;
+}
+
+.menuSub{
+    margin-top:5px;
+
+    color:#8fa5bc;
+
+    font-size:11px;
+}
+
+/* =========================================================
+   ISLAND GRID
+========================================================= */
+
+#islandGrid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:7px;
+
+    margin:15px 0;
+}
+
+.islandBtn{
+    min-height:58px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.11);
+
+    background:rgba(255,255,255,.045);
+
+    color:#fff;
+
+    font-weight:900;
+    font-size:11px;
+}
+
+.islandBtn small{
+    display:block;
+
+    margin-top:3px;
+
+    color:#94a7bb;
+
+    font-size:8px;
+}
+
+.islandBtn.active{
+    background:
+        linear-gradient(
+            135deg,
+            #477bff,
+            #8558ff
+        );
+
+    border-color:#83b7ff;
+}
+
+.islandBtn.locked{
+    opacity:.34;
+}
+
+/* =========================================================
+   SHOP
+========================================================= */
+
+.shopGrid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+
+    margin-top:15px;
+}
+
+.shopCard{
+    padding:13px;
+
+    border-radius:15px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    background:rgba(255,255,255,.045);
+
+    text-align:left;
+}
+
+.shopCard h3{
+    font-size:14px;
+}
+
+.shopCard p{
+    margin-top:4px;
+
+    color:#91a5b9;
+
+    font-size:10px;
+}
+
+.upgradeBtn{
+    width:100%;
+
+    margin-top:9px;
+
+    padding:9px;
+
+    border:0;
+    border-radius:10px;
+
+    background:#3269ee;
+
+    color:#fff;
+
+    font-weight:900;
+    font-size:11px;
+}
+
+/* =========================================================
+   HUD
+========================================================= */
+
+#hud{
+    position:absolute;
+
+    top:10px;
+    left:10px;
+    right:10px;
+
+    z-index:20;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+
+    pointer-events:none;
+}
+
+#hud .hudSide:last-child {
+    margin-top: 40px;   /* ← increase this number if you want them even lower */
+}
+
+.hudSide{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+}
+
+.hudBox{
+    min-width:65px;
+
+    padding:6px 8px;
+
+    border-radius:11px;
+
+    border:1px solid rgba(255,255,255,.14);
+
+    background:rgba(3,10,20,.75);
+
+    backdrop-filter:blur(7px);
+
+    color:#fff;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.25);
+}
+
+.hudTitle{
+    display:block;
+
+    color:#9aacc0;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+.hudValue{
+    display:block;
+
+    margin-top:2px;
+
+    font-size:15px;
+
+    font-weight:1000;
+}
+
+#healthBox{
+    width:115px;
+}
+
+#healthBar{
+    height:7px;
+
+    margin-top:4px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.1);
+}
+
+#healthFill{
+    width:100%;
+    height:100%;
+
+    border-radius:20px;
+
+    background:#45ed88;
+}
+
+/* =========================================================
+   COMBO
+========================================================= */
+
+#combo{
+    position:absolute;
+
+    top:82px;
+    left:50%;
+
+    z-index:22;
+
+    transform:
+        translateX(-50%)
+        scale(.7);
+
+    opacity:0;
+
+    color:#fff;
+
+    font-size:22px;
+    font-weight:1000;
+
+    text-shadow:
+        0 3px 15px #000;
+
+    transition:.15s;
+
+    pointer-events:none;
+}
+
+#combo.show{
+    opacity:1;
+    transform:
+        translateX(-50%)
+        scale(1);
+}
+
+/* =========================================================
+   TOP BUTTONS
+========================================================= */
+
+#topButtons{
+    position:absolute;
+
+    top:10px;
+    right:10px;
+
+    z-index:25;
+
+    display:flex;
+    gap:5px;
+}
+
+.smallBtn{
+    width:38px;
+    height:38px;
+
+    border-radius:11px;
+
+    border:1px solid rgba(255,255,255,.14);
+
+    background:rgba(3,10,20,.78);
+
+    color:#fff;
+
+    font-size:17px;
+}
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+#controls{
+    position:absolute;
+    inset:0;
+
+    z-index:30;
+
+    pointer-events:none;
+}
+
+#joystick{
+    position:absolute;
+
+    left:17px;
+    bottom:17px;
+
+    width:108px;
+    height:108px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.17);
+
+    box-shadow:
+        inset 0 0 25px rgba(255,255,255,.03),
+        0 8px 25px rgba(0,0,0,.25);
+
+    pointer-events:auto;
+
+    touch-action:none;
+}
+
+#stick{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:52px;
+    height:52px;
+
+    margin-left:-26px;
+    margin-top:-26px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.21);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    pointer-events:none;
+}
+
+#actionButtons{
+    position:absolute;
+
+    right:17px;
+    bottom:17px;
+
+    display:flex;
+    align-items:flex-end;
+
+    gap:7px;
+
+    pointer-events:auto;
+}
+
+.action{
+    width:57px;
+    height:57px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.16);
+
+    background:rgba(9,21,37,.88);
+
+    color:#fff;
+
+    font-size:22px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.3);
+}
+
+#fireButton{
+    width:73px;
+    height:73px;
+
+    font-size:29px;
+
+    background:
+        radial-gradient(
+            circle,
+            #ff6576,
+            #bf315c
+        );
+}
+
+#specialButton.ready{
+    background:
+        radial-gradient(
+            circle,
+            #6cddff,
+            #4266ff
+        );
+}
+
+/* =========================================================
+   BOSS BAR
+========================================================= */
+
+#bossBar{
+    position:absolute;
+
+    top:78px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(70vw,430px);
+
+    z-index:22;
+
+    pointer-events:none;
+
+    opacity:0;
+    transition:.2s;
+}
+
+#bossBar.show{
+    opacity:1;
+}
+
+#bossName{
+    text-align:center;
+
+    color:#fff;
+
+    font-size:12px;
+    font-weight:1000;
+
+    letter-spacing:1px;
+}
+
+#bossHealth{
+    height:9px;
+
+    margin-top:5px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:rgba(0,0,0,.55);
+
+    border:1px solid rgba(255,255,255,.18);
+}
+
+#bossFill{
+    width:100%;
+    height:100%;
+
+    background:#ff4f68;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+#toast{
+    position:absolute;
+
+    left:50%;
+    bottom:135px;
+
+    z-index:90;
+
+    transform:
+        translateX(-50%)
+        translateY(20px);
+
+    opacity:0;
+
+    padding:9px 16px;
+
+    border-radius:13px;
+
+    background:rgba(4,12,23,.9);
+
+    border:1px solid rgba(255,255,255,.14);
+
+    color:#fff;
+
+    font-size:12px;
+    font-weight:900;
+
+    pointer-events:none;
+
+    transition:.2s;
+}
+
+#toast.show{
+    opacity:1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .panel{
+        padding:20px 17px;
+    }
+
+    .logo{
+        font-size:48px;
+    }
+
+    .resources{
+        margin-top:12px;
+    }
+
+    .resource{
+        min-width:82px;
+    }
+
+    #islandGrid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    #joystick{
+        width:102px;
+        height:102px;
+        left:14px;
+        bottom:14px;
+    }
+
+    #actionButtons{
+        right:14px;
+        bottom:14px;
+    }
+
+    .action{
+        width:53px;
+        height:53px;
+    }
+
+    #fireButton{
+        width:68px;
+        height:68px;
+    }
+}
+
+@media(max-height:520px){
+
+    .panel{
+        padding:14px 17px;
+    }
+
+    .logo{
+        font-size:39px;
+    }
+
+    .description{
+        margin:10px auto;
+    }
+
+    #joystick{
+        bottom:7px;
+    }
+
+    #actionButtons{
+        bottom:7px;
+    }
+
+    #topButtons{
+        top:7px;
+    }
+
+    #hud{
+        top:7px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="game">
+
+<canvas id="canvas"></canvas>
+
+<!-- =====================================================
+     HUD
+===================================================== -->
+
+<div id="hud" class="hidden">
+
+    <div class="hudSide">
+
+        <div class="hudBox" id="healthBox">
+            <span class="hudTitle">Health</span>
+
+            <div id="healthBar">
+                <div id="healthFill"></div>
+            </div>
+        </div>
+
+        <div class="hudBox">
+            <span class="hudTitle">Score</span>
+            <span class="hudValue" id="score">0</span>
+        </div>
+
+        <div class="hudBox">
+            <span class="hudTitle">Enemies</span>
+            <span class="hudValue" id="enemyCount">0</span>
+        </div>
+
+    </div>
+
+    <div class="hudSide">
+
+        <div class="hudBox">
+            <span class="hudTitle" id="modeTitle">Mode</span>
+            <span class="hudValue" id="modeValue">Classic</span>
+        </div>
+
+        <div class="hudBox">
+            <span class="hudTitle">Time</span>
+            <span class="hudValue" id="timeValue">0:00</span>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="combo">🔥 COMBO ×2</div>
+
+<!-- =====================================================
+     BOSS
+===================================================== -->
+
+<div id="bossBar">
+
+    <div id="bossName">
+        👹 BOSS
+    </div>
+
+    <div id="bossHealth">
+        <div id="bossFill"></div>
+    </div>
+
+</div>
+
+<!-- =====================================================
+     TOP BUTTONS
+===================================================== -->
+
+<div id="topButtons" class="hidden">
+
+    <button class="smallBtn" id="homeBtn">🏠</button>
+    <button class="smallBtn" id="pauseBtn">⏸️</button>
+    <button class="smallBtn" id="soundBtn">🔊</button>
+    <button class="smallBtn" id="vibrateBtn">📳</button>
+
+</div>
+
+<!-- =====================================================
+     CONTROLS
+===================================================== -->
+
+<div id="controls" class="hidden">
+
+    <div id="joystick">
+        <div id="stick"></div>
+    </div>
+
+    <div id="actionButtons">
+
+        <button class="action" id="boostButton">
+            ⚡
+        </button>
+
+        <button class="action" id="specialButton">
+            💣
+        </button>
+
+        <button class="action" id="fireButton">
+            🎯
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div id="toast"></div>
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<div class="screen" id="homeScreen">
+
+    <div class="panel">
+
+        <div class="logo">
+            BATTLE<br>ISLAND
+        </div>
+
+        <div class="subtitle">
+            SURVIVE • FIGHT • CONQUER
+        </div>
+
+        <div class="developer">
+            DEVELOPED BY FARIHA ZAHIN
+        </div>
+
+        <div class="resources">
+
+            <div class="resource">
+                <small>COINS</small>
+                <b>🪙 <span id="homeCoins">0</span></b>
+            </div>
+
+            <div class="resource">
+                <small>GEMS</small>
+                <b>💎 <span id="homeGems">0</span></b>
+            </div>
+
+            <div class="resource">
+                <small>ISLAND</small>
+                <b>🏝️ <span id="homeIsland">1</span>/20</b>
+            </div>
+
+        </div>
+
+        <div class="modeGrid">
+
+            <button class="modeBtn" id="campaignBtn">
+
+                <span>
+                    🏝️ ISLAND CAMPAIGN
+                </span>
+
+                <small>
+                    Conquer 20 islands, unlock weapons,
+                    defeat bosses and become the Island Legend.
+                </small>
+
+            </button>
+
+            <button class="modeBtn" id="classicBtn">
+
+                <span>
+                    ⚔️ CLASSIC
+                </span>
+
+                <small>
+                    Endless survival. Kill as many enemies
+                    as possible and chase your high score.
+                </small>
+
+            </button>
+
+            <button class="modeBtn" id="rushBtn">
+
+                <span>
+                    ⏱️ TIME RUSH
+                </span>
+
+                <small>
+                    Exactly 2 minutes. 20 escalating levels.
+                    Level 1 = 5 kills → Level 20 = 100 kills.
+                </small>
+
+            </button>
+
+        </div>
+
+        <button class="secondaryBtn" id="shopBtn">
+            🔫 ARMORY & UPGRADES
+        </button>
+
+        <button class="secondaryBtn" id="achievementBtn">
+            🏆 ACHIEVEMENTS
+        </button>
+
+        <div class="islandInfo" style="margin-top:13px">
+
+            🏆 Best Score:
+            <b id="homeBest">0</b>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     CAMPAIGN
+===================================================== -->
+
+<div class="screen hidden" id="campaignScreen">
+
+    <div class="panel">
+
+        <div class="menuTitle">
+            🏝️ ISLAND CAMPAIGN
+        </div>
+
+        <div class="menuSub">
+            CONQUER THE WORLD ONE ISLAND AT A TIME
+        </div>
+
+        <div id="islandGrid"></div>
+
+        <div class="islandInfo" id="selectedIslandInfo">
+            Island 1
+        </div>
+
+        <button class="mainBtn" id="startIslandBtn">
+            🏝️ START BATTLE
+        </button>
+
+        <button class="secondaryBtn" id="backCampaignBtn">
+            🔙 BACK
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     CLASSIC MENU
+===================================================== -->
+
+<div class="screen hidden" id="classicScreen">
+
+    <div class="panel">
+
+        <div class="logo" style="font-size:48px">
+            CLASSIC
+        </div>
+
+        <div class="description">
+
+            ⚔️ Endless survival battle.<br><br>
+
+            Enemies continuously appear.
+            Your goal is simple:
+
+            <br><br>
+
+            <b>SURVIVE • KILL • SCORE</b>
+
+        </div>
+
+        <button class="mainBtn" id="startClassicBtn">
+            ⚔️ START CLASSIC
+        </button>
+
+        <button class="secondaryBtn backHome">
+            🔙 BACK
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     RUSH MENU
+===================================================== -->
+
+<div class="screen hidden" id="rushScreen">
+
+    <div class="panel">
+
+        <div class="logo" style="font-size:45px">
+            TIME RUSH
+        </div>
+
+        <div class="description">
+
+            ⏱️ <b>2 MINUTES</b>
+
+            <br><br>
+
+            Level 1 → 5 kills<br>
+            Level 2 → 10 kills<br>
+            Level 3 → 15 kills<br>
+            Level 4 → 20 kills<br>
+            ...<br>
+            Level 20 → 100 kills
+
+            <br><br>
+
+            Can you reach Level 20?
+
+        </div>
+
+        <button class="mainBtn" id="startRushBtn">
+            ⏱️ START TIME RUSH
+        </button>
+
+        <button class="secondaryBtn backHome">
+            🔙 BACK
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     ARMORY
+===================================================== -->
+
+<div class="screen hidden" id="shopScreen">
+
+    <div class="panel">
+
+        <div class="menuTitle">
+            🔫 ARMORY
+        </div>
+
+        <div class="menuSub">
+            UPGRADE YOUR SOLDIER
+        </div>
+
+        <div class="resources">
+
+            <div class="resource">
+                <small>COINS</small>
+                <b>🪙 <span id="shopCoins">0</span></b>
+            </div>
+
+            <div class="resource">
+                <small>GEMS</small>
+                <b>💎 <span id="shopGems">0</span></b>
+            </div>
+
+        </div>
+
+        <div class="shopGrid">
+
+            <div class="shopCard">
+
+                <h3>❤️ HEALTH</h3>
+
+                <p>
+                    Level <b id="healthLevel">1</b>
+                </p>
+
+                <button
+                    class="upgradeBtn"
+                    id="upgradeHealth">
+                    UPGRADE
+                </button>
+
+            </div>
+
+            <div class="shopCard">
+
+                <h3>⚡ SPEED</h3>
+
+                <p>
+                    Level <b id="speedLevel">1</b>
+                </p>
+
+                <button
+                    class="upgradeBtn"
+                    id="upgradeSpeed">
+                    UPGRADE
+                </button>
+
+            </div>
+
+            <div class="shopCard">
+
+                <h3>🔫 DAMAGE</h3>
+
+                <p>
+                    Level <b id="damageLevel">1</b>
+                </p>
+
+                <button
+                    class="upgradeBtn"
+                    id="upgradeDamage">
+                    UPGRADE
+                </button>
+
+            </div>
+
+            <div class="shopCard">
+
+                <h3>💨 BOOST</h3>
+
+                <p>
+                    Level <b id="boostLevel">1</b>
+                </p>
+
+                <button
+                    class="upgradeBtn"
+                    id="upgradeBoost">
+                    UPGRADE
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="islandInfo">
+
+            🔫 Current Weapon:
+            <b id="weaponName">
+                PISTOL
+            </b>
+
+            <br>
+
+            Damage:
+            <b id="weaponDamage">
+                25
+            </b>
+
+        </div>
+
+        <button class="secondaryBtn" id="weaponBtn">
+            🔫 CHANGE WEAPON
+        </button>
+
+        <button class="secondaryBtn backHome">
+            🔙 BACK
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     WEAPON SCREEN
+===================================================== -->
+
+<div class="screen hidden" id="weaponScreen">
+
+    <div class="panel">
+
+        <div class="menuTitle">
+            🔫 WEAPONS
+        </div>
+
+        <div id="weaponList"></div>
+
+        <button class="secondaryBtn" id="backShopBtn">
+            🔙 BACK TO ARMORY
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     ACHIEVEMENTS
+===================================================== -->
+
+<div class="screen hidden" id="achievementScreen">
+
+    <div class="panel">
+
+        <div class="menuTitle">
+            🏆 ACHIEVEMENTS
+        </div>
+
+        <div id="achievementList"></div>
+
+        <button class="secondaryBtn backHome">
+            🔙 BACK
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     PAUSE
+===================================================== -->
+
+<div class="screen hidden" id="pauseScreen">
+
+    <div class="panel">
+
+        <div class="logo" style="font-size:45px">
+            PAUSED
+        </div>
+
+        <div class="description">
+            The battle is paused.
+        </div>
+
+        <button class="mainBtn" id="resumeBtn">
+            ▶️ RESUME
+        </button>
+
+        <button class="secondaryBtn" id="restartBtn">
+            🔄 RESTART
+        </button>
+
+        <button class="backBtn" id="pauseHomeBtn">
+            🏠 BACK TO HOME
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     GAME OVER
+===================================================== -->
+
+<div class="screen hidden" id="gameOverScreen">
+
+    <div class="panel">
+
+        <div class="logo"
+             id="gameOverTitle"
+             style="font-size:43px">
+            GAME OVER
+        </div>
+
+        <div class="description">
+
+            <div id="gameOverMessage">
+                Your battle has ended.
+            </div>
+
+            <br>
+
+            ⭐ Score:
+            <b id="finalScore">0</b>
+
+            <br>
+
+            🪙 Coins:
+            <b id="finalCoins">0</b>
+
+            <br>
+
+            💎 Gems:
+            <b id="finalGems">0</b>
+
+            <br>
+
+            🏆 Best:
+            <b id="finalBest">0</b>
+
+        </div>
+
+        <button class="mainBtn" id="againBtn">
+            🔄 PLAY AGAIN
+        </button>
+
+        <button class="secondaryBtn" id="gameOverHomeBtn">
+            🏠 HOME
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+/* =========================================================
+   BATTLE ISLAND
+   COMMERCIAL EDITION
+   DEVELOPED BY FARIHA ZAHIN
+========================================================= */
+
+const canvas =
+    document.getElementById("canvas");
+
+const ctx =
+    canvas.getContext("2d");
+
+const game =
+    document.getElementById("game");
+
+let W=0;
+let H=0;
+let DPR=1;
+
+/* =========================================================
+   AUDIO
+========================================================= */
+
+let audioCtx=null;
+let soundOn=true;
+let vibrationOn=true;
+let musicTimer=null;
+let musicIndex=0;
+
+function initAudio(){
+
+    if(!audioCtx){
+
+        const AC=
+            window.AudioContext||
+            window.webkitAudioContext;
+
+        if(AC)
+            audioCtx=new AC();
+    }
+
+    if(
+        audioCtx &&
+        audioCtx.state==="suspended"
+    )
+        audioCtx.resume();
+}
+
+function tone(
+    frequency,
+    duration=.08,
+    type="sine",
+    volume=.12
+){
+
+    if(!soundOn)
+        return;
+
+    initAudio();
+
+    if(!audioCtx)
+        return;
+
+    const osc=
+        audioCtx.createOscillator();
+
+    const gain=
+        audioCtx.createGain();
+
+    osc.type=type;
+    osc.frequency.value=frequency;
+
+    const now=
+        audioCtx.currentTime;
+
+    gain.gain.setValueAtTime(
+        volume,
+        now
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        .001,
+        now+duration
+    );
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start(now);
+    osc.stop(now+duration);
+}
+
+function startMusic(){
+
+    stopMusic();
+
+    if(!soundOn)
+        return;
+
+    initAudio();
+
+    if(!audioCtx)
+        return;
+
+    const notes=[
+        110,110,146,110,
+        98,110,164,146,
+        110,146,175,164,
+        146,110,98,110
+    ];
+
+    musicIndex=0;
+
+    musicTimer=setInterval(()=>{
+
+        if(
+            !running ||
+            paused ||
+            !soundOn
+        )
+            return;
+
+        const n=
+            notes[
+                musicIndex%
+                notes.length
+            ];
+
+        tone(
+            n,
+            .20,
+            "sawtooth",
+            1.0
+        );
+
+        if(
+            musicIndex%4===0
+        ){
+
+            tone(
+                n/2,
+                .28,
+                "triangle",
+                1.0
+            );
+        }
+
+        musicIndex++;
+
+    },230);
+}
+
+function stopMusic(){
+
+    if(musicTimer){
+
+        clearInterval(
+            musicTimer
+        );
+
+        musicTimer=null;
+    }
+}
+
+function shootSound(){
+    tone(
+        570,
+        1.0,
+        "square",
+        1.0
+    );
+}
+
+function hitSound(){
+    tone(
+        180,
+        1.0,
+        "triangle",
+        1.0
+    );
+}
+
+function killSound(){
+
+    tone(
+        720,
+       1.0,
+        "sine",
+        1.0
+    );
+
+    setTimeout(()=>{
+        tone(
+            980,
+            1.0,
+            "sine",
+            1.0
+        );
+    },50);
+}
+
+function damageSound(){
+
+    tone(
+        70,
+        1.0,
+        "sawtooth",
+        1.0
+    );
+}
+
+function victorySound(){
+
+    tone(523,1.0,"sine",1.0);
+
+    setTimeout(()=>{
+        tone(659, 1.0,"sine", 1.0);
+    },110);
+
+    setTimeout(()=>{
+        tone(784,1.0,"sine", 1.0);
+    },220);
+}
+
+function bossSound(){
+
+    tone(
+        75,
+        1.0,
+        "sawtooth",
+        1.0
+    );
+
+    setTimeout(()=>{
+        tone(
+            110,
+            1.0,
+            "sawtooth",
+            1.0
+        );
+    },180);
+}
+
+function vibrate(ms=25){
+
+    if(
+        vibrationOn &&
+        navigator.vibrate
+    )
+        navigator.vibrate(ms);
+}
+
+/* =========================================================
+   SAVE DATA
+========================================================= */
+
+const SAVE_KEY=
+    "BATTLE_ISLAND_COMMERCIAL_V1";
+
+const defaultSave={
+
+    coins:0,
+    gems:5,
+
+    unlockedIsland:1,
+
+    bestClassic:0,
+    bestRush:0,
+
+    totalKills:0,
+
+    healthLevel:1,
+    speedLevel:1,
+    damageLevel:1,
+    boostLevel:1,
+
+    weapon:"Pistol",
+
+    weapons:{
+        Pistol:true,
+        Rifle:false,
+        Shotgun:false,
+        Plasma:false,
+        Rocket:false
+    },
+
+    achievements:{}
+
+};
+
+let save;
+
+function loadSave(){
+
+    try{
+
+        const raw=
+            localStorage.getItem(
+                SAVE_KEY
+            );
+
+        if(raw){
+
+            save={
+                ...defaultSave,
+                ...JSON.parse(raw)
+            };
+
+            save.weapons={
+                ...defaultSave.weapons,
+                ...(save.weapons||{})
+            };
+
+            save.achievements={
+                ...(save.achievements||{})
+            };
+
+        }else{
+
+            save=
+                JSON.parse(
+                    JSON.stringify(
+                        defaultSave
+                    )
+                );
+        }
+
+    }catch(e){
+
+        save=
+            JSON.parse(
+                JSON.stringify(
+                    defaultSave
+                )
+            );
+    }
+}
+
+function saveGame(){
+
+    localStorage.setItem(
+        SAVE_KEY,
+        JSON.stringify(save)
+    );
+
+    updateHome();
+}
+
+/* =========================================================
+   WEAPONS
+========================================================= */
+
+const weapons={
+
+    Pistol:{
+        damage:25,
+        fireRate:.20,
+        speed:650,
+        color:"#fff27a",
+        cost:0
+    },
+
+    Rifle:{
+        damage:34,
+        fireRate:.12,
+        speed:720,
+        color:"#6ee7ff",
+        cost:800
+    },
+
+    Shotgun:{
+        damage:24,
+        fireRate:.55,
+        speed:570,
+        color:"#ffb65c",
+        cost:1500
+    },
+
+    Plasma:{
+        damage:60,
+        fireRate:.30,
+        speed:780,
+        color:"#bd7cff",
+        cost:3000
+    },
+
+    Rocket:{
+        damage:110,
+        fireRate:.85,
+        speed:460,
+        color:"#ff6373",
+        cost:6000
+    }
+
+};
+
+function currentWeapon(){
+
+    return weapons[
+        save.weapon
+    ]||weapons.Pistol;
+}
+
+/* =========================================================
+   ISLANDS
+========================================================= */
+
+const islands=[
+
+["Green Haven","Easy","#70d76f","#318f54","#083b55","#061722"],
+["Palm Shore","Easy","#81d86d","#319553","#06496b","#061722"],
+["Emerald Bay","Easy+","#59d878","#23865b","#07556c","#061824"],
+["Red Rock","Average","#a6c15d","#77683d","#193d4d","#081721"],
+["Storm Coast","Average","#70bd68","#39774b","#173b58","#07131e"],
+["Dark Jungle","Average+","#478f55","#1b5739","#092d38","#050e15"],
+["Volcano Edge","Hard","#a39256","#67453a","#30201f","#080c11"],
+["War Island","Hard","#668b56","#3d5b3f","#202f3a","#080f15"],
+["Iron Island","Hard+","#77806a","#3e463e","#29343c","#091118"],
+["Golden Island","Very Hard","#d4bd5b","#8b7439","#3d4350","#10151d"],
+["Frozen Shore","Very Hard","#b5dcd8","#618c91","#204b61","#071520"],
+["Blue Fortress","Very Hard","#568fa4","#315e73","#123e59","#071421"],
+["Black Forest","Extreme","#405f48","#20352d","#111f28","#050a0f"],
+["Crimson Bay","Extreme","#925b55","#553534","#321b25","#0c0a10"],
+["Thunder Island","Extreme+","#707694","#3d425e","#171e38","#070b15"],
+["Dead Island","Brutal","#707064","#383933","#181b1c","#07090b"],
+["Skull Island","Brutal+","#837354","#4b3d32","#211d24","#08090d"],
+["Warzone Island","Nightmare","#526a50","#293a2d","#121e26","#05090d"],
+["Final Frontier","Nightmare+","#625978","#302b42","#171329","#070711"],
+["BATTLE ISLAND","FINAL","#745c9b","#3d285b","#1d1230","#06050d"]
+
+];
+
+let selectedIsland=1;
+
+/* =========================================================
+   GAME STATE
+========================================================= */
+
+let mode=null;
+
+let running=false;
+let paused=false;
+
+let score=0;
+let elapsed=0;
+
+let rushTime=120;
+let rushLevel=1;
+let rushKills=0;
+let rushTarget=5;
+
+let islandKills=0;
+let islandTarget=10;
+
+let spawnTimer=.5;
+
+let bullets=[];
+let enemies=[];
+let particles=[];
+let pickups=[];
+
+let lastTime=0;
+
+let combo=0;
+let comboTimer=0;
+
+let specialCharge=0;
+
+let screenShake=0;
+
+/* =========================================================
+   PLAYER
+========================================================= */
+
+const player={
+
+    x:0,
+    y:0,
+
+    radius:18,
+
+    health:100,
+    maxHealth:100,
+
+    speed:220,
+
+    angle:0,
+
+    cooldown:0,
+
+    boost:0,
+
+    specialCooldown:0
+};
+
+/* =========================================================
+   ISLAND GEOMETRY
+========================================================= */
+
+const island={
+
+    cx:0,
+    cy:0,
+    rx:0,
+    ry:0
+};
+
+function resize(){
+
+    DPR=
+        Math.max(
+            1,
+            Math.min(
+                2,
+                window.devicePixelRatio||1
+            )
+        );
+
+    W=
+        game.clientWidth;
+
+    H=
+        game.clientHeight;
+
+    canvas.width=
+        W*DPR;
+
+    canvas.height=
+        H*DPR;
+
+    canvas.style.width=
+        W+"px";
+
+    canvas.style.height=
+        H+"px";
+
+    ctx.setTransform(
+        DPR,0,0,DPR,0,0
+    );
+
+    island.cx=W/2;
+    island.cy=H/2;
+
+    island.rx=
+        Math.min(
+            W*.43,
+            500
+        );
+
+    island.ry=
+        Math.min(
+            H*.39,
+            350
+        );
+}
+
+window.addEventListener(
+    "resize",
+    resize
+);
+
+/* =========================================================
+   ISLAND BOUNDARY
+========================================================= */
+
+function insideIsland(x,y){
+
+    const dx=
+        (x-island.cx)/
+        island.rx;
+
+    const dy=
+        (y-island.cy)/
+        island.ry;
+
+    return(
+        dx*dx+
+        dy*dy
+    )<.88;
+}
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+const keys={};
+
+window.addEventListener(
+    "keydown",
+    e=>{
+
+        keys[
+            e.key.toLowerCase()
+        ]=true;
+
+        if(e.key===" ")
+            shoot();
+
+    }
+);
+
+window.addEventListener(
+    "keyup",
+    e=>{
+        keys[
+            e.key.toLowerCase()
+        ]=false;
+    }
+);
+
+/* =========================================================
+   JOYSTICK
+========================================================= */
+
+const joystick=
+    document.getElementById(
+        "joystick"
+    );
+
+const stick=
+    document.getElementById(
+        "stick"
+    );
+
+let joyX=0;
+let joyY=0;
+let joyActive=false;
+
+function moveJoystick(e){
+
+    const r=
+        joystick.getBoundingClientRect();
+
+    const cx=
+        r.left+
+        r.width/2;
+
+    const cy=
+        r.top+
+        r.height/2;
+
+    let dx=
+        e.clientX-cx;
+
+    let dy=
+        e.clientY-cy;
+
+    const max=
+        r.width*.34;
+
+    const dist=
+        Math.hypot(dx,dy);
+
+    if(dist>max){
+
+        dx=
+            dx/dist*max;
+
+        dy=
+            dy/dist*max;
+    }
+
+    joyX=dx/max;
+    joyY=dy/max;
+
+    stick.style.transform=
+        `translate(${dx}px,${dy}px)`;
+}
+
+function resetJoystick(){
+
+    joyActive=false;
+
+    joyX=0;
+    joyY=0;
+
+    stick.style.transform=
+        "translate(0,0)";
+}
+
+joystick.addEventListener(
+    "pointerdown",
+    e=>{
+
+        joyActive=true;
+
+        joystick.setPointerCapture(
+            e.pointerId
+        );
+
+        moveJoystick(e);
+    }
+);
+
+joystick.addEventListener(
+    "pointermove",
+    e=>{
+
+        if(joyActive)
+            moveJoystick(e);
+    }
+);
+
+joystick.addEventListener(
+    "pointerup",
+    resetJoystick
+);
+
+joystick.addEventListener(
+    "pointercancel",
+    resetJoystick
+);
+
+/* =========================================================
+   RESET
+========================================================= */
+
+function resetGame(){
+
+    score=0;
+    elapsed=0;
+
+    rushTime=120;
+    rushLevel=1;
+    rushKills=0;
+    rushTarget=5;
+
+    islandKills=0;
+    // Regular enemies before Boss:
+    // Level 1:9, 2:14, 3:19, 4:24, 5:29, 6:34 ... 20:104
+    // After these kills → only Boss remains
+    islandTarget = 4 + selectedIsland * 5;
+
+    bullets=[];
+    enemies=[];
+    particles=[];
+    pickups=[];
+
+    combo=0;
+    comboTimer=0;
+
+    specialCharge=0;
+
+    spawnTimer=.4;
+
+    player.maxHealth=
+        100+
+        (save.healthLevel-1)*12;
+
+    player.health=
+        player.maxHealth;
+
+    player.speed=
+        220+
+        (save.speedLevel-1)*12;
+
+    player.x=island.cx;
+    player.y=island.cy;
+
+    player.angle=0;
+
+    player.cooldown=0;
+    player.boost=0;
+    player.specialCooldown=0;
+
+    document
+        .getElementById("bossBar")
+        .classList.remove("show");
+}
+
+/* =========================================================
+   START
+========================================================= */
+
+function startGame(){
+
+    hideScreens();
+
+    resize();
+
+    resetGame();
+
+    running=true;
+    paused=false;
+
+    document
+        .getElementById("hud")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("topButtons")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("controls")
+        .classList.remove("hidden");
+
+    lastTime=
+        performance.now();
+
+    initAudio();
+    startMusic();
+
+    tone(
+        220,
+        .25,
+        "triangle",
+        .14
+    );
+
+    vibrate(30);
+}
+
+function startClassic(){
+
+    mode="classic";
+
+    startGame();
+}
+
+function startRush(){
+
+    mode="rush";
+
+    startGame();
+}
+
+function startIsland(){
+
+    mode="islands";
+
+    startGame();
+}
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function goHome(){
+
+    running=false;
+    paused=false;
+
+    stopMusic();
+
+    resetJoystick();
+
+    hideScreens();
+
+    document
+        .getElementById("homeScreen")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("hud")
+        .classList.add("hidden");
+
+    document
+        .getElementById("topButtons")
+        .classList.add("hidden");
+
+    document
+        .getElementById("controls")
+        .classList.add("hidden");
+
+    document
+        .getElementById("bossBar")
+        .classList.remove("show");
+
+    updateHome();
+}
+
+function hideScreens(){
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(s=>{
+            s.classList.add(
+                "hidden"
+            );
+        });
+}
+
+/* =========================================================
+   HOME DATA
+========================================================= */
+
+function updateHome(){
+
+    document
+        .getElementById("homeCoins")
+        .textContent=save.coins;
+
+    document
+        .getElementById("homeGems")
+        .textContent=save.gems;
+
+    document
+        .getElementById("homeIsland")
+        .textContent=
+            save.unlockedIsland;
+
+    document
+        .getElementById("homeBest")
+        .textContent=
+            Math.max(
+                save.bestClassic,
+                save.bestRush
+            );
+}
+
+/* =========================================================
+   ISLAND MENU
+========================================================= */
+
+function openCampaign(){
+
+    hideScreens();
+
+    document
+        .getElementById("campaignScreen")
+        .classList.remove("hidden");
+
+    buildIslandGrid();
+
+    updateSelectedIsland();
+}
+
+function buildIslandGrid(){
+
+    const grid=
+        document.getElementById(
+            "islandGrid"
+        );
+
+    grid.innerHTML="";
+
+    islands.forEach(
+        (data,index)=>{
+
+            const n=index+1;
+
+            const btn=
+                document.createElement(
+                    "button"
+                );
+
+            btn.className=
+                "islandBtn";
+
+            if(n===selectedIsland)
+                btn.classList.add(
+                    "active"
+                );
+
+            if(
+                n>
+                save.unlockedIsland
+            )
+                btn.classList.add(
+                    "locked"
+                );
+
+            btn.innerHTML=
+                n>
+                save.unlockedIsland
+                ?"🔒 "+n
+                :n+"<small>"+
+                data[0]+
+                "</small>";
+
+            btn.onclick=()=>{
+
+                if(
+                    n>
+                    save.unlockedIsland
+                ){
+
+                    showToast(
+                        "🔒 Conquer the previous island first!"
+                    );
+
+                    tone(
+                        100,
+                        .08,
+                        "square",
+                        .1
+                    );
+
+                    return;
+                }
+
+                selectedIsland=n;
+
+                buildIslandGrid();
+
+                updateSelectedIsland();
+
+                tone(
+                    500,
+                    .06,
+                    "sine",
+                    .1
+                );
+            };
+
+            grid.appendChild(btn);
+        }
+    );
+}
+
+function updateSelectedIsland(){
+
+    const d=
+        islands[
+            selectedIsland-1
+        ];
+
+    document
+        .getElementById(
+            "selectedIslandInfo"
+        )
+        .innerHTML=
+            "🏝️ <b>Island "+
+            selectedIsland+
+            " — "+
+            d[0]+
+            "</b><br>"+
+            "Difficulty: "+
+            d[1]+
+            "<br>"+
+            "🎯 Defeat " + (4 + selectedIsland * 5) + " enemies<br>"+
+            "then only 👹 BOSS remains";
+}
+
+/* =========================================================
+   ENEMY TYPES
+========================================================= */
+
+function enemyType(){
+
+    const r=
+        Math.random();
+
+    if(
+        islandNumberForGame()>=12 &&
+        r<.08
+    )
+        return "assassin";
+
+    if(
+        islandNumberForGame()>=8 &&
+        r<.18
+    )
+        return "tank";
+
+    if(
+        islandNumberForGame()>=5 &&
+        r<.30
+    )
+        return "runner";
+
+    if(
+        islandNumberForGame()>=10 &&
+        r<.38
+    )
+        return "shooter";
+
+    if(
+        islandNumberForGame()>=15 &&
+        r<.43
+    )
+        return "healer";
+
+    return "soldier";
+}
+
+function islandNumberForGame(){
+
+    return mode==="islands"
+        ?selectedIsland
+        :Math.max(
+            1,
+            rushLevel
+        );
+}
+
+function enemyStats(type){
+
+    const level=
+        islandNumberForGame();
+
+    // Power tiers matching your exact request:
+    // 1: ordinary
+    // 2-3: average powerful
+    // 4 & 7: normal powerful
+    // 5-6: powerful
+    // 8, 11-12: very powerful
+    // 9-10: average very powerful
+    // 13-14: extremely average powerful
+    // 15-16: extremely powerful
+    // 17-20: extremely very average powerful
+    let powerMult = 1.0;
+    if(level === 1) powerMult = 1.0;                // ordinary
+    else if(level <= 3) powerMult = 1.25;           // average powerful
+    else if(level === 4 || level === 7) powerMult = 1.45; // normal powerful
+    else if(level <= 6) powerMult = 1.65;           // powerful
+    else if(level === 9 || level === 10) powerMult = 1.9;  // average very powerful
+    else if(level === 8 || level <= 12) powerMult = 2.15; // very powerful
+    else if(level <= 14) powerMult = 2.5;           // extremely average powerful
+    else if(level <= 16) powerMult = 2.9;           // extremely powerful
+    else powerMult = 3.35;                          // extremely very average powerful (17-20)
+
+    let hp =
+        (35 + level * 5) * powerMult;
+
+    let speed =
+        (45 + level * 2.2) * Math.min(1.4, 0.85 + powerMult * 0.2);
+
+    let damage =
+        (5 + Math.floor(level / 3)) * powerMult;
+
+    if(type==="runner"){
+
+        hp*=.65;
+        speed*=1.8;
+    }
+
+    if(type==="tank"){
+
+        hp*=3;
+        speed*=.48;
+        damage*=1.6;
+    }
+
+    if(type==="shooter"){
+
+        hp*=1.2;
+        speed*=.65;
+    }
+
+    if(type==="healer"){
+
+        hp*=1.3;
+        speed*=.7;
+    }
+
+    if(type==="assassin"){
+
+        hp*=.9;
+        speed*=2.1;
+        damage*=1.8;
+    }
+
+    return{
+        hp,
+        speed,
+        damage
+    };
+}
+
+/* =========================================================
+   SPAWN ENEMY
+========================================================= */
+
+function spawnEnemy(forceType=null){
+
+    let x,y;
+    let tries=0;
+
+    do{
+
+        const a=
+            Math.random()*
+            Math.PI*2;
+
+        const r=
+            .76+
+            Math.random()*.15;
+
+        x=
+            island.cx+
+            Math.cos(a)*
+            island.rx*r;
+
+        y=
+            island.cy+
+            Math.sin(a)*
+            island.ry*r;
+
+        tries++;
+
+    }while(
+        Math.hypot(
+            x-player.x,
+            y-player.y
+        )<250 &&
+        tries<20
+    );
+
+    const type=
+        forceType||
+        enemyType();
+
+    const st=
+        enemyStats(type);
+
+    enemies.push({
+
+        x,
+        y,
+
+        type,
+
+        radius:
+            type==="tank"
+            ?23
+            :type==="runner"
+            ?13
+            :16,
+
+        health:st.hp,
+        maxHealth:st.hp,
+
+        speed:st.speed,
+        damage:st.damage,
+
+        cooldown:0,
+        shootCooldown:1+
+            Math.random(),
+
+        phase:
+            Math.random()*6,
+
+        healCooldown:2
+
+    });
+}
+
+/* =========================================================
+   BOSS
+========================================================= */
+
+function spawnBoss(){
+
+    const level=
+        islandNumberForGame();
+
+    const boss={
+        x:island.cx,
+        y:island.cy-island.ry*.45,
+
+        type:"boss",
+
+        radius:38,
+
+        health:
+            1800 + level * 220,   // Much stronger boss (lots of energy)
+
+        maxHealth:
+            1800 + level * 220,
+
+        speed:
+            30 + level * 0.9,
+
+        damage:
+            18 + Math.floor(level / 2),
+
+        cooldown:0,
+
+        shootCooldown:2,
+
+        phase:0,
+
+        boss:true
+    };
+
+    enemies.push(boss);
+
+    document
+        .getElementById("bossName")
+        .textContent=
+            "👹 "+
+            (
+                level===20
+                ?"ISLAND KING"
+                :"ISLAND BOSS"
+            );
+
+    document
+        .getElementById("bossBar")
+        .classList.add("show");
+
+    bossSound();
+
+    showToast(
+        "👹 BOSS HAS ARRIVED!"
+    );
+
+    vibrate(120);
+}
+
+/* =========================================================
+   SHOOT
+========================================================= */
+
+function shoot(){
+
+    if(
+        !running||
+        paused||
+        player.cooldown>0
+    )
+        return;
+
+    const w=
+        currentWeapon();
+
+    player.cooldown=
+        w.fireRate/
+        (
+            1+
+            (save.damageLevel-1)*.02
+        );
+
+    const damage=
+        w.damage+
+        (save.damageLevel-1)*4;
+
+    if(save.weapon==="Shotgun"){
+
+        for(
+            let i=-2;
+            i<=2;
+            i++
+        ){
+
+            createBullet(
+                player.angle+
+                i*.10,
+                damage
+            );
+        }
+
+    }else{
+
+        createBullet(
+            player.angle,
+            damage
+        );
+    }
+
+    shootSound();
+    vibrate(5);
+}
+
+function createBullet(angle,damage){
+
+    const w=
+        currentWeapon();
+
+    bullets.push({
+
+        x:
+            player.x+
+            Math.cos(angle)*25,
+
+        y:
+            player.y+
+            Math.sin(angle)*25,
+
+        vx:
+            Math.cos(angle)*w.speed,
+
+        vy:
+            Math.sin(angle)*w.speed,
+
+        life:
+            save.weapon==="Rocket"
+            ?1.5
+            :1.1,
+
+        damage,
+
+        rocket:
+            save.weapon==="Rocket",
+
+        color:w.color
+    });
+}
+
+/* =========================================================
+   AIM
+========================================================= */
+
+function aimEnemy(){
+
+    if(!enemies.length)
+        return;
+
+    let nearest=null;
+    let dist=Infinity;
+
+    for(const e of enemies){
+
+        const d=
+            Math.hypot(
+                e.x-player.x,
+                e.y-player.y
+            );
+
+        if(d<dist){
+
+            dist=d;
+            nearest=e;
+        }
+    }
+
+    if(nearest){
+
+        player.angle=
+            Math.atan2(
+                nearest.y-player.y,
+                nearest.x-player.x
+            );
+    }
+}
+
+/* =========================================================
+   BOOST
+========================================================= */
+
+function boost(){
+
+    if(
+        !running||
+        paused||
+        player.boost>0
+    )
+        return;
+
+    player.boost=
+        1.7+
+        (save.boostLevel-1)*.25;
+
+    burst(
+        player.x,
+        player.y,
+        12,
+        "energy"
+    );
+
+    tone(
+        680,
+        .15,
+        "sine",
+        .14
+    );
+
+    vibrate(20);
+}
+
+/* =========================================================
+   SPECIAL
+========================================================= */
+
+function special(){
+
+    if(
+        !running||
+        paused||
+        specialCharge<100
+    )
+        return;
+
+    specialCharge=0;
+
+    screenShake=.25;
+
+    burst(
+        player.x,
+        player.y,
+        45,
+        "energy"
+    );
+
+    tone(
+        90,
+        .35,
+        "sawtooth",
+        .18
+    );
+
+    setTimeout(()=>{
+        tone(
+            180,
+            .25,
+            "sawtooth",
+            .15
+        );
+    },100);
+
+    for(
+        let i=enemies.length-1;
+        i>=0;
+        i--
+    ){
+
+        const e=
+            enemies[i];
+
+        const d=
+            Math.hypot(
+                e.x-player.x,
+                e.y-player.y
+            );
+
+        if(d<260){
+
+            e.health-=
+                220+
+                save.damageLevel*15;
+
+            if(e.health<=0)
+                killEnemy(i);
+        }
+    }
+
+    showToast(
+        "💣 AIR STRIKE!"
+    );
+
+    vibrate(100);
+}
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+function burst(
+    x,
+    y,
+    amount,
+    type="hit"
+){
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
+
+        const a=
+            Math.random()*
+            Math.PI*2;
+
+        const s=
+            30+
+            Math.random()*150;
+
+        particles.push({
+
+            x,
+            y,
+
+            vx:
+                Math.cos(a)*s,
+
+            vy:
+                Math.sin(a)*s,
+
+            life:
+                .35+
+                Math.random()*.5,
+
+            maxLife:.8,
+
+            size:
+                2+
+                Math.random()*4,
+
+            type
+        });
+    }
+}
+
+/* =========================================================
+   KILL
+========================================================= */
+
+function killEnemy(index){
+
+    const e=
+        enemies[index];
+
+    score+=
+        e.boss
+        ?2000
+        :e.type==="tank"
+        ?250
+        :e.type==="runner"
+        ?140
+        :100;
+
+    save.totalKills++;
+
+    combo++;
+
+    comboTimer=2.2;
+
+    specialCharge=
+        Math.min(
+            100,
+            specialCharge+
+            (
+                e.boss
+                ?50
+                :8
+            )
+        );
+
+    if(
+        combo>=2
+    )
+        score+=
+            combo*10;
+
+    if(mode==="rush")
+        rushKills++;
+
+    if(mode==="islands" && !e.boss)
+        islandKills++;
+
+    burst(
+        e.x,
+        e.y,
+        e.boss?50:18,
+        e.boss
+        ?"boss"
+        :"enemy"
+    );
+
+    if(
+        Math.random()<.42 ||
+        e.boss
+    )
+        spawnPickup(
+            e.x,
+            e.y
+        );
+
+    if(e.boss){
+
+        document
+            .getElementById(
+                "bossBar"
+            )
+            .classList.remove(
+                "show"
+            );
+
+        victorySound();
+
+        enemies.splice(
+            index,
+            1
+        );
+
+        unlockAchievement("boss");
+        completeIsland();
+
+        return;
+    }
+
+    enemies.splice(
+        index,
+        1
+    );
+
+    // After killing the required regular enemies → clear field and spawn only Boss
+    if(
+        mode==="islands" &&
+        islandKills >= islandTarget &&
+        !enemies.some(e => e.boss)
+    ){
+        enemies = [];          // remove every remaining regular enemy
+        spawnBoss();           // only Boss left
+    }
+
+    killSound();
+
+    vibrate(15);
+
+    updateAchievements();
+}
+
+/* =========================================================
+   PICKUPS
+========================================================= */
+
+function spawnPickup(x,y){
+
+    const r=
+        Math.random();
+
+    pickups.push({
+
+        x,
+        y,
+
+        type:
+            r<.55
+            ?"coin"
+            :r<.8
+            ?"health"
+            :"energy",
+
+        radius:11,
+
+        life:12,
+
+        phase:Math.random()*6
+    });
+}
+
+/* =========================================================
+   COMPLETE ISLAND
+========================================================= */
+
+function completeIsland(){
+
+    if(mode!=="islands")
+        return;
+
+    running=false;
+
+    stopMusic();
+
+    const reward=
+        400+
+        selectedIsland*100;
+
+    const gems = 2; // Every island has a boss now, so consistent gem reward
+
+    save.coins+=reward;
+    save.gems+=gems;
+
+    if(
+        selectedIsland>=
+        save.unlockedIsland
+    ){
+
+        save.unlockedIsland=
+            Math.min(
+                20,
+                selectedIsland+1
+            );
+    }
+
+    saveGame();
+
+    showGameOver(
+        true,
+        "🏝️ "+
+        islands[
+            selectedIsland-1
+        ][0]+
+        " CONQUERED!"
+    );
+
+    updateAchievements();
+}
+
+/* =========================================================
+   UPDATE
+========================================================= */
+
+function update(dt){
+
+    if(
+        !running||
+        paused
+    )
+        return;
+
+    elapsed+=dt;
+
+    /* TIME RUSH */
+
+    if(mode==="rush"){
+
+        rushTime-=dt;
+
+        if(rushTime<=0){
+
+            rushTime=0;
+
+            finishRush();
+
+            return;
+        }
+
+        if(
+            rushLevel<20 &&
+            rushKills>=rushTarget
+        ){
+
+            rushLevel++;
+
+            rushKills=0;
+
+            rushTarget=
+                rushLevel*5;
+
+            enemies=[];
+
+            burst(
+                player.x,
+                player.y,
+                30,
+                "energy"
+            );
+
+            victorySound();
+
+            showToast(
+                "⚡ LEVEL "+
+                rushLevel+
+                "!"
+            );
+
+            vibrate(80);
+        }
+    }
+
+    /* PLAYER */
+
+    player.cooldown=
+        Math.max(
+            0,
+            player.cooldown-dt
+        );
+
+    player.boost=
+        Math.max(
+            0,
+            player.boost-dt
+        );
+
+    /* MOVEMENT */
+
+    let mx=joyX;
+    let my=joyY;
+
+    if(
+        keys["w"]||
+        keys["arrowup"]
+    )
+        my=-1;
+
+    if(
+        keys["s"]||
+        keys["arrowdown"]
+    )
+        my=1;
+
+    if(
+        keys["a"]||
+        keys["arrowleft"]
+    )
+        mx=-1;
+
+    if(
+        keys["d"]||
+        keys["arrowright"]
+    )
+        mx=1;
+
+    const mag=
+        Math.hypot(mx,my);
+
+    if(mag>1){
+
+        mx/=mag;
+        my/=mag;
+    }
+
+    const speed=
+        player.speed*
+        (
+            player.boost>0
+            ?1.65
+            :1
+        );
+
+    player.x+=
+        mx*speed*dt;
+
+    player.y+=
+        my*speed*dt;
+
+    if(
+        !insideIsland(
+            player.x,
+            player.y
+        )
+    ){
+
+        const a=
+            Math.atan2(
+                player.y-island.cy,
+                player.x-island.cx
+            );
+
+        player.x=
+            island.cx+
+            Math.cos(a)*
+            island.rx*.86;
+
+        player.y=
+            island.cy+
+            Math.sin(a)*
+            island.ry*.86;
+    }
+
+    aimEnemy();
+
+    /* AUTO SHOOT KEY */
+
+    if(keys["f"])
+        shoot();
+
+    /* SPAWNING */
+
+    spawnTimer-=dt;
+
+    let maxEnemies=10;
+
+    if(mode==="classic"){
+
+        maxEnemies=
+            Math.min(
+                7+
+                Math.floor(
+                    elapsed/12
+                ),
+                35
+            );
+
+    }else if(mode==="rush"){
+
+        maxEnemies=
+            Math.min(
+                6+
+                rushLevel*2,
+                38
+            );
+
+    }else{
+
+        maxEnemies=
+            Math.min(
+                6+
+                selectedIsland*2,
+                35
+            );
+    }
+
+    // Stop spawning regular enemies once Boss has appeared
+    if(
+        mode==="islands" &&
+        enemies.some(e => e.boss)
+    ){
+        // do nothing – only Boss remains
+    }
+    else if(
+        spawnTimer<=0 &&
+        enemies.length<maxEnemies
+    ){
+
+        spawnEnemy();
+
+        let interval=
+            1.25;
+
+        if(mode==="classic")
+            interval=
+                Math.max(
+                    .42,
+                    1.25-
+                    elapsed*.0025
+                );
+
+        if(mode==="rush")
+            interval=
+                Math.max(
+                    .28,
+                    1.15-
+                    rushLevel*.03
+                );
+
+        if(mode==="islands")
+            interval=
+                Math.max(
+                    .38,
+                    1.18-
+                    selectedIsland*.025
+                );
+
+        spawnTimer=interval;
+    }
+
+    /* BULLETS */
+
+    for(
+        let i=bullets.length-1;
+        i>=0;
+        i--
+    ){
+
+        const b=
+            bullets[i];
+
+        b.x+=b.vx*dt;
+        b.y+=b.vy*dt;
+
+        b.life-=dt;
+
+        let remove=
+            b.life<=0||
+            !insideIsland(
+                b.x,
+                b.y
+            );
+
+        if(!remove){
+
+            for(
+                let j=enemies.length-1;
+                j>=0;
+                j--
+            ){
+
+                const e=
+                    enemies[j];
+
+                if(
+                    Math.hypot(
+                        b.x-e.x,
+                        b.y-e.y
+                    )<
+                    e.radius+6
+                ){
+
+                    e.health-=
+                        b.damage;
+
+                    burst(
+                        b.x,
+                        b.y,
+                        6,
+                        "hit"
+                    );
+
+                    hitSound();
+
+                    if(b.rocket)
+                        screenShake=.1;
+
+                    remove=true;
+
+                    if(e.health<=0){
+
+                        killEnemy(j);
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        if(remove)
+            bullets.splice(i,1);
+    }
+
+    /* ENEMIES */
+
+    for(
+        let i=enemies.length-1;
+        i>=0;
+        i--
+    ){
+
+        const e=
+            enemies[i];
+
+        const dx=
+            player.x-e.x;
+
+        const dy=
+            player.y-e.y;
+
+        const dist=
+            Math.hypot(
+                dx,dy
+            )||1;
+
+        e.cooldown=
+            Math.max(
+                0,
+                e.cooldown-dt
+            );
+
+        e.shootCooldown=
+            Math.max(
+                0,
+                e.shootCooldown-dt
+            );
+
+        e.phase+=dt*3;
+
+        if(e.type==="shooter"){
+
+            if(dist>180){
+
+                e.x+=
+                    dx/dist*
+                    e.speed*
+                    dt;
+
+                e.y+=
+                    dy/dist*
+                    e.speed*
+                    dt;
+
+            }else if(dist<130){
+
+                e.x-=
+                    dx/dist*
+                    e.speed*
+                    dt;
+
+                e.y-=
+                    dy/dist*
+                    e.speed*
+                    dt;
+            }
+
+            if(
+                e.shootCooldown<=0
+            ){
+
+                enemyBullet(e);
+
+                e.shootCooldown=
+                    1.5;
+
+            }
+
+        }else{
+
+            if(dist>45){
+
+                e.x+=
+                    dx/dist*
+                    e.speed*
+                    dt;
+
+                e.y+=
+                    dy/dist*
+                    e.speed*
+                    dt;
+            }
+        }
+
+        if(e.type==="healer"){
+
+            e.healCooldown-=dt;
+
+            if(
+                e.healCooldown<=0
+            ){
+
+                for(
+                    const other of enemies
+                ){
+
+                    if(
+                        other!==e &&
+                        Math.hypot(
+                            other.x-e.x,
+                            other.y-e.y
+                        )<120
+                    ){
+
+                        other.health=
+                            Math.min(
+                                other.maxHealth,
+                                other.health+10
+                            );
+                    }
+                }
+
+                e.healCooldown=2;
+            }
+        }
+
+        if(
+            dist<
+            player.radius+
+            e.radius+
+            5
+        ){
+
+            if(
+                e.cooldown<=0
+            ){
+
+                player.health-=
+                    e.damage;
+
+                e.cooldown=.7;
+
+                burst(
+                    player.x,
+                    player.y,
+                    8,
+                    "hit"
+                );
+
+                damageSound();
+
+                screenShake=.12;
+
+                vibrate(30);
+            }
+        }
+    }
+
+    /* ENEMY BULLETS */
+
+    updateEnemyBullets(dt);
+
+    /* PICKUPS */
+
+    for(
+        let i=pickups.length-1;
+        i>=0;
+        i--
+    ){
+
+        const p=
+            pickups[i];
+
+        p.life-=dt;
+        p.phase+=dt*4;
+
+        if(
+            Math.hypot(
+                p.x-player.x,
+                p.y-player.y
+            )<
+            p.radius+
+            player.radius
+        ){
+
+            if(p.type==="coin"){
+
+                save.coins+=
+                    20+
+                    Math.floor(
+                        combo*2
+                    );
+
+                score+=50;
+
+                tone(
+                    900,
+                    .08,
+                    "sine",
+                    .12
+                );
+
+            }else if(
+                p.type==="health"
+            ){
+
+                player.health=
+                    Math.min(
+                        player.maxHealth,
+                        player.health+25
+                    );
+
+                score+=75;
+
+                tone(
+                    650,
+                    .10,
+                    "sine",
+                    .12
+                );
+
+            }else{
+
+                specialCharge=
+                    Math.min(
+                        100,
+                        specialCharge+25
+                    );
+
+                score+=60;
+
+                tone(
+                    750,
+                    .10,
+                    "sine",
+                    .12
+                );
+            }
+
+            burst(
+                p.x,
+                p.y,
+                10,
+                "energy"
+            );
+
+            pickups.splice(
+                i,
+                1
+            );
+
+            continue;
+        }
+
+        if(p.life<=0)
+            pickups.splice(i,1);
+    }
+
+    /* PARTICLES */
+
+    for(
+        let i=particles.length-1;
+        i>=0;
+        i--
+    ){
+
+        const p=
+            particles[i];
+
+        p.x+=p.vx*dt;
+        p.y+=p.vy*dt;
+
+        p.vx*=.96;
+        p.vy*=.96;
+
+        p.life-=dt;
+
+        if(p.life<=0)
+            particles.splice(i,1);
+    }
+
+    /* COMBO */
+
+    if(comboTimer>0){
+
+        comboTimer-=dt;
+
+    }else{
+
+        combo=0;
+    }
+
+    /* HEALTH */
+
+    if(player.health<=0){
+
+        player.health=0;
+
+        endGame(
+            "💀 YOUR BATTLE HAS ENDED."
+        );
+
+        return;
+    }
+
+    screenShake=
+        Math.max(
+            0,
+            screenShake-dt
+        );
+
+    updateHUD();
+}
+
+/* =========================================================
+   ENEMY BULLETS
+========================================================= */
+
+let enemyBullets=[];
+
+function enemyBullet(e){
+
+    const a=
+        Math.atan2(
+            player.y-e.y,
+            player.x-e.x
+        );
+
+    enemyBullets.push({
+
+        x:e.x,
+        y:e.y,
+
+        vx:
+            Math.cos(a)*280,
+
+        vy:
+            Math.sin(a)*280,
+
+        life:2,
+
+        damage:
+            e.damage
+    });
+}
+
+function updateEnemyBullets(dt){
+
+    for(
+        let i=enemyBullets.length-1;
+        i>=0;
+        i--
+    ){
+
+        const b=
+            enemyBullets[i];
+
+        b.x+=b.vx*dt;
+        b.y+=b.vy*dt;
+
+        b.life-=dt;
+
+        if(
+            Math.hypot(
+                b.x-player.x,
+                b.y-player.y
+            )<
+            player.radius+6
+        ){
+
+            player.health-=
+                b.damage;
+
+            damageSound();
+
+            burst(
+                player.x,
+                player.y,
+                6,
+                "hit"
+            );
+
+            enemyBullets.splice(
+                i,
+                1
+            );
+
+            continue;
+        }
+
+        if(b.life<=0)
+            enemyBullets.splice(
+                i,
+                1
+            );
+    }
+}
+
+/* =========================================================
+   RUSH END
+========================================================= */
+
+function finishRush(){
+
+    running=false;
+
+    stopMusic();
+
+    const reward=
+        300+
+        rushLevel*75;
+
+    save.coins+=reward;
+
+    if(
+        score>
+        save.bestRush
+    )
+        save.bestRush=score;
+
+    saveGame();
+
+    victorySound();
+
+    showGameOver(
+        true,
+        "⏱️ TIME RUSH COMPLETE!"+
+        " Reached Level "+
+        rushLevel+
+        "."
+    );
+
+    updateAchievements();
+}
+
+/* =========================================================
+   NORMAL END
+========================================================= */
+
+function endGame(message){
+
+    running=false;
+    paused=false;
+
+    stopMusic();
+
+    const earned=
+        Math.max(
+            10,
+            Math.floor(
+                score/100
+            )
+        );
+
+    save.coins+=earned;
+
+    if(
+        mode==="classic" &&
+        score>
+        save.bestClassic
+    )
+        save.bestClassic=score;
+
+    if(
+        mode==="rush" &&
+        score>
+        save.bestRush
+    )
+        save.bestRush=score;
+
+    saveGame();
+
+    showGameOver(
+        false,
+        message
+    );
+
+    updateAchievements();
+}
+
+/* =========================================================
+   GAME OVER
+========================================================= */
+
+function showGameOver(
+    victory,
+    message
+){
+
+    document
+        .getElementById("hud")
+        .classList.add("hidden");
+
+    document
+        .getElementById("topButtons")
+        .classList.add("hidden");
+
+    document
+        .getElementById("controls")
+        .classList.add("hidden");
+
+    document
+        .getElementById("bossBar")
+        .classList.remove("show");
+
+    document
+        .getElementById("gameOverTitle")
+        .textContent=
+            victory
+            ?"VICTORY!"
+            :"GAME OVER";
+
+    document
+        .getElementById("gameOverMessage")
+        .textContent=
+            message;
+
+    document
+        .getElementById("finalScore")
+        .textContent=
+            score;
+
+    document
+        .getElementById("finalCoins")
+        .textContent=
+            save.coins;
+
+    document
+        .getElementById("finalGems")
+        .textContent=
+            save.gems;
+
+    document
+        .getElementById("finalBest")
+        .textContent=
+            Math.max(
+                save.bestClassic,
+                save.bestRush
+            );
+
+    document
+        .getElementById("gameOverScreen")
+        .classList.remove(
+            "hidden"
+        );
+}
+
+/* =========================================================
+   HUD
+========================================================= */
+
+function updateHUD(){
+
+    document
+        .getElementById("score")
+        .textContent=
+            score;
+
+    document
+        .getElementById("healthFill")
+        .style.width=
+            (
+                Math.max(
+                    0,
+                    player.health/
+                    player.maxHealth*
+                    100
+                )
+            )+"%";
+
+    document
+        .getElementById("healthFill")
+        .style.background=
+            player.health<
+            player.maxHealth*.35
+            ?" #ff5364"
+            :"#45ed88";
+
+    document
+        .getElementById("specialButton")
+        .classList.toggle(
+            "ready",
+            specialCharge>=100
+        );
+
+    if(mode==="classic"){
+
+        document
+            .getElementById("modeTitle")
+            .textContent=
+                "Mode";
+
+        document
+            .getElementById("modeValue")
+            .textContent=
+                "Classic";
+
+        document
+            .getElementById("enemyCount")
+            .textContent=
+                enemies.length;
+
+        const sec=
+            Math.floor(elapsed);
+
+        document
+            .getElementById("timeValue")
+            .textContent=
+                Math.floor(sec/60)+
+                ":"+
+                (
+                    sec%60
+                )
+                .toString()
+                .padStart(2,"0");
+
+    }else if(mode==="rush"){
+
+        document
+            .getElementById("modeTitle")
+            .textContent=
+                "Level";
+
+        document
+            .getElementById("modeValue")
+            .textContent=
+                rushLevel+
+                "/20";
+
+        document
+            .getElementById("enemyCount")
+            .textContent=
+                rushKills+
+                "/"+
+                rushTarget;
+
+        const sec=
+            Math.max(
+                0,
+                Math.ceil(
+                    rushTime
+                )
+            );
+
+        document
+            .getElementById("timeValue")
+            .textContent=
+                Math.floor(sec/60)+
+                ":"+
+                (
+                    sec%60
+                )
+                .toString()
+                .padStart(2,"0");
+
+    }else{
+
+        document
+            .getElementById("modeTitle")
+            .textContent=
+                "Island";
+
+        document
+            .getElementById("modeValue")
+            .textContent=
+                selectedIsland+
+                "/20";
+
+        document
+            .getElementById("enemyCount")
+            .textContent=
+                islandKills+
+                "/"+
+                islandTarget;
+
+        document
+            .getElementById("timeValue")
+            .textContent=
+                specialCharge+
+                "%";
+    }
+
+    document
+        .getElementById("bossFill")
+        .style.width=
+            (
+                enemies.find(
+                    e=>e.boss
+                )
+                ?Math.max(
+                    0,
+                    enemies.find(
+                        e=>e.boss
+                    ).health/
+                    enemies.find(
+                        e=>e.boss
+                    ).maxHealth*
+                    100
+                )
+                :100
+            )+"%";
+
+    const comboBox=
+        document.getElementById(
+            "combo"
+        );
+
+    if(combo>=2){
+
+        comboBox.textContent=
+            "🔥 COMBO ×"+
+            combo;
+
+        comboBox.classList.add(
+            "show"
+        );
+
+    }else{
+
+        comboBox.classList.remove(
+            "show"
+        );
+    }
+}
+
+/* =========================================================
+   DRAW WATER
+========================================================= */
+
+function drawWater(){
+
+    const data=
+        islands[
+            mode==="islands"
+            ?selectedIsland-1
+            :Math.max(
+                0,
+                (rushLevel-1)%20
+            )
+        ];
+
+    const gradient=
+        ctx.createLinearGradient(
+            0,0,0,H
+        );
+
+    gradient.addColorStop(
+        0,
+        data[4]
+    );
+
+    gradient.addColorStop(
+        1,
+        data[5]
+    );
+
+    ctx.fillStyle=
+        gradient;
+
+    ctx.fillRect(
+        0,0,W,H
+    );
+
+    ctx.globalAlpha=.12;
+
+    ctx.strokeStyle="#7ce5ff";
+
+    for(
+        let y=15;
+        y<H;
+        y+=42
+    ){
+
+        ctx.beginPath();
+
+        for(
+            let x=0;
+            x<W;
+            x+=28
+        ){
+
+            const yy=
+                y+
+                Math.sin(
+                    x*.025+
+                    elapsed*1.2
+                )*3;
+
+            if(x===0)
+                ctx.moveTo(
+                    x,yy
+                );
+            else
+                ctx.lineTo(
+                    x,yy
+                );
+        }
+
+        ctx.stroke();
+    }
+
+    ctx.globalAlpha=1;
+}
+
+/* =========================================================
+   DRAW ISLAND
+========================================================= */
+
+function drawIsland(){
+
+    const data=
+        islands[
+            mode==="islands"
+            ?selectedIsland-1
+            :Math.max(
+                0,
+                (rushLevel-1)%20
+            )
+        ];
+
+    ctx.save();
+
+    ctx.translate(
+        island.cx,
+        island.cy
+    );
+
+    ctx.scale(
+        island.rx,
+        island.ry
+    );
+
+    ctx.beginPath();
+
+    ctx.arc(
+        0,
+        0,
+        1,
+        0,
+        Math.PI*2
+    );
+
+    const gradient=
+        ctx.createRadialGradient(
+            -.2,-.25,.1,
+            0,0,1
+        );
+
+    gradient.addColorStop(
+        0,
+        data[2]
+    );
+
+    gradient.addColorStop(
+        .72,
+        data[3]
+    );
+
+    gradient.addColorStop(
+        1,
+        "#173e32"
+    );
+
+    ctx.fillStyle=
+        gradient;
+
+    ctx.fill();
+
+    ctx.lineWidth=.035;
+
+    ctx.strokeStyle=
+        "rgba(200,255,190,.55)";
+
+    ctx.stroke();
+
+    ctx.restore();
+}
+
+/* =========================================================
+   DECORATIONS
+========================================================= */
+
+function drawDecorations(){
+
+    const n=
+        mode==="islands"
+        ?selectedIsland
+        :Math.max(
+            1,
+            rushLevel
+        );
+
+    const trees=
+        5+
+        n%6;
+
+    for(
+        let i=0;
+        i<trees;
+        i++
+    ){
+
+        const a=
+            i*2.399+
+            n*.43;
+
+        const r=
+            .2+
+            (
+                (i*37+
+                n*11)%50
+            )/100;
+
+        const x=
+            island.cx+
+            Math.cos(a)*
+            island.rx*r;
+
+        const y=
+            island.cy+
+            Math.sin(a)*
+            island.ry*r;
+
+        if(
+            insideIsland(x,y)
+        )
+            drawTree(
+                x,
+                y,
+                n
+            );
+    }
+
+    for(
+        let i=0;
+        i<4+n%5;
+        i++
+    ){
+
+        const a=
+            i*2.8+n*.7;
+
+        const r=
+            .15+
+            (
+                (i*29+
+                n*17)%55
+            )/100;
+
+        const x=
+            island.cx+
+            Math.cos(a)*
+            island.rx*r;
+
+        const y=
+            island.cy+
+            Math.sin(a)*
+            island.ry*r;
+
+        if(
+            insideIsland(x,y)
+        ){
+
+            ctx.fillStyle=
+                n>=13
+                ?"#55545b"
+                :"#596b70";
+
+            ctx.beginPath();
+
+            ctx.ellipse(
+                x,y,
+                13,8,
+                -.3,
+                0,
+                Math.PI*2
+            );
+
+            ctx.fill();
+        }
+    }
+
+    if(n>=7){
+
+        for(
+            let i=0;
+            i<Math.min(
+                n-5,
+                8
+            );
+            i++
+        ){
+
+            const a=
+                i*1.7+n;
+
+            const x=
+                island.cx+
+                Math.cos(a)*
+                island.rx*.48;
+
+            const y=
+                island.cy+
+                Math.sin(a)*
+                island.ry*.48;
+
+            ctx.fillStyle=
+                n>=15
+                ?"#a94343"
+                :"#555b54";
+
+            ctx.fillRect(
+                x-5,
+                y-5,
+                10,
+                10
+            );
+        }
+    }
+}
+
+function drawTree(x,y,n){
+
+    ctx.fillStyle=
+        n>=11
+        ?"#4b3e32"
+        :"#754b2c";
+
+    ctx.fillRect(
+        x-5,
+        y,
+        10,
+        25
+    );
+
+    ctx.fillStyle=
+        n>=16
+        ?"#263c31"
+        :n>=11
+        ?"#416d57"
+        :"#1d7548";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x,
+        y-8,
+        22,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x-12,
+        y+1,
+        14,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x+13,
+        y+2,
+        14,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+}
+
+/* =========================================================
+   DRAW PICKUPS
+========================================================= */
+
+function drawPickups(){
+
+    for(const p of pickups){
+
+        const pulse=
+            Math.sin(
+                p.phase
+            )*2;
+
+        ctx.save();
+
+        ctx.shadowBlur=18;
+
+        ctx.shadowColor=
+            p.type==="coin"
+            ?"#ffd83d"
+            :p.type==="health"
+            ?"#ff5870"
+            :"#5cf5ff";
+
+        ctx.fillStyle=
+            p.type==="coin"
+            ?"#ffd83d"
+            :p.type==="health"
+            ?"#ff5870"
+            :"#5cf5ff";
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.radius+pulse,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fill();
+
+        ctx.shadowBlur=0;
+
+        ctx.fillStyle="#18334a";
+
+        ctx.font=
+            "bold 12px Arial";
+
+        ctx.textAlign="center";
+        ctx.textBaseline="middle";
+
+        ctx.fillText(
+            p.type==="coin"
+            ?"★"
+            :p.type==="health"
+            ?"+"
+            :"⚡",
+            p.x,
+            p.y
+        );
+
+        ctx.restore();
+    }
+}
+
+/* =========================================================
+   DRAW BULLETS
+========================================================= */
+
+function drawBullets(){
+
+    for(const b of bullets){
+
+        ctx.save();
+
+        ctx.shadowBlur=
+            b.rocket
+            ?22
+            :14;
+
+        ctx.shadowColor=
+            b.color;
+
+        ctx.fillStyle=
+            b.color;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            b.x,
+            b.y,
+            b.rocket
+            ?8
+            :5,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fill();
+
+        ctx.restore();
+    }
+
+    for(const b of enemyBullets){
+
+        ctx.save();
+
+        ctx.fillStyle="#ff6373";
+
+        ctx.shadowBlur=12;
+        ctx.shadowColor="#ff6373";
+
+        ctx.beginPath();
+
+        ctx.arc(
+            b.x,
+            b.y,
+            5,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fill();
+
+        ctx.restore();
+    }
+}
+
+/* =========================================================
+   DRAW ENEMIES
+========================================================= */
+
+function drawEnemies(){
+
+    for(const e of enemies){
+
+        ctx.save();
+
+        ctx.fillStyle=
+            "rgba(0,0,0,.27)";
+
+        ctx.beginPath();
+
+        ctx.ellipse(
+            e.x,
+            e.y+15,
+            e.radius*1.1,
+            7,
+            0,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fill();
+
+        let body="#ff5f6d";
+
+        if(e.type==="runner")
+            body="#ffb74e";
+
+        if(e.type==="tank")
+            body="#a04cff";
+
+        if(e.type==="shooter")
+            body="#48b8ff";
+
+        if(e.type==="healer")
+            body="#55df85";
+
+        if(e.type==="assassin")
+            body="#f04cff";
+
+        if(e.boss)
+            body="#c83355";
+
+        ctx.fillStyle=body;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            e.x,
+            e.y,
+            e.radius,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fill();
+
+        if(e.boss){
+
+            ctx.strokeStyle=
+                "#ffcf4d";
+
+            ctx.lineWidth=4;
+
+            ctx.beginPath();
+
+            ctx.arc(
+                e.x,
+                e.y,
+                e.radius+6+
+                Math.sin(
+                    e.phase
+                )*2,
+                0,
+                Math.PI*2
+            );
+
+            ctx.stroke();
+        }
+
+        ctx.fillStyle=
+            e.boss
+            ?"#38182d"
+            :"#542c55";
+
+        ctx.beginPath();
+
+        ctx.arc(
+            e.x,
+            e.y-6,
+            e.radius*.7,
+            Math.PI,
+            Math.PI*2
+        );
+
+        ctx.fill();
+
+        ctx.fillStyle="#fff";
+
+        ctx.beginPath();
+
+        ctx.arc(
+            e.x-e.radius*.27,
+            e.y-2,
+            3,
+            0,
+            Math.PI*2
+        );
+
+        ctx.arc(
+            e.x+e.radius*.27,
+            e.y-2,
+            3,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fill();
+
+        ctx.fillStyle="#222";
+
+        ctx.beginPath();
+
+        ctx.arc(
+            e.x-e.radius*.27,
+            e.y-2,
+            1.5,
+            0,
+            Math.PI*2
+        );
+
+        ctx.arc(
+            e.x+e.radius*.27,
+            e.y-2,
+            1.5,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fill();
+
+        /* health */
+
+        if(!e.boss){
+
+            ctx.fillStyle=
+                "rgba(0,0,0,.45)";
+
+            ctx.fillRect(
+                e.x-e.radius-1,
+                e.y-e.radius-10,
+                e.radius*2+2,
+                4
+            );
+
+            ctx.fillStyle="#5cff86";
+
+            ctx.fillRect(
+                e.x-e.radius-1,
+                e.y-e.radius-10,
+                (
+                    e.radius*2+2
+                )*
+                Math.max(
+                    0,
+                    e.health/
+                    e.maxHealth
+                ),
+                4
+            );
+        }
+
+        ctx.restore();
+    }
+}
+
+/* =========================================================
+   DRAW PLAYER
+========================================================= */
+
+function drawPlayer(){
+
+    ctx.save();
+
+    ctx.fillStyle=
+        "rgba(0,0,0,.3)";
+
+    ctx.beginPath();
+
+    ctx.ellipse(
+        player.x,
+        player.y+16,
+        20,
+        8,
+        0,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.translate(
+        player.x,
+        player.y
+    );
+
+    ctx.rotate(
+        player.angle
+    );
+
+    if(player.boost>0){
+
+        ctx.fillStyle="#fff45c";
+
+        ctx.beginPath();
+
+        ctx.moveTo(-18,0);
+        ctx.lineTo(-42,-9);
+        ctx.lineTo(-31,0);
+        ctx.lineTo(-42,9);
+
+        ctx.closePath();
+
+        ctx.fill();
+    }
+
+    ctx.fillStyle="#26384d";
+
+    ctx.fillRect(
+        5,
+        -5,
+        27,
+        10
+    );
+
+    ctx.fillStyle="#4d8cff";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        0,
+        0,
+        player.radius,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.fillStyle="#86dfff";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        0,
+        -5,
+        14,
+        Math.PI,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.fillStyle="#ffe0c2";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        0,
+        -2,
+        8,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.fillStyle="#193957";
+
+    ctx.fillRect(
+        3,
+        -7,
+        8,
+        5
+    );
+
+    ctx.restore();
+}
+
+/* =========================================================
+   DRAW PARTICLES
+========================================================= */
+
+function drawParticles(){
+
+    for(const p of particles){
+
+        ctx.globalAlpha=
+            Math.max(
+                0,
+                p.life/
+                p.maxLife
+            );
+
+        ctx.fillStyle=
+            p.type==="energy"
+            ?"#5cf5ff"
+            :p.type==="boss"
+            ?"#ffcc4d"
+            :p.type==="enemy"
+            ?"#ff6375"
+            :"#ffffff";
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fill();
+    }
+
+    ctx.globalAlpha=1;
+}
+
+/* =========================================================
+   DRAW
+========================================================= */
+
+function draw(){
+
+    ctx.clearRect(
+        0,0,W,H
+    );
+
+    ctx.save();
+
+    if(screenShake>0){
+
+        ctx.translate(
+            (
+                Math.random()-.5
+            )*
+            screenShake*
+            50,
+
+            (
+                Math.random()-.5
+            )*
+            screenShake*
+            50
+        );
+    }
+
+    drawWater();
+    drawIsland();
+    drawDecorations();
+    drawPickups();
+    drawBullets();
+    drawEnemies();
+    drawPlayer();
+    drawParticles();
+
+    ctx.restore();
+}
+
+/* =========================================================
+   PAUSE
+========================================================= */
+
+function togglePause(){
+
+    if(!running)
+        return;
+
+    paused=!paused;
+
+    document
+        .getElementById("pauseScreen")
+        .classList.toggle(
+            "hidden",
+            !paused
+        );
+
+    document
+        .getElementById("pauseBtn")
+        .textContent=
+            paused
+            ?"▶️"
+            :"⏸️";
+
+    if(paused){
+
+        stopMusic();
+
+    }else{
+
+        lastTime=
+            performance.now();
+
+        startMusic();
+    }
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer=null;
+
+function showToast(message){
+
+    const t=
+        document.getElementById(
+            "toast"
+        );
+
+    t.textContent=message;
+
+    t.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer=
+        setTimeout(()=>{
+            t.classList.remove(
+                "show"
+            );
+        },1800);
+}
+
+/* =========================================================
+   SHOP
+========================================================= */
+
+function openShop(){
+
+    hideScreens();
+
+    document
+        .getElementById("shopScreen")
+        .classList.remove("hidden");
+
+    updateShop();
+}
+
+function upgrade(
+    stat,
+    baseCost
+){
+
+    const level=
+        save[stat+"Level"];
+
+    const cost=
+        baseCost*
+        level;
+
+    if(save.coins<cost){
+
+        showToast(
+            "🪙 Not enough coins!"
+        );
+
+        return;
+    }
+
+    save.coins-=cost;
+
+    save[stat+"Level"]++;
+
+    saveGame();
+
+    updateShop();
+
+    tone(
+        700,
+        .12,
+        "sine",
+        .14
+    );
+
+    showToast(
+        "⬆️ UPGRADE COMPLETE!"
+    );
+}
+
+function updateShop(){
+
+    document
+        .getElementById("shopCoins")
+        .textContent=
+            save.coins;
+
+    document
+        .getElementById("shopGems")
+        .textContent=
+            save.gems;
+
+    document
+        .getElementById("healthLevel")
+        .textContent=
+            save.healthLevel;
+
+    document
+        .getElementById("speedLevel")
+        .textContent=
+            save.speedLevel;
+
+    document
+        .getElementById("damageLevel")
+        .textContent=
+            save.damageLevel;
+
+    document
+        .getElementById("boostLevel")
+        .textContent=
+            save.boostLevel;
+
+    document
+        .getElementById("weaponName")
+        .textContent=
+            save.weapon;
+
+    document
+        .getElementById("weaponDamage")
+        .textContent=
+            currentWeapon().damage+
+            (
+                save.damageLevel-1
+            )*4;
+}
+
+/* =========================================================
+   WEAPONS
+========================================================= */
+
+function openWeapons(){
+
+    hideScreens();
+
+    document
+        .getElementById("weaponScreen")
+        .classList.remove("hidden");
+
+    buildWeapons();
+}
+
+function buildWeapons(){
+
+    const list=
+        document.getElementById(
+            "weaponList"
+        );
+
+    list.innerHTML="";
+
+    Object.entries(
+        weapons
+    ).forEach(
+        ([name,w])=>{
+
+            const div=
+                document.createElement(
+                    "div"
+                );
+
+            div.className=
+                "shopCard";
+
+            const unlocked=
+                save.weapons[name];
+
+            const selected=
+                save.weapon===name;
+
+            div.innerHTML=
+                "<h3>🔫 "+
+                name.toUpperCase()+
+                "</h3>"+
+                "<p>Damage: "+
+                w.damage+
+                " • Fire rate: "+
+                w.fireRate+
+                "</p>";
+
+            const btn=
+                document.createElement(
+                    "button"
+                );
+
+            btn.className=
+                "upgradeBtn";
+
+            if(selected){
+
+                btn.textContent=
+                    "✓ EQUIPPED";
+
+            }else if(unlocked){
+
+                btn.textContent=
+                    "EQUIP";
+
+                btn.onclick=()=>{
+
+                    save.weapon=name;
+
+                    saveGame();
+
+                    buildWeapons();
+
+                    showToast(
+                        "🔫 "+
+                        name+
+                        " EQUIPPED"
+                    );
+                };
+
+            }else{
+
+                btn.textContent=
+                    "🪙 "+
+                    w.cost+
+                    " UNLOCK";
+
+                btn.onclick=()=>{
+
+                    if(
+                        save.coins<
+                        w.cost
+                    ){
+
+                        showToast(
+                            "🪙 Not enough coins!"
+                        );
+
+                        return;
+                    }
+
+                    save.coins-=
+                        w.cost;
+
+                    save.weapons[name]=
+                        true;
+
+                    save.weapon=name;
+
+                    saveGame();
+
+                    buildWeapons();
+
+                    showToast(
+                        "🔓 "+
+                        name+
+                        " UNLOCKED!"
+                    );
+
+                    victorySound();
+                };
+            }
+
+            div.appendChild(btn);
+
+            list.appendChild(div);
+        }
+    );
+}
+
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
+
+const achievementData=[
+
+    {
+        id:"first",
+        title:"FIRST BLOOD",
+        desc:"Kill your first enemy."
+    },
+
+    {
+        id:"kills100",
+        title:"WAR MACHINE",
+        desc:"Kill 100 enemies."
+    },
+
+    {
+        id:"kills500",
+        title:"UNSTOPPABLE",
+        desc:"Kill 500 enemies."
+    },
+
+    {
+        id:"island5",
+        title:"ISLAND HUNTER",
+        desc:"Unlock Island 5."
+    },
+
+    {
+        id:"island10",
+        title:"ISLAND COMMANDER",
+        desc:"Unlock Island 10."
+    },
+
+    {
+        id:"island20",
+        title:"ISLAND LEGEND",
+        desc:"Unlock all 20 islands."
+    },
+
+    {
+        id:"boss",
+        title:"BOSS SLAYER",
+        desc:"Defeat a boss."
+    },
+
+    {
+        id:"combo10",
+        title:"COMBO MASTER",
+        desc:"Reach a 10 kill combo."
+    }
+
+];
+
+function openAchievements(){
+
+    hideScreens();
+
+    document
+        .getElementById(
+            "achievementScreen"
+        )
+        .classList.remove(
+            "hidden"
+        );
+
+    buildAchievements();
+}
+
+function buildAchievements(){
+
+    const list=
+        document.getElementById(
+            "achievementList"
+        );
+
+    list.innerHTML="";
+
+    achievementData.forEach(
+        a=>{
+
+            const unlocked=
+                save.achievements[a.id];
+
+            const div=
+                document.createElement(
+                    "div"
+                );
+
+            div.className=
+                "shopCard";
+
+            div.style.marginTop="8px";
+
+            div.innerHTML=
+                "<h3>"+
+                (
+                    unlocked
+                    ?"🏆 "
+                    :"🔒 "
+                )+
+                a.title+
+                "</h3>"+
+                "<p>"+
+                a.desc+
+                "</p>";
+
+            list.appendChild(div);
+        }
+    );
+}
+
+function unlockAchievement(id){
+
+    if(save.achievements[id])
+        return;
+
+    save.achievements[id]=true;
+
+    save.gems+=1;
+
+    saveGame();
+
+    showToast(
+        "🏆 ACHIEVEMENT UNLOCKED!"
+    );
+
+    victorySound();
+}
+
+function updateAchievements(){
+
+    if(save.totalKills>=1)
+        unlockAchievement("first");
+
+    if(save.totalKills>=100)
+        unlockAchievement("kills100");
+
+    if(save.totalKills>=500)
+        unlockAchievement("kills500");
+
+    if(save.unlockedIsland>=5)
+        unlockAchievement("island5");
+
+    if(save.unlockedIsland>=10)
+        unlockAchievement("island10");
+
+    if(save.unlockedIsland>=20)
+        unlockAchievement("island20");
+
+    // Boss achievement is handled when a boss is actually killed
+    // (see killEnemy → completeIsland flow)
+
+    if(combo>=10)
+        unlockAchievement("combo10");
+}
+
+/* =========================================================
+   BUTTON EVENTS
+========================================================= */
+
+document
+    .getElementById("campaignBtn")
+    .onclick=()=>{
+        initAudio();
+        openCampaign();
+    };
+
+document
+    .getElementById("classicBtn")
+    .onclick=()=>{
+        initAudio();
+
+        hideScreens();
+
+        document
+            .getElementById(
+                "classicScreen"
+            )
+            .classList.remove(
+                "hidden"
+            );
+    };
+
+document
+    .getElementById("rushBtn")
+    .onclick=()=>{
+        initAudio();
+
+        hideScreens();
+
+        document
+            .getElementById(
+                "rushScreen"
+            )
+            .classList.remove(
+                "hidden"
+            );
+    };
+
+document
+    .getElementById("startClassicBtn")
+    .onclick=()=>{
+        startClassic();
+    };
+
+document
+    .getElementById("startRushBtn")
+    .onclick=()=>{
+        startRush();
+    };
+
+document
+    .getElementById("startIslandBtn")
+    .onclick=()=>{
+        startIsland();
+    };
+
+document
+    .getElementById("shopBtn")
+    .onclick=()=>{
+        openShop();
+    };
+
+document
+    .getElementById("achievementBtn")
+    .onclick=()=>{
+        openAchievements();
+    };
+
+document
+    .getElementById("weaponBtn")
+    .onclick=()=>{
+        openWeapons();
+    };
+
+document
+    .getElementById("backShopBtn")
+    .onclick=()=>{
+        openShop();
+    };
+
+document
+    .getElementById("upgradeHealth")
+    .onclick=()=>{
+        upgrade(
+            "health",
+            300
+        );
+    };
+
+document
+    .getElementById("upgradeSpeed")
+    .onclick=()=>{
+        upgrade(
+            "speed",
+            350
+        );
+    };
+
+document
+    .getElementById("upgradeDamage")
+    .onclick=()=>{
+        upgrade(
+            "damage",
+            450
+        );
+    };
+
+document
+    .getElementById("upgradeBoost")
+    .onclick=()=>{
+        upgrade(
+            "boost",
+            400
+        );
+    };
+
+document
+    .querySelectorAll(".backHome")
+    .forEach(btn=>{
+        btn.onclick=goHome;
+    });
+
+document
+    .getElementById("backCampaignBtn")
+    .onclick=goHome;
+
+document
+    .getElementById("homeBtn")
+    .onclick=goHome;
+
+document
+    .getElementById("pauseHomeBtn")
+    .onclick=goHome;
+
+document
+    .getElementById("gameOverHomeBtn")
+    .onclick=goHome;
+
+document
+    .getElementById("pauseBtn")
+    .onclick=togglePause;
+
+document
+    .getElementById("resumeBtn")
+    .onclick=togglePause;
+
+document
+    .getElementById("restartBtn")
+    .onclick=()=>{
+
+        if(mode==="classic")
+            startClassic();
+
+        else if(mode==="rush")
+            startRush();
+
+        else
+            startIsland();
+    };
+
+document
+    .getElementById("againBtn")
+    .onclick=()=>{
+
+        if(mode==="classic")
+            startClassic();
+
+        else if(mode==="rush")
+            startRush();
+
+        else
+            startIsland();
+    };
+
+/* FIRE */
+
+document
+    .getElementById("fireButton")
+    .addEventListener(
+        "pointerdown",
+        e=>{
+            e.preventDefault();
+            shoot();
+        }
+    );
+
+/* BOOST */
+
+document
+    .getElementById("boostButton")
+    .addEventListener(
+        "pointerdown",
+        e=>{
+            e.preventDefault();
+            boost();
+        }
+    );
+
+/* SPECIAL */
+
+document
+    .getElementById("specialButton")
+    .addEventListener(
+        "pointerdown",
+        e=>{
+            e.preventDefault();
+            special();
+        }
+    );
+
+/* SOUND */
+
+document
+    .getElementById("soundBtn")
+    .onclick=()=>{
+
+        soundOn=!soundOn;
+
+        document
+            .getElementById(
+                "soundBtn"
+            )
+            .textContent=
+                soundOn
+                ?"🔊"
+                :"🔇";
+
+        if(soundOn){
+
+            initAudio();
+
+            tone(
+                700,
+                .10,
+                "sine",
+                .14
+            );
+
+            if(
+                running &&
+                !paused
+            )
+                startMusic();
+
+        }else{
+
+            stopMusic();
+        }
+    };
+
+/* VIBRATION */
+
+document
+    .getElementById("vibrateBtn")
+    .onclick=()=>{
+
+        vibrationOn=
+            !vibrationOn;
+
+        document
+            .getElementById(
+                "vibrateBtn"
+            )
+            .textContent=
+                vibrationOn
+                ?"📳"
+                :"📴";
+
+        if(vibrationOn)
+            vibrate(40);
+    };
+
+/* =========================================================
+   GAME LOOP
+========================================================= */
+
+function loop(timestamp){
+
+    if(!lastTime)
+        lastTime=timestamp;
+
+    const dt=
+        Math.min(
+            .033,
+            (
+                timestamp-
+                lastTime
+            )/1000
+        );
+
+    lastTime=timestamp;
+
+    update(dt);
+    draw();
+
+    requestAnimationFrame(
+        loop
+    );
+}
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+loadSave();
+
+resize();
+
+updateHome();
+
+draw();
+
+requestAnimationFrame(
+    loop
+);
+</script>
+
+</body>
+</html>
