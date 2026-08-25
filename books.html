@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Books & Novels | Fariha Zahin Collection</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070914;
+    color:white;
+}
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(91,70,255,.18),transparent 35%),
+    radial-gradient(circle at 80% 70%,rgba(0,200,255,.12),transparent 35%);
+    z-index:-1;
+}
+nav{
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(7,9,20,.8);
+    backdrop-filter:blur(15px);
+}
+.logo{
+    font-weight:bold;
+    letter-spacing:2px;
+}
+.logo span{
+    color:#8c7cff;
+}
+nav ul{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+}
+nav a:hover{
+    color:#9d91ff;
+}
+.container{
+    padding:100px 7%;
+}
+.title small{
+    color:#8e82ff;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+.title h1{
+    font-size:55px;
+    margin-top:10px;
+}
+.title p{
+    color:#999cab;
+    max-width:650px;
+    margin:15px 0 50px;
+    line-height:1.7;
+}
+.books{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+.book{
+    padding:30px;
+    min-height:340px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.07),
+        rgba(255,255,255,.025)
+    );
+    transition:.35s;
+}
+.book:hover{
+    transform:translateY(-8px);
+    border-color:#8072ff;
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+.book-cover{
+    height:130px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    background:linear-gradient(135deg,#17172e,#15103a);
+    margin-bottom:25px;
+}
+.book h2{
+    margin-bottom:10px;
+}
+.book p{
+    color:#999cab;
+    line-height:1.7;
+}
+.book a{
+    display:inline-block;
+    margin-top:20px;
+    color:#a89eff;
+    text-decoration:none;
+    font-weight:bold;
+}
+footer{
+    margin-top:80px;
+    padding:40px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#777b8c;
+}
+@media(max-width:700px){
+    nav ul{
+        display:none;
+    }
+    .container{
+        padding:70px 5%;
+    }
+    .title h1{
+        font-size:40px;
+    }
+}
+</style>
+</head>
+<body>
+<nav>
+    <div class="logo">FARIHA <span>ZAHIN</span></div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="books.html">Books & Novels</a></li>
+        <li><a href="projects.html">Projects</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <div class="title">
+        <small>Fariha Zahin Collection</small>
+        <h1>Books & Novels</h1>
+        <p>Original stories, fictional worlds and novels written by Fariha Zahin.</p>
+    </div>
+    <div class="books">
+        <div class="book">
+            <div class="book-cover">📖</div>
+            <h2>Wings of Desire</h2>
+            <p>A fictional story filled with characters, emotion, dreams and unexpected journeys.</p>
+            <a href="#">READ NOVEL →</a>
+        </div>
+        <div class="book">
+            <div class="book-cover">📕</div>
+            <h2>The Accidental Mrs. Kingscroft</h2>
+            <p>A romance-driven fictional story about unexpected relationships and destiny.</p>
+            <a href="#">READ NOVEL →</a>
+        </div>
+        <div class="book">
+            <div class="book-cover">✍️</div>
+            <h2>More Stories</h2>
+            <p>More novels and fictional stories will be added to the collection.</p>
+            <a href="#">COMING SOON →</a>
+        </div>
+    </div>
+</div>
+<footer>© 2026 Fariha Zahin Collection</footer>
+</body>
+</html>
