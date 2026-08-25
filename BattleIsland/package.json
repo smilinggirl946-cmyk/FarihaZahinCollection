@@ -1,0 +1,33 @@
+{
+  "name": "battle-island",
+  "version": "1.0.0",
+  "description": "BATTLE ISLAND - Fariha Zahin",
+  "main": "main.js",
+  "author": "Fariha Zahin",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^43.4.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.farihazahin.battleisland",
+    "productName": "Battle Island",
+    "files": [
+      "BattleIsland.html",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ]
+    }
+  }
+}
