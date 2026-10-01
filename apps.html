@@ -3,19 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>Apps | Fariha Zahin Collection</title>
+
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
+
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#070914;
     color:white;
     min-height:100vh;
 }
+
 body::before{
     content:"";
     position:fixed;
@@ -25,6 +29,7 @@ body::before{
     radial-gradient(circle at 80% 70%,rgba(0,200,255,.12),transparent 35%);
     z-index:-1;
 }
+
 nav{
     padding:18px 7%;
     display:flex;
@@ -34,49 +39,60 @@ nav{
     background:rgba(7,9,20,.8);
     backdrop-filter:blur(15px);
 }
+
 .logo{
     font-weight:bold;
     letter-spacing:2px;
 }
+
 .logo span{
     color:#8c7cff;
 }
+
 nav ul{
     display:flex;
     gap:28px;
     list-style:none;
 }
+
 nav a{
     color:#aaa;
     text-decoration:none;
     font-size:14px;
 }
+
 nav a:hover{
     color:#9d91ff;
 }
+
 .container{
     padding:100px 7%;
 }
+
 .title small{
     color:#8e82ff;
     letter-spacing:3px;
     text-transform:uppercase;
 }
+
 .title h1{
     font-size:55px;
     margin-top:10px;
 }
+
 .title p{
     color:#999cab;
     max-width:650px;
     margin:15px 0 50px;
     line-height:1.7;
 }
+
 .apps{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
 }
+
 .app{
     padding:30px;
     min-height:300px;
@@ -89,24 +105,33 @@ nav a:hover{
     );
     transition:.35s;
 }
+
 .app:hover{
     transform:translateY(-8px);
     border-color:#8072ff;
 }
+
 .app-icon{
     font-size:50px;
     margin-bottom:25px;
 }
+
 .app h2{
     margin-bottom:12px;
 }
+
+.app h3{
+    margin-bottom:8px;
+}
+
 .app p{
     color:#999cab;
     line-height:1.7;
 }
+
 .app a{
     display:inline-block;
-    margin-top:25px;
+    margin-top:20px;
     padding:12px 20px;
     background:white;
     color:#080914;
@@ -114,6 +139,68 @@ nav a:hover{
     text-decoration:none;
     font-weight:bold;
 }
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-bottom:30px;
+    padding:11px 18px;
+    border-radius:10px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,.1);
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.kidverse-card{
+    max-width:700px;
+}
+
+.download-area{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.download-btn{
+    display:inline-block;
+    padding:14px 22px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+    color:white;
+}
+
+.android-btn{
+    background:#5b4ee8;
+}
+
+.windows-btn{
+    background:#20b26b;
+}
+
+.details-box{
+    margin-top:25px;
+    padding:20px;
+    border-radius:18px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.details-box p{
+    margin-top:8px;
+}
+
 footer{
     margin-top:80px;
     padding:40px;
@@ -121,22 +208,31 @@ footer{
     border-top:1px solid rgba(255,255,255,.08);
     color:#777b8c;
 }
+
 @media(max-width:700px){
+
     nav ul{
         display:none;
     }
+
     .container{
         padding:70px 5%;
     }
+
     .title h1{
         font-size:40px;
     }
 }
 </style>
 </head>
+
 <body>
+
 <nav>
-    <div class="logo">FARIHA <span>ZAHIN</span></div>
+    <div class="logo">
+        FARIHA <span>ZAHIN</span>
+    </div>
+
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="games.html">Games</a></li>
@@ -145,33 +241,320 @@ footer{
         <li><a href="projects.html">Projects</a></li>
     </ul>
 </nav>
+
+
 <div class="container">
-    <div class="title">
-        <small>Fariha Zahin Collection</small>
-        <h1>Applications</h1>
-        <p>Applications and digital tools created by Fariha Zahin.</p>
+
+    <!-- ==================== APPLICATIONS ==================== -->
+
+    <div id="applicationsPage" class="page active">
+
+        <div class="title">
+            <small>Fariha Zahin Collection</small>
+
+            <h1>Applications</h1>
+
+            <p>
+                Applications and digital tools created by Fariha Zahin.
+            </p>
+        </div>
+
+
+        <div class="apps">
+
+            <!-- MY APPS -->
+            <div class="app">
+
+                <div class="app-icon">📱</div>
+
+                <h2>My Apps</h2>
+
+                <p>
+                    Explore applications created by Fariha Zahin
+                    for mobile and desktop experiences.
+                </p>
+
+                <a href="#" onclick="showMyApps();return false;">
+                    EXPLORE MY APPS →
+                </a>
+
+            </div>
+
+
+            <!-- UTILITY APPS -->
+            <div class="app">
+
+                <div class="app-icon">⚙️</div>
+
+                <h2>Utility Apps</h2>
+
+                <p>
+                    Useful tools and experimental applications
+                    developed as creative projects.
+                </p>
+
+                <a href="#">
+                    VIEW APPS →
+                </a>
+
+            </div>
+
+
+            <!-- COMING SOON -->
+            <div class="app">
+
+                <div class="app-icon">✨</div>
+
+                <h2>Coming Soon</h2>
+
+                <p>
+                    More applications are currently being developed.
+                </p>
+
+                <a href="#">
+                    COMING SOON
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
-    <div class="apps">
-        <div class="app">
-            <div class="app-icon">📱</div>
-            <h2>My Apps</h2>
-            <p>Explore applications created for mobile and desktop experiences.</p>
-            <a href="#">EXPLORE →</a>
+
+
+
+    <!-- ==================== MY APPS ==================== -->
+
+    <div id="myAppsPage" class="page">
+
+        <a href="#" class="back-btn"
+           onclick="showApplications();return false;">
+            ← Back to Applications
+        </a>
+
+        <div class="title">
+
+            <small>My Apps</small>
+
+            <h1>My Applications</h1>
+
+            <p>
+                Applications created by Fariha Zahin.
+            </p>
+
         </div>
-        <div class="app">
-            <div class="app-icon">⚙️</div>
-            <h2>Utility Apps</h2>
-            <p>Useful tools and experimental applications developed as creative projects.</p>
-            <a href="#">VIEW APPS →</a>
+
+
+        <div class="apps">
+
+            <!-- KIDVERSE -->
+
+            <div class="app">
+
+                <div class="app-icon">🚀</div>
+
+                <h2>KidVerse</h2>
+
+                <p>
+                    Play • Learn • Grow
+                </p>
+
+                <p style="margin-top:10px;">
+                    A playful educational app for children
+                    featuring alphabets, math, science, sports,
+                    stories, drawing, memory, and games.
+                </p>
+
+                <a href="#"
+                   onclick="showKidVerse();return false;">
+                    OPEN KIDVERSE →
+                </a>
+
+            </div>
+
+
+            <!-- FUTURE APP -->
+
+            <div class="app">
+
+                <div class="app-icon">✨</div>
+
+                <h2>More Apps</h2>
+
+                <p>
+                    More applications will be added here
+                    in the future.
+                </p>
+
+            </div>
+
         </div>
-        <div class="app">
-            <div class="app-icon">✨</div>
-            <h2>Coming Soon</h2>
-            <p>More applications are currently being developed.</p>
-            <a href="#">COMING SOON</a>
-        </div>
+
     </div>
+
+
+
+    <!-- ==================== KIDVERSE ==================== -->
+
+    <div id="kidversePage" class="page">
+
+        <a href="#" class="back-btn"
+           onclick="showMyApps();return false;">
+            ← Back to My Apps
+        </a>
+
+
+        <div class="title">
+
+            <small>My Apps → KidVerse</small>
+
+            <h1>🚀 KidVerse</h1>
+
+            <p>
+                Play • Learn • Grow
+            </p>
+
+        </div>
+
+
+        <div class="app kidverse-card">
+
+            <div class="app-icon">
+                🚀
+            </div>
+
+            <h2>
+                KidVerse
+            </h2>
+
+            <p>
+                A playful learning world for curious kids.
+            </p>
+
+
+            <div class="details-box">
+
+                <h3>
+                    📚 What's inside?
+                </h3>
+
+                <p>
+                    🔤 Alphabets
+                </p>
+
+                <p>
+                    🔢 Math Quiz
+                </p>
+
+                <p>
+                    🧠 Memory Match
+                </p>
+
+                <p>
+                    🎨 Drawing
+                </p>
+
+                <p>
+                    📚 Stories
+                </p>
+
+                <p>
+                    🔬 Science
+                </p>
+
+                <p>
+                    ⚽ Sports
+                </p>
+
+                <p>
+                    🎮 Games
+                </p>
+
+            </div>
+
+
+            <div class="download-area">
+
+                <a
+                    class="download-btn android-btn"
+                    href="https://github.com/smilinggirl946-cmyk/FarihaZahinCollection/releases/latest/download/KidVerse-Android.apk"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    📱 DOWNLOAD ANDROID
+                </a>
+
+
+                <a
+                    class="download-btn windows-btn"
+                    href="https://github.com/smilinggirl946-cmyk/FarihaZahinCollection/releases/latest/download/kidverse.exe"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    💻 DOWNLOAD WINDOWS
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
-<footer>© 2026 Fariha Zahin Collection</footer>
+
+
+<footer>
+    © 2026 Fariha Zahin Collection
+</footer>
+
+
+<script>
+
+function showApplications(){
+
+    document.getElementById("applicationsPage")
+        .classList.add("active");
+
+    document.getElementById("myAppsPage")
+        .classList.remove("active");
+
+    document.getElementById("kidversePage")
+        .classList.remove("active");
+
+    window.scrollTo(0,0);
+}
+
+
+function showMyApps(){
+
+    document.getElementById("applicationsPage")
+        .classList.remove("active");
+
+    document.getElementById("myAppsPage")
+        .classList.add("active");
+
+    document.getElementById("kidversePage")
+        .classList.remove("active");
+
+    window.scrollTo(0,0);
+}
+
+
+function showKidVerse(){
+
+    document.getElementById("applicationsPage")
+        .classList.remove("active");
+
+    document.getElementById("myAppsPage")
+        .classList.remove("active");
+
+    document.getElementById("kidversePage")
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+}
+
+</script>
+
 </body>
 </html>
