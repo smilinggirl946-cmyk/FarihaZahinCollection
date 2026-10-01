@@ -1,0 +1,39 @@
+name: Build BattleIsland for macOS
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-battleisland-macos:
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        working-directory: BattleIsland
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Prepare BattleIsland HTML
+        run: cp index.html BattleIsland.html
+
+      - name: Build macOS ARM64
+        run: npx electron-builder --mac --arm64 --publish never
+
+      - name: Upload macOS build
+        uses: actions/upload-artifact@v4
+        with:
+          name: BattleIsland-macOS
+          path: BattleIsland/dist/*
