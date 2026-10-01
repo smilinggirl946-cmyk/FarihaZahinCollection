@@ -1,0 +1,57 @@
+name: Build KidVerse for iOS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        working-directory: KidVerse
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: KidVerse/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Capacitor iOS
+        run: npm install @capacitor/ios
+
+      - name: Add iOS platform
+        run: npx cap add ios
+
+      - name: Sync iOS project
+        run: npx cap sync ios
+
+      - name: Build iOS project
+        run: |
+          cd ios/App
+          xcodebuild \
+            -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Package simulator app
+        run: |
+          cd KidVerse/ios/App/build/Build/Products/Debug-iphonesimulator
+          zip -r KidVerse-iOS-Simulator.zip App.app
+
+      - name: Upload iOS build
+        uses: actions/upload-artifact@v4
+        with:
+          name: KidVerse-iOS-Simulator
+          path: KidVerse/ios/App/build/Build/Products/Debug-iphonesimulator/KidVerse-iOS-Simulator.zip
