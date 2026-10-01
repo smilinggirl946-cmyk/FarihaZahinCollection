@@ -25,23 +25,26 @@ jobs:
           cache: npm
           cache-dependency-path: KidVerse/package-lock.json
 
-      - name: Install Capacitor iOS
+      - name: Install Capacitor
         run: |
           npm install @capacitor/core@latest @capacitor/cli@latest @capacitor/ios@latest
 
-      - name: Verify Capacitor configuration
+      - name: Check Capacitor configuration
         run: |
+          echo "Current directory:"
           pwd
+          echo "Files:"
           ls -la
+          echo "Capacitor configuration:"
           cat capacitor.config.json
 
       - name: Add iOS platform
         run: |
-          npx cap add ios --packagemanager SPM
+          npx --no-install cap add ios --packagemanager SPM
 
       - name: Sync iOS project
         run: |
-          npx cap sync ios
+          npx --no-install cap sync ios
 
       - name: Build iOS Simulator
         run: |
