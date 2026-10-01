@@ -29,6 +29,16 @@ jobs:
         run: |
           npm install @capacitor/core@latest @capacitor/cli@latest @capacitor/ios@latest
 
+      - name: Create Capacitor configuration
+        run: |
+          cat > capacitor.config.json <<'EOF'
+          {
+            "appId": "com.farihazahin.kidverse",
+            "appName": "KidVerse",
+            "webDir": "www"
+          }
+          EOF
+
       - name: Add iOS platform
         run: |
           npx --no-install cap add ios --packagemanager SPM
