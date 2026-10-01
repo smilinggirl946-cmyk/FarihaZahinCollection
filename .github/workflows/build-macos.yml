@@ -3,6 +3,9 @@ name: Build KidVerse for macOS
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-macos:
     runs-on: macos-latest
@@ -28,8 +31,11 @@ jobs:
       - name: Build macOS app
         run: npx electron-builder --mac --publish never
 
-      - name: Upload macOS build
-        uses: actions/upload-artifact@v4
-        with:
-          name: KidVerse-macOS
-          path: KidVerse/dist/*
+      - name: Upload macOS build to KidVerse release
+        run: |
+          gh release upload v1.0.0 \
+            dist/*.dmg \
+            dist/*.zip \
+            --clobber
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
