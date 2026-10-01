@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3"
+  },
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "main": "main.cjs",
+  "name": "kidverse",
+  "version": "1.0.0",
+  "description": "KidVerse - Play Learn Grow",
+  "author": "Fariha Zahin"
+}
