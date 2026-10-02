@@ -10,6 +10,10 @@ jobs:
   build-macos:
     runs-on: macos-latest
 
+    defaults:
+      run:
+        working-directory: KidVerse
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,11 +22,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Show project files
-        run: |
-          pwd
-          ls -la
+          cache: npm
+          cache-dependency-path: KidVerse/package-lock.json
 
       - name: Install dependencies
         run: npm install
