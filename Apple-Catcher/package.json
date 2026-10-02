@@ -1,0 +1,42 @@
+{
+  "name": "apple-catcher",
+  "version": "1.0.0",
+  "description": "My Apple Catcher - Fariha Zahin",
+  "main": "main.cjs",
+  "author": "Fariha Zahin",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.farihazahin.applecatcher",
+    "productName": "My Apple Catcher",
+    "files": [
+      "applecatcher.html",
+      "main.cjs",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
