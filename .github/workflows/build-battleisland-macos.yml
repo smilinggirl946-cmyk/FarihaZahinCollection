@@ -32,8 +32,8 @@ jobs:
       - name: Build macOS ARM64
         run: npx electron-builder --mac --arm64 --publish never
 
-      - name: Upload macOS build
+            - name: Upload macOS DMG
         uses: actions/upload-artifact@v4
         with:
           name: BattleIsland-macOS
-          path: BattleIsland/dist/*
+          path: BattleIsland/dist/*.dmg
