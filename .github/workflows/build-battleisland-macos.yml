@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-battleisland-macos:
@@ -32,8 +32,8 @@ jobs:
       - name: Build macOS ARM64
         run: npx electron-builder --mac --arm64 --publish never
 
-            - name: Upload macOS DMG
-        uses: actions/upload-artifact@v4
-        with:
-          name: BattleIsland-macOS
-          path: BattleIsland/dist/*.dmg
+      - name: Upload DMG to Battle Island v1.0.1 Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload v1.0.1 dist/*.dmg --clobber
