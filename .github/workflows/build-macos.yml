@@ -19,8 +19,13 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install dependencies
-        run: npm install
+     - name: Show project files
+  run: |
+    pwd
+    ls -la
+
+- name: Install dependencies
+  run: npm install 
 
       - name: Build macOS app
         run: npx electron-builder --mac dmg --publish never
