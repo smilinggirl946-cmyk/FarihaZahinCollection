@@ -1,15 +1,24 @@
 {
+  "name": "kidverse-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.cjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2"
+  },
   "devDependencies": {
     "electron": "^44.5.1",
     "electron-builder": "^26.15.3"
-  },
-  "scripts": {
-    "start": "electron .",
-    "build": "electron-builder --win"
-  },
-  "main": "main.cjs",
-  "name": "kidverse",
-  "version": "1.0.0",
-  "description": "KidVerse - Play Learn Grow",
-  "author": "Fariha Zahin"
+  }
 }
