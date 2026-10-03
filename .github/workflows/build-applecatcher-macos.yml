@@ -27,9 +27,9 @@ jobs:
         run: npx electron-builder --mac dmg --publish never
         working-directory: apple-catcher
 
-      - name: Upload DMG to GitHub Release
+          - name: Upload DMG to GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release view v1.0.0 >/dev/null 2>&1 || gh release create v1.0.0 --title "Apple Catcher v1.0.0" --notes "Apple Catcher macOS release"
-          gh release upload v1.0.0 apple-catcher/dist/*.dmg --clobber
+          gh release view apple-catcher-v3.0.0 >/dev/null 2>&1 || gh release create apple-catcher-v3.0.0 --title "Apple Catcher v3.0.0" --notes "Apple Catcher v3.0.0 macOS release"
+          gh release upload apple-catcher-v3.0.0 apple-catcher/dist/*.dmg --clobber
