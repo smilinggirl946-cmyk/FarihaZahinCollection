@@ -3,6 +3,9 @@ name: Build Apple Catcher macOS
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-macos:
     runs-on: macos-latest
@@ -24,9 +27,9 @@ jobs:
         run: npx electron-builder --mac dmg --publish never
         working-directory: apple-catcher
 
-      - name: Upload macOS DMG
-        uses: actions/upload-artifact@v4
-        with:
-          name: Apple-Catcher-macOS
-          path: apple-catcher/dist/*.dmg
-          if-no-files-found: error
+      - name: Upload DMG to GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view v1.0.0 >/dev/null 2>&1 || gh release create v1.0.0 --title "Apple Catcher v1.0.0" --notes "Apple Catcher macOS release"
+          gh release upload v1.0.0 apple-catcher/dist/*.dmg --clobber
